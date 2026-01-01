@@ -56,28 +56,6 @@ const Footer = () => {
                 <li><a href="tel:8861009443" className="text-xs text-gray-400 hover:text-white transition-colors">Customer Service</a></li>
               </ul>
             </div>
-
-              {/* Newsletter Section */}
-              {/* <div>
-                <p className="text-gray-300 text-sm mb-4">
-                  Subscribe to our newsletter for the latest products and exclusive offers
-                </p>
-                <form className="space-y-3">
-                  <input
-                    type="email"
-                    placeholder="Your email address"
-                    className="w-full px-3 py-2 text-gray-900 rounded-md focus:outline-none text-sm"
-                  />
-                  <button
-                    type="submit"
-                    className="w-full bg-emerald-500 hover:bg-emerald-600 px-3 py-2 rounded-md flex items-center justify-center transition-colors text-sm"
-                  >
-                    Subscribe
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </button>
-                </form>
-              </div> */}
-            </div>
           </div>
 
           {/* Bottom Footer */}
