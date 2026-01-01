@@ -7,6 +7,7 @@ import StatsSection from './components/StatsSection';
 import FeaturedProducts from './components/FeaturedProducts';
 import PromotionalBanner from './components/PromotionalBanner';
 import NewArrivals from './components/NewArrivals';
+import HomeStats from './components/HomeStats';
 import BestSellers from './components/BestSellers';
 import BenefitsSection from './components/BenefitsSection';
 import Newsletter from './components/Newsletter';
@@ -52,6 +53,7 @@ const HomePage = () => {
       <FeaturedProducts products={featuredProducts || []} />
       <PromotionalBanner />
       <NewArrivals products={newArrivals || []} />
+      <HomeStats />
       <BestSellers />
       {Array.isArray(types) && types.length > 0 && <BrandsSection types={types} />}
       <BenefitsSection />
