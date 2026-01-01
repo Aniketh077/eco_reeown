@@ -297,6 +297,8 @@ const Header = () => {
       </li>
       <li><Link to="/products?filter=new" className="px-3 py-1.5 text-sm font-medium transition-colors hover:text-green-600 text-gray-900 whitespace-nowrap hover:bg-gray-100 rounded">New Arrivals</Link></li>
       <li><Link to="/products?filter=featured" className="px-3 py-1.5 text-sm font-medium transition-colors hover:text-green-600 text-gray-900 whitespace-nowrap hover:bg-gray-100 rounded">Featured</Link></li>
+      <li><Link to="/about" className="px-3 py-1.5 text-sm font-medium transition-colors hover:text-green-600 text-gray-900 whitespace-nowrap hover:bg-gray-100 rounded">About</Link></li>
+      <li><Link to="/contact" className="px-3 py-1.5 text-sm font-medium transition-colors hover:text-green-600 text-gray-900 whitespace-nowrap hover:bg-gray-100 rounded">Contact</Link></li>
     </ul>
   );
 
@@ -341,18 +343,8 @@ const Header = () => {
              </form>
           </div>
           
-          {/* === RIGHT SECTION: About, Contact, User, Cart, Wishlist === */}
+          {/* === RIGHT SECTION: User, Cart, Wishlist === */}
           <div className="flex items-center justify-end space-x-1 sm:space-x-2 flex-shrink-0">
-             {/* About and Contact Links */}
-             <div className="hidden md:flex items-center space-x-2 mr-2">
-               <Link to="/about" className="px-2 py-1 text-xs sm:text-sm font-medium text-gray-900 hover:text-green-600 transition-colors whitespace-nowrap">
-                 About
-               </Link>
-               <Link to="/contact" className="px-2 py-1 text-xs sm:text-sm font-medium text-gray-900 hover:text-green-600 transition-colors whitespace-nowrap">
-                 Contact
-               </Link>
-             </div>
-
              {/* Account Menu */}
              <div ref={profileMenuRef} className="relative profile-menu hidden sm:block" onMouseEnter={handleProfileMenuEnter} onMouseLeave={handleProfileMenuLeave}>
                 <button onClick={toggleProfileMenu} className="px-2 py-1 hover:bg-gray-100 rounded flex items-center" aria-label={isAuthenticated ? (user?.name?.split(' ')[0] || 'Account') : 'Sign in'}>
