@@ -111,13 +111,13 @@ const BusinessPage = () => {
 
   if (submitted) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50 flex items-center justify-center px-4">
-        <div className="max-w-2xl w-full bg-white rounded-2xl shadow-2xl p-12 text-center border border-blue-100">
-          <div className="w-24 h-24 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-full flex items-center justify-center mx-auto mb-8 shadow-lg animate-bounce">
-            <CheckCircle className="h-14 w-14 text-white" />
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50 flex items-center justify-center px-3 sm:px-4">
+        <div className="max-w-2xl w-full bg-white rounded-xl sm:rounded-2xl shadow-2xl p-6 sm:p-8 md:p-10 lg:p-12 text-center border border-blue-100">
+          <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6 md:mb-8 shadow-lg animate-bounce">
+            <CheckCircle className="h-10 w-10 sm:h-12 sm:w-12 md:h-14 md:w-14 text-white" />
           </div>
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Thank You for Your Interest!</h2>
-          <p className="text-gray-600 mb-6 text-lg leading-relaxed">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">Thank You for Your Interest!</h2>
+          <p className="text-gray-600 mb-4 sm:mb-5 md:mb-6 text-sm sm:text-base md:text-lg leading-relaxed">
             Your bulk purchase inquiry has been received. Our dedicated B2B team will review your requirements and contact you within 24 hours with a customized quote and solution.
           </p>
           <div className="bg-blue-50 border border-blue-200 rounded-xl p-6 mb-8">
@@ -158,47 +158,47 @@ const BusinessPage = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50">
       {/* Hero Section */}
-      <div className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-20">
-        <div className="container mx-auto px-4">
+      <div className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-12 sm:py-16 md:py-20">
+        <div className="container mx-auto px-3 sm:px-4">
           <div className="max-w-5xl mx-auto text-center">
-            <div className="inline-flex items-center justify-center w-24 h-24 bg-white/20 backdrop-blur-sm rounded-full mb-8 shadow-2xl">
-              <Building2 className="h-12 w-12 text-white" />
+            <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 bg-white/20 backdrop-blur-sm rounded-full mb-4 sm:mb-6 md:mb-8 shadow-2xl">
+              <Building2 className="h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12 text-white" />
             </div>
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">Business & Bulk Purchase</h1>
-            <p className="text-2xl text-blue-100 mb-12 max-w-3xl mx-auto">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 sm:mb-5 md:mb-6">Business & Bulk Purchase</h1>
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-blue-100 mb-8 sm:mb-10 md:mb-12 max-w-3xl mx-auto px-2">
               Wholesale refurbished electronics for businesses, retailers, and tech companies.
               Get competitive pricing on bulk orders with flexible payment terms.
             </p>
 
             {/* Key Benefits */}
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mt-16">
-              <div className="flex flex-col items-center bg-white/10 backdrop-blur-sm rounded-xl p-6">
-                <div className="w-14 h-14 bg-white/20 rounded-full flex items-center justify-center mb-4">
-                  <TrendingUp className="h-7 w-7 text-white" />
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-5 md:gap-6 mt-8 sm:mt-12 md:mt-16">
+              <div className="flex flex-col items-center bg-white/10 backdrop-blur-sm rounded-xl p-4 sm:p-5 md:p-6">
+                <div className="w-12 h-12 sm:w-14 sm:h-14 bg-white/20 rounded-full flex items-center justify-center mb-3 sm:mb-4">
+                  <TrendingUp className="h-6 w-6 sm:h-7 sm:w-7 text-white" />
                 </div>
-                <h3 className="font-bold text-lg mb-2">Volume Discounts</h3>
-                <p className="text-blue-100 text-sm">Up to 40% off on bulk orders</p>
+                <h3 className="font-bold text-base sm:text-lg mb-1.5 sm:mb-2">Volume Discounts</h3>
+                <p className="text-blue-100 text-xs sm:text-sm">Up to 40% off on bulk orders</p>
               </div>
-              <div className="flex flex-col items-center bg-white/10 backdrop-blur-sm rounded-xl p-6">
-                <div className="w-14 h-14 bg-white/20 rounded-full flex items-center justify-center mb-4">
-                  <Shield className="h-7 w-7 text-white" />
+              <div className="flex flex-col items-center bg-white/10 backdrop-blur-sm rounded-xl p-4 sm:p-5 md:p-6">
+                <div className="w-12 h-12 sm:w-14 sm:h-14 bg-white/20 rounded-full flex items-center justify-center mb-3 sm:mb-4">
+                  <Shield className="h-6 w-6 sm:h-7 sm:w-7 text-white" />
                 </div>
-                <h3 className="font-bold text-lg mb-2">Quality Assured</h3>
-                <p className="text-blue-100 text-sm">6-month warranty on all products</p>
+                <h3 className="font-bold text-base sm:text-lg mb-1.5 sm:mb-2">Quality Assured</h3>
+                <p className="text-blue-100 text-xs sm:text-sm">6-month warranty on all products</p>
               </div>
-              <div className="flex flex-col items-center bg-white/10 backdrop-blur-sm rounded-xl p-6">
-                <div className="w-14 h-14 bg-white/20 rounded-full flex items-center justify-center mb-4">
-                  <Clock className="h-7 w-7 text-white" />
+              <div className="flex flex-col items-center bg-white/10 backdrop-blur-sm rounded-xl p-4 sm:p-5 md:p-6">
+                <div className="w-12 h-12 sm:w-14 sm:h-14 bg-white/20 rounded-full flex items-center justify-center mb-3 sm:mb-4">
+                  <Clock className="h-6 w-6 sm:h-7 sm:w-7 text-white" />
                 </div>
-                <h3 className="font-bold text-lg mb-2">Fast Delivery</h3>
-                <p className="text-blue-100 text-sm">Quick turnaround on orders</p>
+                <h3 className="font-bold text-base sm:text-lg mb-1.5 sm:mb-2">Fast Delivery</h3>
+                <p className="text-blue-100 text-xs sm:text-sm">Quick turnaround on orders</p>
               </div>
-              <div className="flex flex-col items-center bg-white/10 backdrop-blur-sm rounded-xl p-6">
-                <div className="w-14 h-14 bg-white/20 rounded-full flex items-center justify-center mb-4">
-                  <Users className="h-7 w-7 text-white" />
+              <div className="flex flex-col items-center bg-white/10 backdrop-blur-sm rounded-xl p-4 sm:p-5 md:p-6">
+                <div className="w-12 h-12 sm:w-14 sm:h-14 bg-white/20 rounded-full flex items-center justify-center mb-3 sm:mb-4">
+                  <Users className="h-6 w-6 sm:h-7 sm:w-7 text-white" />
                 </div>
-                <h3 className="font-bold text-lg mb-2">Dedicated Support</h3>
-                <p className="text-blue-100 text-sm">Personal account manager</p>
+                <h3 className="font-bold text-base sm:text-lg mb-1.5 sm:mb-2">Dedicated Support</h3>
+                <p className="text-blue-100 text-xs sm:text-sm">Personal account manager</p>
               </div>
             </div>
           </div>
@@ -206,15 +206,15 @@ const BusinessPage = () => {
       </div>
 
       {/* Form Section */}
-      <div className="py-20 px-4 sm:px-6 lg:px-8">
+      <div className="py-12 sm:py-16 md:py-20 px-3 sm:px-4 md:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
-          <div className="bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-100">
+          <div className="bg-white rounded-2xl sm:rounded-3xl shadow-2xl overflow-hidden border border-gray-100">
             {/* Form Header */}
-            <div className="bg-gradient-to-r from-gray-50 to-blue-50 px-10 py-8 border-b border-gray-200">
-              <div className="flex items-center justify-between">
-                <div>
-                  <h2 className="text-3xl font-bold text-gray-900 mb-2">Bulk Purchase Inquiry Form</h2>
-                  <p className="text-gray-600 text-lg">Tell us about your requirements and we'll create a custom solution</p>
+            <div className="bg-gradient-to-r from-gray-50 to-blue-50 px-4 sm:px-6 md:px-8 lg:px-10 py-6 sm:py-7 md:py-8 border-b border-gray-200">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                <div className="flex-1">
+                  <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-2">Bulk Purchase Inquiry Form</h2>
+                  <p className="text-gray-600 text-sm sm:text-base md:text-lg">Tell us about your requirements and we'll create a custom solution</p>
                 </div>
                 <button
                   onClick={() => navigate('/')}
@@ -226,16 +226,16 @@ const BusinessPage = () => {
               </div>
             </div>
 
-            <form onSubmit={handleSubmit} className="p-10">
+            <form onSubmit={handleSubmit} className="p-4 sm:p-6 md:p-8 lg:p-10">
               {/* Company Information */}
-              <div className="mb-12">
-                <div className="flex items-center mb-8">
-                  <div className="w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center text-lg font-bold mr-4">
+              <div className="mb-8 sm:mb-10 md:mb-12">
+                <div className="flex items-center mb-4 sm:mb-6 md:mb-8">
+                  <div className="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm sm:text-base md:text-lg font-bold mr-3 sm:mr-4">
                     1
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900">Company Information</h3>
+                  <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900">Company Information</h3>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pl-14">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6 pl-0 sm:pl-8 md:pl-11 lg:pl-14">
                   <Input
                     label="Company Name"
                     name="companyName"
@@ -335,14 +335,14 @@ const BusinessPage = () => {
               </div>
 
               {/* Delivery Address */}
-              <div className="mb-12">
-                <div className="flex items-center mb-8">
-                  <div className="w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center text-lg font-bold mr-4">
+              <div className="mb-8 sm:mb-10 md:mb-12">
+                <div className="flex items-center mb-4 sm:mb-6 md:mb-8">
+                  <div className="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm sm:text-base md:text-lg font-bold mr-3 sm:mr-4">
                     2
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900">Delivery Address</h3>
+                  <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900">Delivery Address</h3>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pl-14">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5 md:gap-6 pl-0 sm:pl-8 md:pl-11 lg:pl-14">
                   <div className="md:col-span-2">
                     <Input
                       label="Address Line 1"
@@ -398,14 +398,14 @@ const BusinessPage = () => {
               </div>
 
               {/* Purchase Requirements */}
-              <div className="mb-12">
-                <div className="flex items-center mb-8">
-                  <div className="w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center text-lg font-bold mr-4">
+              <div className="mb-8 sm:mb-10 md:mb-12">
+                <div className="flex items-center mb-4 sm:mb-6 md:mb-8">
+                  <div className="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm sm:text-base md:text-lg font-bold mr-3 sm:mr-4">
                     3
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900">Purchase Requirements</h3>
+                  <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900">Purchase Requirements</h3>
                 </div>
-                <div className="pl-14">
+                <div className="pl-0 sm:pl-8 md:pl-11 lg:pl-14">
                   {/* Product Categories */}
                   <div className="mb-8">
                     <label className="block text-sm font-medium text-gray-700 mb-4">
@@ -540,14 +540,14 @@ const BusinessPage = () => {
               </div>
 
               {/* Timeline */}
-              <div className="mb-12">
-                <div className="flex items-center mb-8">
-                  <div className="w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center text-lg font-bold mr-4">
+              <div className="mb-8 sm:mb-10 md:mb-12">
+                <div className="flex items-center mb-4 sm:mb-6 md:mb-8">
+                  <div className="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm sm:text-base md:text-lg font-bold mr-3 sm:mr-4">
                     4
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900">Timeline & Urgency</h3>
+                  <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900">Timeline & Urgency</h3>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pl-14">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5 md:gap-6 pl-0 sm:pl-8 md:pl-11 lg:pl-14">
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
                       Urgency Level <span className="text-red-500">*</span>
