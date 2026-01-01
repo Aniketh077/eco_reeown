@@ -15,6 +15,14 @@ import {
   Package,
   Phone,
   Heart,
+  Home,
+  ShoppingBag,
+  Smartphone,
+  Laptop,
+  Sparkles,
+  Star,
+  Info,
+  Mail,
 } from "lucide-react";
 import Button from "../ui/Button";
 import { fetchCollections } from "../../store/slices/collectionSlice";
@@ -276,29 +284,53 @@ const Header = () => {
   const DesktopNavLinks = () => (
     <ul className="flex items-center space-x-1 sm:space-x-2 xl:space-x-3 flex-nowrap min-w-max">
       <li>
-        <Link to="/" className="px-3 py-1.5 text-sm font-medium transition-colors hover:text-green-600 text-gray-900 whitespace-nowrap hover:bg-gray-100 rounded">
+        <Link to="/" className="px-3 py-1.5 text-sm font-medium transition-colors hover:text-green-600 text-gray-900 whitespace-nowrap hover:bg-gray-100 rounded flex items-center gap-1.5">
+          <Home className="h-3.5 w-3.5" />
           Home
         </Link>
       </li>
       <li>
-        <Link to="/products" className="px-3 py-1.5 text-sm font-medium transition-colors hover:text-green-600 text-gray-900 whitespace-nowrap hover:bg-gray-100 rounded">
+        <Link to="/products" className="px-3 py-1.5 text-sm font-medium transition-colors hover:text-green-600 text-gray-900 whitespace-nowrap hover:bg-gray-100 rounded flex items-center gap-1.5">
+          <ShoppingBag className="h-3.5 w-3.5" />
           All Products
         </Link>
       </li>
       <li>
-        <Link to="/products/smartphones" className="px-3 py-1.5 text-sm font-medium transition-colors hover:text-green-600 text-gray-900 whitespace-nowrap hover:bg-gray-100 rounded">
+        <Link to="/products/smartphones" className="px-3 py-1.5 text-sm font-medium transition-colors hover:text-green-600 text-gray-900 whitespace-nowrap hover:bg-gray-100 rounded flex items-center gap-1.5">
+          <Smartphone className="h-3.5 w-3.5" />
           Smartphones
         </Link>
       </li>
       <li>
-        <Link to="/products/laptops" className="px-3 py-1.5 text-sm font-medium transition-colors hover:text-green-600 text-gray-900 whitespace-nowrap hover:bg-gray-100 rounded">
+        <Link to="/products/laptops" className="px-3 py-1.5 text-sm font-medium transition-colors hover:text-green-600 text-gray-900 whitespace-nowrap hover:bg-gray-100 rounded flex items-center gap-1.5">
+          <Laptop className="h-3.5 w-3.5" />
           Laptops
         </Link>
       </li>
-      <li><Link to="/products?filter=new" className="px-3 py-1.5 text-sm font-medium transition-colors hover:text-green-600 text-gray-900 whitespace-nowrap hover:bg-gray-100 rounded">New Arrivals</Link></li>
-      <li><Link to="/products?filter=featured" className="px-3 py-1.5 text-sm font-medium transition-colors hover:text-green-600 text-gray-900 whitespace-nowrap hover:bg-gray-100 rounded">Featured</Link></li>
-      <li><Link to="/about" className="px-3 py-1.5 text-sm font-medium transition-colors hover:text-green-600 text-gray-900 whitespace-nowrap hover:bg-gray-100 rounded">About</Link></li>
-      <li><Link to="/contact" className="px-3 py-1.5 text-sm font-medium transition-colors hover:text-green-600 text-gray-900 whitespace-nowrap hover:bg-gray-100 rounded">Contact</Link></li>
+      <li>
+        <Link to="/products?filter=new" className="px-3 py-1.5 text-sm font-medium transition-colors hover:text-green-600 text-gray-900 whitespace-nowrap hover:bg-gray-100 rounded flex items-center gap-1.5">
+          <Sparkles className="h-3.5 w-3.5" />
+          New Arrivals
+        </Link>
+      </li>
+      <li>
+        <Link to="/products?filter=featured" className="px-3 py-1.5 text-sm font-medium transition-colors hover:text-green-600 text-gray-900 whitespace-nowrap hover:bg-gray-100 rounded flex items-center gap-1.5">
+          <Star className="h-3.5 w-3.5" />
+          Featured
+        </Link>
+      </li>
+      <li>
+        <Link to="/about" className="px-3 py-1.5 text-sm font-medium transition-colors hover:text-green-600 text-gray-900 whitespace-nowrap hover:bg-gray-100 rounded flex items-center gap-1.5">
+          <Info className="h-3.5 w-3.5" />
+          About
+        </Link>
+      </li>
+      <li>
+        <Link to="/contact" className="px-3 py-1.5 text-sm font-medium transition-colors hover:text-green-600 text-gray-900 whitespace-nowrap hover:bg-gray-100 rounded flex items-center gap-1.5">
+          <Mail className="h-3.5 w-3.5" />
+          Contact
+        </Link>
+      </li>
     </ul>
   );
 
