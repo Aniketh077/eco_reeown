@@ -10,7 +10,7 @@ const StatsSection = () => {
   ];
 
   return (
-    <section className="relative py-16 overflow-hidden">
+    <section className="relative py-8 sm:py-12 md:py-16 overflow-hidden">
       <div className="absolute inset-0 z-0">
         <img
           src="https://images.pexels.com/photos/1034653/pexels-photo-1034653.jpeg?auto=compress&cs=tinysrgb&w=1920"
@@ -18,15 +18,15 @@ const StatsSection = () => {
           className="w-full h-full object-cover opacity-10"
         />
       </div>
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+      <div className="container mx-auto px-3 sm:px-4 relative z-10">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
           {stats.map((stat, index) => (
-            <div key={index} className="text-center bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow">
-              <div className="bg-gradient-to-br from-green-100 to-emerald-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <stat.icon className="h-8 w-8 text-green-700" />
+            <div key={index} className="text-center bg-white/80 backdrop-blur-sm rounded-xl p-4 sm:p-6 shadow-lg hover:shadow-xl transition-shadow">
+              <div className="bg-gradient-to-br from-green-100 to-emerald-100 w-12 h-12 sm:w-16 sm:h-16 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                <stat.icon className="h-6 w-6 sm:h-8 sm:w-8 text-green-700" />
               </div>
-              <div className="text-3xl font-bold text-green-700 mb-2">{stat.value}</div>
-              <div className="text-gray-600 font-medium">{stat.label}</div>
+              <div className="text-xl sm:text-2xl md:text-3xl font-bold text-green-700 mb-1 sm:mb-2">{stat.value}</div>
+              <div className="text-xs sm:text-sm md:text-base text-gray-600 font-medium">{stat.label}</div>
             </div>
           ))}
         </div>
