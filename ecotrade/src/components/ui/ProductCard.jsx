@@ -74,7 +74,7 @@ const ProductCard = ({ product, viewMode = 'grid', showGamification = false }) =
     return Array.from({ length: 5 }, (_, index) => (
       <Star
         key={index}
-        className={`h-4 w-4 transition-colors ${
+        className={`h-3 w-3 sm:h-4 sm:w-4 transition-colors ${
           index < Math.floor(rating)
             ? "text-yellow-400 fill-yellow-400"
             : "text-gray-300"
@@ -86,8 +86,8 @@ const ProductCard = ({ product, viewMode = 'grid', showGamification = false }) =
   if (viewMode === 'list') {
     return (
       <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden hover:shadow-lg transition-all duration-300 group">
-        <div className="flex">
-          <div className="w-48 h-48 flex-shrink-0 relative">
+        <div className="flex flex-col sm:flex-row">
+          <div className="w-full sm:w-48 h-48 sm:h-48 flex-shrink-0 relative">
 
             {/* Gamification Badges */}
             {showGamification && (
@@ -111,31 +111,31 @@ const ProductCard = ({ product, viewMode = 'grid', showGamification = false }) =
               <img
                 src={product.image}
                 alt={product.name}
-                className={`w-full h-full object-contain p-4 transition-transform duration-300 group-hover:scale-110 ${product.stock === 0 ? 'opacity-50' : ''}`}
+                className={`w-full h-full object-contain p-2 sm:p-4 transition-transform duration-300 group-hover:scale-110 ${product.stock === 0 ? 'opacity-50' : ''}`}
               />
             </Link>
             {product.stock === 0 && (
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="bg-red-600 text-white px-4 py-2 text-sm font-bold rounded-md transform -rotate-12 shadow-lg">
+                <div className="bg-red-600 text-white px-3 sm:px-4 py-2 text-xs sm:text-sm font-bold rounded-md transform -rotate-12 shadow-lg">
                   SOLD OUT
                 </div>
               </div>
             )}
           </div>
-          <div className="flex-1 p-6">
+          <div className="flex-1 p-4 sm:p-6">
             <Link to={`/product/${product._id}`}>
-              <h3 className="text-lg font-semibold mb-2 hover:text-green-700">
+              <h3 className="text-base sm:text-lg font-semibold mb-2 hover:text-green-700 line-clamp-2">
                 {product.name}
               </h3>
             </Link>
-            <p className="text-gray-600 text-sm mb-3 line-clamp-2">
+            <p className="text-gray-600 text-xs sm:text-sm mb-3 line-clamp-2">
               {product.description}
             </p>
 
             {/* Quality Check Badge */}
             {product.qualityCheckPoints && (
               <div className="flex items-center mb-2">
-                <div className="bg-green-50 border border-green-200 rounded-full px-3 py-1 flex items-center">
+                <div className="bg-green-50 border border-green-200 rounded-full px-2 sm:px-3 py-1 flex items-center">
                   <CheckCircle className="h-3 w-3 text-green-600 mr-1" />
                   <span className="text-xs font-medium text-green-700">
                     {product.qualityCheckPoints}-Point Quality Check
@@ -147,24 +147,24 @@ const ProductCard = ({ product, viewMode = 'grid', showGamification = false }) =
             <div className="flex items-center mb-3">
               <div className="flex items-center">
                 {renderStars(product.rating || 0)}
-                <span className="ml-2 text-sm text-gray-600">
+                <span className="ml-1 sm:ml-2 text-xs sm:text-sm text-gray-600">
                   ({product.reviewCount || 0})
                 </span>
               </div>
             </div>
-            <div className="flex items-center justify-between">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
               <div>
                 {product.discountPrice ? (
-                  <div className="flex items-center">
-                    <span className="text-xl font-bold text-green-700">
+                  <div className="flex items-center flex-wrap gap-2">
+                    <span className="text-lg sm:text-xl font-bold text-green-700">
                       ₹{product.discountPrice.toFixed(2)}
                     </span>
-                    <span className="ml-2 text-sm text-gray-500 line-through">
+                    <span className="text-xs sm:text-sm text-gray-500 line-through">
                       ₹{product.price.toFixed(2)}
                     </span>
                   </div>
                 ) : (
-                  <span className="text-xl font-bold text-green-700">
+                  <span className="text-lg sm:text-xl font-bold text-green-700">
                     ₹{product.price.toFixed(2)}
                   </span>
                 )}
@@ -173,14 +173,15 @@ const ProductCard = ({ product, viewMode = 'grid', showGamification = false }) =
                 <button
                   disabled={product.stock === 0}
                   onClick={handleAddToCart}
-                  className={`px-4 py-2 rounded-md transition-all duration-300 flex items-center transform hover:scale-105 ${
+                  className={`px-3 sm:px-4 py-2 text-xs sm:text-sm rounded-md transition-all duration-300 flex items-center justify-center transform hover:scale-105 flex-1 sm:flex-none ${
                     product.stock === 0
                       ? 'bg-gray-400 text-white cursor-not-allowed'
                       : 'bg-gradient-to-r from-green-600 to-emerald-600 text-white hover:from-green-700 hover:to-emerald-700 shadow-lg hover:shadow-xl'
                   }`}
                 >
-                  <ShoppingCart className="h-4 w-4 mr-2" />
-                  {product.stock === 0 ? 'Sold Out' : 'Add to Cart'}
+                  <ShoppingCart className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-2" />
+                  <span className="hidden sm:inline">{product.stock === 0 ? 'Sold Out' : 'Add to Cart'}</span>
+                  <span className="sm:hidden">{product.stock === 0 ? 'Sold Out' : 'Add'}</span>
                 </button>
                 
                 {/* Wishlist Heart Icon */}
@@ -243,7 +244,7 @@ const ProductCard = ({ product, viewMode = 'grid', showGamification = false }) =
 
       <div className="relative">
         <Link to={`/product/${product._id}`}>
-          <div className="aspect-square bg-gray-50 p-4">
+          <div className="aspect-square bg-gray-50 p-2 sm:p-4">
             <img
               src={product.image}
               alt={product.name}
@@ -255,7 +256,7 @@ const ProductCard = ({ product, viewMode = 'grid', showGamification = false }) =
         </Link>
         {product.stock === 0 && (
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-            <div className="bg-red-600 text-white px-6 py-3 text-base font-bold rounded-md transform -rotate-12 shadow-lg">
+            <div className="bg-red-600 text-white px-4 sm:px-6 py-2 sm:py-3 text-xs sm:text-base font-bold rounded-md transform -rotate-12 shadow-lg">
               SOLD OUT
             </div>
           </div>
@@ -272,7 +273,7 @@ const ProductCard = ({ product, viewMode = 'grid', showGamification = false }) =
         )}
       </div>
       
-      <div className="p-4">
+      <div className="p-3 sm:p-4">
         <div className="text-xs text-gray-500 mb-1">
           {(() => {
             if (product && product.type) {
@@ -286,7 +287,7 @@ const ProductCard = ({ product, viewMode = 'grid', showGamification = false }) =
           })()}
         </div>
         <Link to={`/product/${product._id}`}>
-          <h3 className="font-semibold mb-2 line-clamp-2 hover:text-green-700 transition-colors">
+          <h3 className="font-semibold mb-2 line-clamp-2 text-sm sm:text-base hover:text-green-700 transition-colors">
             {product && product.name ? String(product.name) : 'Product'}
           </h3>
         </Link>
@@ -303,27 +304,27 @@ const ProductCard = ({ product, viewMode = 'grid', showGamification = false }) =
           </div>
         )}
 
-        <div className="flex items-center mb-3">
+        <div className="flex items-center mb-2 sm:mb-3">
           <div className="flex items-center">
             {renderStars(product.rating || 0)}
-            <span className="ml-2 text-sm text-gray-600">
+            <span className="ml-1 sm:ml-2 text-xs sm:text-sm text-gray-600">
               ({product.reviewCount || 0})
             </span>
           </div>
         </div>
         
-        <div className="flex items-center justify-between mb-3">
+        <div className="flex items-center justify-between mb-2 sm:mb-3">
           {product.discountPrice ? (
-            <div>
-              <span className="text-lg font-bold text-green-700">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2">
+              <span className="text-base sm:text-lg font-bold text-green-700">
                 ₹{product.discountPrice.toFixed(2)}
               </span>
-              <span className="ml-2 text-sm text-gray-500 line-through">
+              <span className="text-xs sm:text-sm text-gray-500 line-through">
                 ₹{product.price.toFixed(2)}
               </span>
             </div>
           ) : (
-            <span className="text-lg font-bold text-green-700">
+            <span className="text-base sm:text-lg font-bold text-green-700">
               ₹{product.price.toFixed(2)}
             </span>
           )}
@@ -333,7 +334,7 @@ const ProductCard = ({ product, viewMode = 'grid', showGamification = false }) =
           <button
             disabled={product.stock === 0}
             onClick={handleAddToCart}
-            className={`flex-1 py-2 rounded-md transition-all duration-300 flex items-center justify-center transform hover:scale-105 relative overflow-hidden ${
+            className={`flex-1 py-2 text-xs sm:text-sm rounded-md transition-all duration-300 flex items-center justify-center transform hover:scale-105 relative overflow-hidden ${
               product.stock === 0
                 ? 'bg-gray-400 text-white cursor-not-allowed'
                 : 'bg-gradient-to-r from-green-600 to-emerald-600 text-white hover:from-green-700 hover:to-emerald-700 shadow-lg hover:shadow-xl'
@@ -344,14 +345,17 @@ const ProductCard = ({ product, viewMode = 'grid', showGamification = false }) =
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 group-hover:animate-pulse"></div>
             )}
             
-            <ShoppingCart className="h-4 w-4 mr-2" />
-            {product.stock === 0 ? 'Sold Out' : (
-              <>
-                Add to Cart
-                {showGamification && isHotDeal && <span className="ml-2">🔥</span>}
-                {showGamification && <span className="ml-2 text-xs opacity-75">+10 XP</span>}
-              </>
-            )}
+            <ShoppingCart className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-2" />
+            <span className="hidden sm:inline">
+              {product.stock === 0 ? 'Sold Out' : (
+                <>
+                  Add to Cart
+                  {showGamification && isHotDeal && <span className="ml-2">🔥</span>}
+                  {showGamification && <span className="ml-2 text-xs opacity-75">+10 XP</span>}
+                </>
+              )}
+            </span>
+            <span className="sm:hidden">{product.stock === 0 ? 'Sold Out' : 'Add'}</span>
           </button>
           
           {/* Wishlist Heart Icon */}
@@ -362,7 +366,7 @@ const ProductCard = ({ product, viewMode = 'grid', showGamification = false }) =
             aria-label={isInWishlist ? 'Remove from wishlist' : 'Add to wishlist'}
           >
             <Heart
-              className={`h-5 w-5 transition-all duration-200 ${
+              className={`h-4 w-4 sm:h-5 sm:w-5 transition-all duration-200 ${
                 isInWishlist
                   ? 'text-red-500 fill-red-500'
                   : 'text-gray-400 hover:text-red-500'

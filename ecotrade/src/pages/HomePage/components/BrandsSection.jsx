@@ -41,15 +41,15 @@ const BrandsSection = ({ types }) => {
         />
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold mb-4">Shop by Brand</h2>
-          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+      <div className="container mx-auto px-3 sm:px-4 relative z-10">
+        <div className="text-center mb-8 sm:mb-12">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">Shop by Brand</h2>
+          <p className="text-sm sm:text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
             Browse certified refurbished products from your favorite trusted brands
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-6">
           {validTypes.map((type, index) => {
             // Safely extract type properties as strings
             const typeId = type._id ? String(type._id) : (type.id ? String(type.id) : '');
@@ -60,11 +60,11 @@ const BrandsSection = ({ types }) => {
               <Link
                 key={`brand-${typeId}-${index}`}
                 to={`/products?types=${encodeURIComponent(typeName)}`}
-                className="bg-white rounded-xl shadow-sm p-6 flex items-center justify-center transition-all hover:shadow-lg hover:-translate-y-1 group"
+                className="bg-white rounded-xl shadow-sm p-4 sm:p-6 flex items-center justify-center transition-all hover:shadow-lg hover:-translate-y-1 group"
               >
                 <div className="text-center w-full">
                   {typeLogo ? (
-                    <div className="w-full h-20 mx-auto mb-3 flex items-center justify-center">
+                    <div className="w-full h-16 sm:h-20 mx-auto mb-2 sm:mb-3 flex items-center justify-center">
                       <img
                         src={typeLogo}
                         alt={`${typeName} logo`}
@@ -77,20 +77,20 @@ const BrandsSection = ({ types }) => {
                           }
                         }}
                       />
-                      <div className="hidden w-16 h-16 bg-gray-100 rounded-full items-center justify-center group-hover:bg-green-50 transition-colors">
-                        <span className="text-2xl font-bold text-green-700">
+                      <div className="hidden w-12 h-12 sm:w-16 sm:h-16 bg-gray-100 rounded-full items-center justify-center group-hover:bg-green-50 transition-colors">
+                        <span className="text-xl sm:text-2xl font-bold text-green-700">
                           {typeName.charAt(0).toUpperCase()}
                         </span>
                       </div>
                     </div>
                   ) : (
-                    <div className="w-16 h-16 mx-auto mb-3 bg-gray-100 rounded-full flex items-center justify-center group-hover:bg-green-50 transition-colors">
-                      <span className="text-2xl font-bold text-green-700">
+                    <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-2 sm:mb-3 bg-gray-100 rounded-full flex items-center justify-center group-hover:bg-green-50 transition-colors">
+                      <span className="text-xl sm:text-2xl font-bold text-green-700">
                         {typeName.charAt(0).toUpperCase()}
                       </span>
                     </div>
                   )}
-                  <span className="text-sm font-medium text-gray-700 group-hover:text-green-700 transition-colors block">
+                  <span className="text-xs sm:text-sm font-medium text-gray-700 group-hover:text-green-700 transition-colors block line-clamp-2">
                     {typeName}
                   </span>
                 </div>

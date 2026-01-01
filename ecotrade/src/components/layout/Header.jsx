@@ -80,7 +80,7 @@ const Header = () => {
   // Check screen size for responsive behavior
   useEffect(() => {
     const checkScreenSize = () => {
-      setIsMobileMenuBreakpoint(window.innerWidth < 1024); // Adjusted breakpoint for new layout
+      setIsMobileMenuBreakpoint(window.innerWidth < 768); // Changed to 768 for better tablet support
     };
     checkScreenSize();
     window.addEventListener("resize", checkScreenSize);
@@ -251,37 +251,37 @@ const Header = () => {
   };
 
   const DesktopNavLinks = () => (
-    <ul className="flex items-center justify-center space-x-6 xl:space-x-8">
+    <ul className="flex items-center justify-center space-x-4 sm:space-x-6 xl:space-x-8 flex-wrap">
       <li>
-        <Link to="/" className="text-sm font-medium transition-colors hover:text-emerald-600 text-[#01364a]">
+        <Link to="/" className="text-xs sm:text-sm font-medium transition-colors hover:text-emerald-600 text-[#01364a]">
           Home
         </Link>
       </li>
       <li>
-        <Link to="/products" className="text-sm font-medium transition-colors hover:text-emerald-600 text-[#01364a]">
+        <Link to="/products" className="text-xs sm:text-sm font-medium transition-colors hover:text-emerald-600 text-[#01364a]">
           All Products
         </Link>
       </li>
       <li className="relative group">
-        <Link to="/products/smartphones" className="text-sm font-medium transition-colors hover:text-emerald-600 text-[#01364a] flex items-center">
+        <Link to="/products/smartphones" className="text-xs sm:text-sm font-medium transition-colors hover:text-emerald-600 text-[#01364a] flex items-center">
           Smartphones
           <ChevronDown className="ml-1 h-3 w-3 relative top-[3px]" />
         </Link>
-        <div className="absolute left-0 top-full mt-2 bg-white shadow-lg rounded-md p-6 z-50 transition-all duration-300 transform opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 translate-y-2" style={{ minWidth: "500px" }}>
-          <div className="flex justify-between items-start space-x-8">
+        <div className="absolute left-0 top-full mt-2 bg-white shadow-lg rounded-md p-4 sm:p-6 z-50 transition-all duration-300 transform opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 translate-y-2 w-full sm:w-auto" style={{ minWidth: "min(500px, 90vw)" }}>
+          <div className="flex justify-between items-start space-x-4 sm:space-x-8">
             <div className="flex-1">
-              <h4 className="font-semibold text-base mb-4 text-[#01364a]">Explore Smartphones</h4>
-              <div className="grid grid-cols-2 gap-4">
+              <h4 className="font-semibold text-sm sm:text-base mb-3 sm:mb-4 text-[#01364a]">Explore Smartphones</h4>
+              <div className="grid grid-cols-2 gap-2 sm:gap-4">
                 {activeSmartphonesMenu.images.map((image) => (
                   <Link to={image.path} key={image.name} className="block text-center hover:opacity-90 transition-opacity group/item">
-                    <div className="w-full h-32 flex items-center justify-center rounded-md overflow-hidden bg-gray-50">
+                    <div className="w-full h-24 sm:h-32 flex items-center justify-center rounded-md overflow-hidden bg-gray-50">
                       <img src={image.src} alt={image.alt} className="w-full h-full object-cover group-hover/item:scale-105 transition-transform" />
                     </div>
-                    <p className="text-sm font-medium text-gray-800 mt-2 group-hover/item:text-emerald-600">{image.name}</p>
+                    <p className="text-xs sm:text-sm font-medium text-gray-800 mt-1 sm:mt-2 group-hover/item:text-emerald-600">{image.name}</p>
                   </Link>
                 ))}
               </div>
-              <Link to="/products/smartphones" className="block mt-4 text-center text-sm font-medium text-emerald-600 hover:text-emerald-700">
+              <Link to="/products/smartphones" className="block mt-3 sm:mt-4 text-center text-xs sm:text-sm font-medium text-emerald-600 hover:text-emerald-700">
                 View All Smartphones →
               </Link>
             </div>
@@ -289,34 +289,34 @@ const Header = () => {
         </div>
       </li>
       <li className="relative group">
-        <Link to="/products/laptops" className="text-sm font-medium transition-colors hover:text-emerald-600 text-[#01364a] flex items-center">
+        <Link to="/products/laptops" className="text-xs sm:text-sm font-medium transition-colors hover:text-emerald-600 text-[#01364a] flex items-center">
           Laptops <ChevronDown className="ml-1 h-3 w-3 relative top-[3px]" />
         </Link>
-        <div className="absolute left-0 top-full mt-2 bg-white shadow-lg rounded-md p-6 z-50 transition-all duration-300 transform opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 translate-y-2" style={{ minWidth: "500px" }}>
-          <div className="flex justify-between items-start space-x-8">
+        <div className="absolute left-0 top-full mt-2 bg-white shadow-lg rounded-md p-4 sm:p-6 z-50 transition-all duration-300 transform opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 translate-y-2 w-full sm:w-auto" style={{ minWidth: "min(500px, 90vw)" }}>
+          <div className="flex justify-between items-start space-x-4 sm:space-x-8">
             <div className="flex-1">
-              <h4 className="font-semibold text-base mb-4 text-[#01364a]">Explore Laptops</h4>
-              <div className="grid grid-cols-2 gap-4">
+              <h4 className="font-semibold text-sm sm:text-base mb-3 sm:mb-4 text-[#01364a]">Explore Laptops</h4>
+              <div className="grid grid-cols-2 gap-2 sm:gap-4">
                 {activeLaptopsMenu.images.map((image) => (
                   <Link to={image.path} key={image.name} className="block text-center hover:opacity-90 transition-opacity group/item">
-                    <div className="w-full h-32 flex items-center justify-center rounded-md overflow-hidden bg-gray-50">
+                    <div className="w-full h-24 sm:h-32 flex items-center justify-center rounded-md overflow-hidden bg-gray-50">
                       <img src={image.src} alt={image.alt} className="w-full h-full object-cover group-hover/item:scale-105 transition-transform" />
                     </div>
-                    <p className="text-sm font-medium text-gray-800 mt-2 group-hover/item:text-emerald-600">{image.name}</p>
+                    <p className="text-xs sm:text-sm font-medium text-gray-800 mt-1 sm:mt-2 group-hover/item:text-emerald-600">{image.name}</p>
                   </Link>
                 ))}
               </div>
-              <Link to="/products/laptops" className="block mt-4 text-center text-sm font-medium text-emerald-600 hover:text-emerald-700">
+              <Link to="/products/laptops" className="block mt-3 sm:mt-4 text-center text-xs sm:text-sm font-medium text-emerald-600 hover:text-emerald-700">
                 View All Laptops →
               </Link>
             </div>
           </div>
         </div>
       </li>
-      <li><Link to="/products?filter=new" className="text-sm font-medium transition-colors hover:text-emerald-600 text-[#01364a]">New Arrivals</Link></li>
-      <li><Link to="/products?filter=featured" className="text-sm font-medium transition-colors hover:text-emerald-600 text-[#01364a]">Featured Products</Link></li>
-      <li><Link to="/about" className="text-sm font-medium transition-colors hover:text-emerald-600 text-[#01364a]">About</Link></li>
-      <li><Link to="/contact" className="text-sm font-medium transition-colors hover:text-emerald-600 text-[#01364a]">Contact</Link></li>
+      <li><Link to="/products?filter=new" className="text-xs sm:text-sm font-medium transition-colors hover:text-emerald-600 text-[#01364a]">New Arrivals</Link></li>
+      <li><Link to="/products?filter=featured" className="text-xs sm:text-sm font-medium transition-colors hover:text-emerald-600 text-[#01364a]">Featured Products</Link></li>
+      <li><Link to="/about" className="text-xs sm:text-sm font-medium transition-colors hover:text-emerald-600 text-[#01364a]">About</Link></li>
+      <li><Link to="/contact" className="text-xs sm:text-sm font-medium transition-colors hover:text-emerald-600 text-[#01364a]">Contact</Link></li>
     </ul>
   );
 
@@ -380,13 +380,14 @@ const Header = () => {
           {/* === RIGHT SECTION: Icons & Desktop Contact === */}
           <div className="flex items-center justify-end space-x-2 md:space-x-4 lg:w-auto flex-1">
            <div className="hidden lg:block text-right">
-  <p className="text-sm font-semibold text-[#01364a] whitespace-nowrap">
+  <p className="text-xs sm:text-sm font-semibold text-[#01364a] whitespace-nowrap">
     <a href="tel:8861009443" className="flex items-center justify-end hover:underline">
-      <Phone width={3} className="h-3 w-3 mr-1 mt-1 " />
-      <span>8861009443</span>
+      <Phone width={3} className="h-3 w-3 mr-1 mt-1" />
+      <span className="hidden xl:inline">8861009443</span>
+      <span className="xl:hidden">Call Us</span>
     </a>
   </p>
-  <p className="text-xs text-[#01374ae1]">Mon - Sat | 8am - 8pm</p>
+  <p className="text-xs text-[#01374ae1] hidden xl:block">Mon - Sat | 8am - 8pm</p>
 </div>
 
              <button

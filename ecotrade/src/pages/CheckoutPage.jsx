@@ -205,14 +205,14 @@ const CheckoutPage = () => {
     return (
       <div className="min-h-screen pt-20 pb-16">
         <div className="container mx-auto px-4">
-          <div className="max-w-2xl mx-auto bg-white rounded-lg shadow-sm p-8 mt-12 text-center">
-            <ShoppingBag className="h-16 w-16 text-gray-400 mx-auto mb-4" />
-            <h1 className="text-2xl font-bold mb-4">Your cart is empty</h1>
-            <p className="text-gray-600 mb-8">Add some products to your cart before checkout.</p>
+          <div className="max-w-2xl mx-auto bg-white rounded-lg shadow-sm p-6 sm:p-8 mt-8 sm:mt-12 text-center">
+            <ShoppingBag className="h-12 w-12 sm:h-16 sm:w-16 text-gray-400 mx-auto mb-4" />
+            <h1 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Your cart is empty</h1>
+            <p className="text-sm sm:text-base text-gray-600 mb-6 sm:mb-8">Add some products to your cart before checkout.</p>
             <Button 
               variant="primary"
               onClick={() => navigate('/products')}
-              leftIcon={<ShoppingBag className="h-5 w-5" />}
+              leftIcon={<ShoppingBag className="h-4 w-4 sm:h-5 sm:w-5" />}
             >
               Continue Shopping
             </Button>
@@ -225,115 +225,115 @@ const CheckoutPage = () => {
   return (
     <>
       <div className="min-h-screen pt-20 pb-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="py-8">
+        <div className="container mx-auto px-3 sm:px-4">
+          <div className="py-6 sm:py-8">
             <button
               onClick={() => navigate('/cart')}
-              className="flex items-center text-green-700 hover:text-[#335077] font-semibold mb-4 transition-colors"
+              className="flex items-center text-green-700 hover:text-[#335077] font-semibold mb-3 sm:mb-4 transition-colors text-sm sm:text-base"
             >
-              <ArrowLeft className="h-4 w-4 mr-1" />
+              <ArrowLeft className="h-3 w-3 sm:h-4 sm:w-4 mr-1" />
               Back to Cart
             </button>
-            <h1 className="text-3xl font-bold">Checkout</h1>
+            <h1 className="text-2xl sm:text-3xl font-bold">Checkout</h1>
             {/* Shipping / Promotions banner */}
             <div className="mt-3 max-w-4xl">
-              <div className="bg-emerald-50 border border-emerald-100 text-emerald-800 rounded-lg p-3 text-sm">
+              <div className="bg-emerald-50 border border-emerald-100 text-emerald-800 rounded-lg p-2 sm:p-3 text-xs sm:text-sm">
                 <strong>Free shipping:</strong> Free shipping on all certified refurbished devices across India.
-                <span className="ml-3 text-gray-600">EMI available on products above ₹1,500.</span>
+                <span className="block sm:inline sm:ml-3 text-gray-600 mt-1 sm:mt-0">EMI available on products above ₹1,500.</span>
               </div>
             </div>
           </div>
 
           {paymentError && (
-            <div className="mb-6 max-w-4xl mx-auto">
-              <div className="bg-red-50 border border-red-200 rounded-lg p-4 flex items-start">
-                <AlertCircle className="h-5 w-5 text-red-500 mt-0.5 mr-3 flex-shrink-0" />
+            <div className="mb-4 sm:mb-6 max-w-4xl mx-auto">
+              <div className="bg-red-50 border border-red-200 rounded-lg p-3 sm:p-4 flex items-start">
+                <AlertCircle className="h-4 w-4 sm:h-5 sm:w-5 text-red-500 mt-0.5 mr-2 sm:mr-3 flex-shrink-0" />
                 <div>
-                  <h3 className="text-red-800 font-medium">Payment Error</h3>
-                  <p className="text-red-700 text-sm mt-1">{paymentError}</p>
+                  <h3 className="text-sm sm:text-base text-red-800 font-medium">Payment Error</h3>
+                  <p className="text-xs sm:text-sm text-red-700 mt-1">{paymentError}</p>
                 </div>
               </div>
             </div>
           )}
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-8">
             {/* Shipping Information */}
             <div className="lg:col-span-2">
-              <div className="bg-white rounded-lg shadow-sm p-6 mb-6">
-                <div className="flex items-center mb-6">
-                  <MapPin className="h-6 w-6 text-green-700 mr-2" />
-                  <h2 className="text-xl font-semibold">Shipping Address</h2>
+              <div className="bg-white rounded-lg shadow-sm p-4 sm:p-6 mb-4 sm:mb-6">
+                <div className="flex items-center mb-4 sm:mb-6">
+                  <MapPin className="h-5 w-5 sm:h-6 sm:w-6 text-green-700 mr-2" />
+                  <h2 className="text-lg sm:text-xl font-semibold">Shipping Address</h2>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                    <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1">
                       Full Name *
                     </label>
                     <div className="relative">
-                      <User className="h-5 w-5 text-gray-400 absolute left-3 top-3" />
+                      <User className="h-4 w-4 sm:h-5 sm:w-5 text-gray-400 absolute left-2 sm:left-3 top-2.5 sm:top-3" />
                       <input
                         type="text"
                         name="fullName"
                         value={shippingAddress.fullName}
                         onChange={handleInputChange}
-                        className={`w-full pl-10 pr-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+                        className={`w-full pl-8 sm:pl-10 pr-3 py-2 text-sm sm:text-base border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${
                           errors.fullName ? 'border-red-500' : 'border-gray-300'
                         }`}
                         placeholder="Enter your full name"
                       />
                     </div>
                     {errors.fullName && (
-                      <p className="text-red-500 text-sm mt-1">{errors.fullName}</p>
+                      <p className="text-red-500 text-xs sm:text-sm mt-1">{errors.fullName}</p>
                     )}
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                    <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1">
                       Email *
                     </label>
                     <div className="relative">
-                      <Mail className="h-5 w-5 text-gray-400 absolute left-3 top-3" />
+                      <Mail className="h-4 w-4 sm:h-5 sm:w-5 text-gray-400 absolute left-2 sm:left-3 top-2.5 sm:top-3" />
                       <input
                         type="email"
                         name="email"
                         value={shippingAddress.email}
                         onChange={handleInputChange}
-                        className={`w-full pl-10 pr-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+                        className={`w-full pl-8 sm:pl-10 pr-3 py-2 text-sm sm:text-base border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${
                           errors.email ? 'border-red-500' : 'border-gray-300'
                         }`}
                         placeholder="Enter your email"
                       />
                     </div>
                     {errors.email && (
-                      <p className="text-red-500 text-sm mt-1">{errors.email}</p>
+                      <p className="text-red-500 text-xs sm:text-sm mt-1">{errors.email}</p>
                     )}
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                    <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1">
                       Phone Number *
                     </label>
                     <div className="relative">
-                      <Phone className="h-5 w-5 text-gray-400 absolute left-3 top-3" />
+                      <Phone className="h-4 w-4 sm:h-5 sm:w-5 text-gray-400 absolute left-2 sm:left-3 top-2.5 sm:top-3" />
                       <input
                         type="tel"
                         name="phone"
                         value={shippingAddress.phone}
                         onChange={handleInputChange}
-                        className={`w-full pl-10 pr-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+                        className={`w-full pl-8 sm:pl-10 pr-3 py-2 text-sm sm:text-base border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${
                           errors.phone ? 'border-red-500' : 'border-gray-300'
                         }`}
                         placeholder="10-digit mobile number"
                       />
                     </div>
                     {errors.phone && (
-                      <p className="text-red-500 text-sm mt-1">{errors.phone}</p>
+                      <p className="text-red-500 text-xs sm:text-sm mt-1">{errors.phone}</p>
                     )}
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                    <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1">
                       Pincode *
                     </label>
                     <input
@@ -341,19 +341,19 @@ const CheckoutPage = () => {
                       name="pincode"
                       value={shippingAddress.pincode}
                       onChange={handleInputChange}
-                      className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+                      className={`w-full px-3 py-2 text-sm sm:text-base border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${
                         errors.pincode ? 'border-red-500' : 'border-gray-300'
                       }`}
                       placeholder="6-digit pincode"
                     />
                     {errors.pincode && (
-                      <p className="text-red-500 text-sm mt-1">{errors.pincode}</p>
+                      <p className="text-red-500 text-xs sm:text-sm mt-1">{errors.pincode}</p>
                     )}
                   </div>
                 </div>
 
-                <div className="mt-4">
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                <div className="mt-3 sm:mt-4">
+                  <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1">
                     Address *
                   </label>
                   <input
@@ -361,19 +361,19 @@ const CheckoutPage = () => {
                     name="address"
                     value={shippingAddress.address}
                     onChange={handleInputChange}
-                    className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+                    className={`w-full px-3 py-2 text-sm sm:text-base border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${
                       errors.address ? 'border-red-500' : 'border-gray-300'
                     }`}
                     placeholder="House no, Building, Street, Area"
                   />
                   {errors.address && (
-                    <p className="text-red-500 text-sm mt-1">{errors.address}</p>
+                    <p className="text-red-500 text-xs sm:text-sm mt-1">{errors.address}</p>
                   )}
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 mt-3 sm:mt-4">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                    <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1">
                       City *
                     </label>
                     <input
@@ -381,18 +381,18 @@ const CheckoutPage = () => {
                       name="city"
                       value={shippingAddress.city}
                       onChange={handleInputChange}
-                      className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+                      className={`w-full px-3 py-2 text-sm sm:text-base border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${
                         errors.city ? 'border-red-500' : 'border-gray-300'
                       }`}
                       placeholder="Enter city"
                     />
                     {errors.city && (
-                      <p className="text-red-500 text-sm mt-1">{errors.city}</p>
+                      <p className="text-red-500 text-xs sm:text-sm mt-1">{errors.city}</p>
                     )}
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                    <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1">
                       State *
                     </label>
                     <input
@@ -400,13 +400,13 @@ const CheckoutPage = () => {
                       name="state"
                       value={shippingAddress.state}
                       onChange={handleInputChange}
-                      className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+                      className={`w-full px-3 py-2 text-sm sm:text-base border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${
                         errors.state ? 'border-red-500' : 'border-gray-300'
                       }`}
                       placeholder="Enter state"
                     />
                     {errors.state && (
-                      <p className="text-red-500 text-sm mt-1">{errors.state}</p>
+                      <p className="text-red-500 text-xs sm:text-sm mt-1">{errors.state}</p>
                     )}
                   </div>
                 </div>
@@ -415,28 +415,28 @@ const CheckoutPage = () => {
 
             {/* Order Summary */}
             <div className="lg:col-span-1">
-              <div className="bg-white rounded-lg shadow-sm p-6 sticky top-24">
-                <h2 className="text-xl font-semibold mb-6">Order Summary</h2>
+              <div className="bg-white rounded-lg shadow-sm p-4 sm:p-6 lg:sticky lg:top-24">
+                <h2 className="text-lg sm:text-xl font-semibold mb-4 sm:mb-6">Order Summary</h2>
 
-                <div className="space-y-4 mb-6">
+                <div className="space-y-3 sm:space-y-4 mb-4 sm:mb-6">
                   {cart.items.map((item) => (
-                    <div key={item.product.id || item.product._id} className="flex items-center space-x-3">
+                    <div key={item.product.id || item.product._id} className="flex items-center space-x-2 sm:space-x-3">
                       <img
                         src={item.product.image}
                         alt={item.product.name}
-                        className="w-16 h-16 object-contain rounded border"
+                        className="w-12 h-12 sm:w-16 sm:h-16 object-contain rounded border cursor-pointer"
                         onClick={() => navigate(`/product/${item.product.id || item.product._id}`)}
                       />
-                      <div className="flex-1">
-                        <h3 className="font-medium text-sm line-clamp-2">{item.product.name}</h3>
-                        <p className="text-sm text-gray-500">Qty: {item.quantity}</p>
+                      <div className="flex-1 min-w-0">
+                        <h3 className="font-medium text-xs sm:text-sm line-clamp-2">{item.product.name}</h3>
+                        <p className="text-xs sm:text-sm text-gray-500">Qty: {item.quantity}</p>
                         {/* EMI eligibility */}
                         {((item.product.discountPrice || item.product.price) || 0) >= 1500 && (
                           <p className="text-xs text-amber-600 font-medium mt-1">EMI available</p>
                         )}
                       </div>
-                      <div className="text-right">
-                        <p className="font-medium">
+                      <div className="text-right flex-shrink-0">
+                        <p className="font-medium text-xs sm:text-sm">
                           ₹{(((item.product.discountPrice || item.product.price) || 0) * item.quantity).toFixed(2)}
                         </p>
                       </div>
@@ -444,36 +444,36 @@ const CheckoutPage = () => {
                   ))}
                 </div>
 
-                <div className="border-t border-gray-200 pt-4 space-y-3">
-                  <div className="flex justify-between">
+                <div className="border-t border-gray-200 pt-3 sm:pt-4 space-y-2 sm:space-y-3">
+                  <div className="flex justify-between text-sm sm:text-base">
                     <span className="text-gray-600">Subtotal (GST included)</span>
                     <span className="font-medium">₹{subtotal.toFixed(2)}</span>
                   </div>
-                  <div className="flex justify-between">
+                  <div className="flex justify-between text-sm sm:text-base">
                     <span className="text-gray-600">Shipping</span>
                     <span className="font-medium">Free</span>
                   </div>
                   
-                  <div className="border-t border-gray-200 pt-3">
-                    <div className="flex justify-between text-lg font-semibold">
+                  <div className="border-t border-gray-200 pt-2 sm:pt-3">
+                    <div className="flex justify-between text-base sm:text-lg font-semibold">
                       <span>Total</span>
                       <span>₹{total.toFixed(2)}</span>
                     </div>
                   </div>
                 </div>
 
-                <div className="mt-6">
+                <div className="mt-4 sm:mt-6">
                   <Button
                     variant="primary"
                     size="lg"
                     fullWidth
                     onClick={handlePayment}
                     disabled={isProcessing}
-                    leftIcon={<CreditCard className="h-5 w-5" />}
+                    leftIcon={<CreditCard className="h-4 w-4 sm:h-5 sm:w-5" />}
                   >
                     {isProcessing ? 'Processing...' : 'Pay with Razorpay'}
                   </Button>
-                  <p className="text-xs text-gray-500 mt-3 text-center">
+                  <p className="text-xs text-gray-500 mt-2 sm:mt-3 text-center">
                     Secure payment powered by Razorpay
                   </p>
                 </div>
@@ -486,12 +486,12 @@ const CheckoutPage = () => {
       {/* Processing Overlay */}
       {showProcessingOverlay && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white rounded-lg p-8 max-w-md mx-4 text-center">
-            <div className="mb-6">
-              <Loader2 className="h-12 w-12 text-green-600 mx-auto animate-spin" />
+          <div className="bg-white rounded-lg p-6 sm:p-8 max-w-md mx-4 text-center">
+            <div className="mb-4 sm:mb-6">
+              <Loader2 className="h-10 w-10 sm:h-12 sm:w-12 text-green-600 mx-auto animate-spin" />
             </div>
-            <h3 className="text-lg font-semibold mb-2">Processing Your Order</h3>
-            <p className="text-gray-600">Please wait while we process your payment and create your order...</p>
+            <h3 className="text-base sm:text-lg font-semibold mb-2">Processing Your Order</h3>
+            <p className="text-sm sm:text-base text-gray-600">Please wait while we process your payment and create your order...</p>
           </div>
         </div>
       )}

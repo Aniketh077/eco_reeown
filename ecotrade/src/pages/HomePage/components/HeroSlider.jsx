@@ -64,17 +64,17 @@ const HeroSlider = () => {
 
             {/* Text Overlay */}
             <div className="absolute inset-0 z-20 flex items-center">
-              <div className="container mx-auto px-4 md:px-8 lg:px-12">
+              <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
                 <div className="max-w-2xl">
-                  <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-4 animate-fade-in">
+                  <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-2 sm:mb-4 animate-fade-in">
                     {slide.title}
                   </h1>
-                  <p className="text-base md:text-xl lg:text-2xl text-gray-100 mb-6 md:mb-8 animate-fade-in">
+                  <p className="text-sm sm:text-base md:text-xl lg:text-2xl text-gray-100 mb-4 sm:mb-6 md:mb-8 animate-fade-in">
                     {slide.subtitle}
                   </p>
                   <a
                     href="/products"
-                    className="inline-block px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-green-600 to-emerald-500 text-white font-semibold rounded-lg hover:from-green-700 hover:to-emerald-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+                    className="inline-block px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 text-sm sm:text-base bg-gradient-to-r from-green-600 to-emerald-500 text-white font-semibold rounded-lg hover:from-green-700 hover:to-emerald-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
                   >
                     {slide.cta}
                   </a>
@@ -86,14 +86,15 @@ const HeroSlider = () => {
         ))}
 
         {/* Slider Controls */}
-        <div className="absolute bottom-8 left-0 right-0 z-30 flex justify-center space-x-3">
+        <div className="absolute bottom-4 sm:bottom-8 left-0 right-0 z-30 flex justify-center space-x-2 sm:space-x-3">
           {slides.map((_, index) => (
             <button
               key={index}
-              className={`h-2 w-8 rounded-full transition-all ${
-                activeSlide === index ? "bg-emerald-500 w-12" : "bg-white/50"
+              className={`h-1.5 sm:h-2 w-6 sm:w-8 rounded-full transition-all ${
+                activeSlide === index ? "bg-emerald-500 w-10 sm:w-12" : "bg-white/50"
               }`}
               onClick={() => setActiveSlide(index)}
+              aria-label={`Go to slide ${index + 1}`}
             ></button>
           ))}
         </div>

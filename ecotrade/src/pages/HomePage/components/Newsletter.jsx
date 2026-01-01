@@ -36,10 +36,10 @@ const handleSubmit = async (e) => {
         <div className="absolute inset-0 bg-gradient-to-br from-[#1A202C]/95 via-gray-900/90 to-emerald-900/85"></div>
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-3 sm:px-4 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl font-bold mb-4 text-white">Stay Updated</h2>
-          <p className="text-xl text-gray-200 mb-8">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 text-white">Stay Updated</h2>
+          <p className="text-sm sm:text-base md:text-xl text-gray-200 mb-6 sm:mb-8">
             Subscribe to our newsletter for exclusive deals on refurbished devices, new arrivals, and tech tips
           </p>
     
@@ -49,21 +49,21 @@ const handleSubmit = async (e) => {
     value={email}
     onChange={(e) => setEmail(e.target.value)}
     placeholder="Enter your email address"
-    className="flex-1 px-6 py-4 text-gray-900 my-2 sm:my-0 rounded-l-lg sm:rounded-r-none rounded-r-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
+    className="flex-1 px-4 sm:px-6 py-3 sm:py-4 text-sm sm:text-base text-gray-900 my-2 sm:my-0 rounded-lg sm:rounded-l-lg sm:rounded-r-none focus:outline-none focus:ring-2 focus:ring-emerald-500"
     required
     disabled={newsletterSubscribing}
   />
   <button
     type="submit"
     disabled={newsletterSubscribing}
-    className="bg-emerald-500 hover:bg-emerald-600 px-8 py-4 rounded-r-lg sm:rounded-l-none rounded-l-lg font-semibold transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+    className="bg-emerald-500 hover:bg-emerald-600 px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base rounded-lg sm:rounded-r-lg sm:rounded-l-none font-semibold transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
   >
     {newsletterSubscribing ? 'Subscribing...' : 'Subscribe'}
   </button>
 </form>
      
           
-          <p className="text-sm text-gray-400 mt-4">
+          <p className="text-xs sm:text-sm text-gray-400 mt-3 sm:mt-4">
             No spam, unsubscribe at any time
           </p>
         </div>

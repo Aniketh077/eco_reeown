@@ -72,30 +72,30 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
   for (let i = startPage; i <= endPage; i++) pages.push(i);
 
   return (
-    <div className="flex justify-center items-center space-x-2 mt-8">
+    <div className="flex justify-center items-center space-x-1 sm:space-x-2 mt-6 sm:mt-8 flex-wrap gap-2">
       <button
         onClick={() => onPageChange(currentPage - 1)}
         disabled={currentPage === 1}
-        className="p-2 rounded-md border border-gray-300 disabled:opacity-50 hover:bg-gray-50"
+        className="p-1.5 sm:p-2 rounded-md border border-gray-300 disabled:opacity-50 hover:bg-gray-50"
       >
-        <ChevronLeft size={16} />
+        <ChevronLeft size={14} className="sm:w-4 sm:h-4" />
       </button>
       {startPage > 1 && (
         <>
           <button
             onClick={() => onPageChange(1)}
-            className="px-3 py-2 rounded-md border border-gray-300 hover:bg-gray-50"
+            className="px-2 sm:px-3 py-1.5 sm:py-2 text-xs sm:text-sm rounded-md border border-gray-300 hover:bg-gray-50"
           >
             1
           </button>
-          {startPage > 2 && <span className="px-2">...</span>}
+          {startPage > 2 && <span className="px-1 sm:px-2 text-xs sm:text-sm">...</span>}
         </>
       )}
       {pages.map((pageNum) => (
         <button
           key={pageNum}
           onClick={() => onPageChange(pageNum)}
-          className={`px-3 py-2 rounded-md border ${
+          className={`px-2 sm:px-3 py-1.5 sm:py-2 text-xs sm:text-sm rounded-md border ${
             pageNum === currentPage
               ? "bg-green-600 text-white border-green-600"
               : "border-gray-300 hover:bg-gray-50"
@@ -106,10 +106,10 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
       ))}
       {endPage < totalPages && (
         <>
-          {endPage < totalPages - 1 && <span className="px-2">...</span>}
+          {endPage < totalPages - 1 && <span className="px-1 sm:px-2 text-xs sm:text-sm">...</span>}
           <button
             onClick={() => onPageChange(totalPages)}
-            className="px-3 py-2 rounded-md border border-gray-300 hover:bg-gray-50"
+            className="px-2 sm:px-3 py-1.5 sm:py-2 text-xs sm:text-sm rounded-md border border-gray-300 hover:bg-gray-50"
           >
             {totalPages}
           </button>
@@ -118,9 +118,9 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
       <button
         onClick={() => onPageChange(currentPage + 1)}
         disabled={currentPage === totalPages}
-        className="p-2 rounded-md border border-gray-300 disabled:opacity-50 hover:bg-gray-50"
+        className="p-1.5 sm:p-2 rounded-md border border-gray-300 disabled:opacity-50 hover:bg-gray-50"
       >
-        <ChevronRight size={16} />
+        <ChevronRight size={14} className="sm:w-4 sm:h-4" />
       </button>
     </div>
   );
@@ -403,40 +403,40 @@ const ProductsPage = () => {
 
   return (
     <div className="min-h-screen pt-12 sm:pt-16 pb-16 bg-gray-50">
-      <div className="w-full mx-auto px-4">
+      <div className="w-full mx-auto px-3 sm:px-4">
         <div
-          className="py-10 px-6 rounded-lg mb-8 text-white"
+          className="py-8 sm:py-10 px-4 sm:px-6 rounded-lg mb-6 sm:mb-8 text-white"
           style={getHeaderStyle()}
         >
           <div className="text-center">
-            <h1 className="text-3xl font-bold mb-3">{getPageTitle()}</h1>
-            <p className="text-lg text-gray-100 mb-4">
+            <h1 className="text-2xl sm:text-3xl font-bold mb-2 sm:mb-3">{getPageTitle()}</h1>
+            <p className="text-sm sm:text-lg text-gray-100 mb-2 sm:mb-4">
               Displaying {products.length} certified refurbished products
             </p>
           </div>
         </div>
 
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 bg-white p-4 rounded-md shadow-sm relative z-20">
-          <div className="flex items-center mb-4 md:mb-0">
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 sm:mb-6 bg-white p-3 sm:p-4 rounded-md shadow-sm relative z-20 gap-3 sm:gap-0">
+          <div className="flex items-center w-full sm:w-auto">
             <Button
               variant="ghost"
               size="sm"
-              leftIcon={<Filter size={18} />}
+              leftIcon={<Filter size={16} />}
               onClick={toggleFilterVisibility}
-              className="mr-4"
+              className="mr-2 sm:mr-4 text-xs sm:text-sm"
             >
               Filter{" "}
               {getActiveFiltersCount() > 0 && `(${getActiveFiltersCount()})`}
             </Button>
-            <div className="flex items-center space-x-2">
+            <div className="flex items-center space-x-1 sm:space-x-2">
               <button
                 onClick={() => setViewMode("grid")}
-                className={`p-2 rounded ${
+                className={`p-1.5 sm:p-2 rounded ${
                   viewMode === "grid" ? "bg-gray-100" : ""
                 }`}
               >
                 <Grid
-                  size={18}
+                  size={16}
                   className={
                     viewMode === "grid" ? "text-green-700" : "text-gray-500"
                   }
@@ -444,12 +444,12 @@ const ProductsPage = () => {
               </button>
               <button
                 onClick={() => setViewMode("list")}
-                className={`p-2 rounded ${
+                className={`p-1.5 sm:p-2 rounded ${
                   viewMode === "list" ? "bg-gray-100" : ""
                 }`}
               >
                 <List
-                  size={18}
+                  size={16}
                   className={
                     viewMode === "list" ? "text-green-700" : "text-gray-500"
                   }
@@ -457,7 +457,7 @@ const ProductsPage = () => {
               </button>
             </div>
           </div>
-          <div className="w-full md:w-48">
+          <div className="w-full sm:w-48">
             <CustomSelect
               value={sortBy}
               onChange={handleSortChange}
@@ -466,19 +466,19 @@ const ProductsPage = () => {
           </div>
         </div>
 
-        <div className="flex flex-col md:flex-row">
+        <div className="flex flex-col lg:flex-row">
           <div
-            className={`w-full sm:w-64 md:w-56 lg:w-60 xl:w-72 mb-6 md:mb-0 md:mr-6 ${
-              isFilterVisible ? "block" : "hidden md:block"
+            className={`w-full lg:w-64 xl:w-72 mb-4 lg:mb-0 lg:mr-6 ${
+              isFilterVisible ? "block" : "hidden lg:block"
             }`}
           >
-            <div className="sticky top-24 bg-white rounded-md shadow-lg border p-5">
+            <div className="sticky top-20 sm:top-24 bg-white rounded-md shadow-lg border p-4 sm:p-5 max-h-[calc(100vh-120px)] overflow-y-auto">
               <div className="flex justify-between items-center mb-4">
-                <h3 className="font-bold text-xl text-green-700">Filters</h3>
+                <h3 className="font-bold text-lg sm:text-xl text-green-700">Filters</h3>
                 <button
                   onClick={clearFilters}
                   disabled={getActiveFiltersCount() === 0}
-                  className="text-sm text-emerald-600 hover:underline disabled:text-gray-400 disabled:no-underline"
+                  className="text-xs sm:text-sm text-emerald-600 hover:underline disabled:text-gray-400 disabled:no-underline"
                 >
                   Clear All
                 </button>
@@ -579,15 +579,15 @@ const ProductsPage = () => {
 
           <div className="flex-1">
             {loading && currentPage === 1 ? (
-              <div className="flex items-center justify-center p-12">
-                <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-green-600"></div>
+              <div className="flex items-center justify-center p-8 sm:p-12">
+                <div className="animate-spin rounded-full h-12 w-12 sm:h-16 sm:w-16 border-b-2 border-green-600"></div>
               </div>
             ) : products.length === 0 && !loading ? (
-              <div className="bg-white p-8 rounded-lg shadow-sm text-center">
-                <h3 className="text-xl font-semibold mb-2">
+              <div className="bg-white p-6 sm:p-8 rounded-lg shadow-sm text-center">
+                <h3 className="text-lg sm:text-xl font-semibold mb-2">
                   No products found
                 </h3>
-                <p className="text-gray-600 mb-4">
+                <p className="text-sm sm:text-base text-gray-600 mb-4">
                   Try adjusting your filters or search terms.
                 </p>
                 <Button variant="primary" onClick={clearFilters}>
@@ -597,13 +597,13 @@ const ProductsPage = () => {
             ) : (
               <>
                 {viewMode === "grid" ? (
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                     {products.map((product) => (
                       <ProductCard key={product._id} product={product} />
                     ))}
                   </div>
                 ) : (
-                  <div className="space-y-6">
+                  <div className="space-y-4 sm:space-y-6">
                     {products.map((product) => (
                       <ProductCard
                         key={product._id}

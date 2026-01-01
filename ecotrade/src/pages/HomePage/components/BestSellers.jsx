@@ -184,12 +184,12 @@ const BestSellers = () => {
 
   if (bestSellersLoading) {
     return (
-      <section className="py-16 bg-[#01364a]">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-white mb-2">Best Sellers</h2>
+      <section className="py-8 sm:py-12 md:py-16 bg-[#01364a]">
+        <div className="container mx-auto px-3 sm:px-4">
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-2">Best Sellers</h2>
           </div>
-          <div className="text-center py-16 text-white">Loading Best Sellers...</div>
+          <div className="text-center py-8 sm:py-16 text-white text-sm sm:text-base">Loading Best Sellers...</div>
         </div>
       </section>
     );
@@ -200,10 +200,10 @@ const BestSellers = () => {
   }
 
   return (
-    <section className="py-16 bg-[#00425A]">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-white mb-2">Best Sellers</h2>
+    <section className="py-8 sm:py-12 md:py-16 bg-[#00425A]">
+      <div className="container mx-auto px-3 sm:px-4">
+        <div className="text-center mb-8 sm:mb-12">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-2">Best Sellers</h2>
         </div>
        
         <div className="relative">
@@ -212,10 +212,10 @@ const BestSellers = () => {
             <MobileSlider products={bestSellers} />
           ) : (
             // Use React Slick for desktop/tablet
-            <div className="mx-8">
+            <div className="mx-2 sm:mx-4 md:mx-8">
               <Slider {...settings}>
                 {bestSellers.map(product => (
-                  <div key={product._id} className="px-3">
+                  <div key={product._id} className="px-2 sm:px-3">
                     <ProductCard product={product} />
                   </div>
                 ))}

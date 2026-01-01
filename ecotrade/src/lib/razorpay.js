@@ -59,15 +59,8 @@ export const initiateRazorpayPayment = async (amount, userDetails, onSuccess, on
 
     console.log('Creating Razorpay order...');
 
-    // Normalize backend URL
-    let backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000';
-    backendUrl = backendUrl.replace(/\/$/, ''); // Remove trailing slash
-    if (backendUrl.endsWith('/api')) {
-      backendUrl = backendUrl.slice(0, -4); // Remove /api if present
-    }
-
     // Create order on backend first
-    const response = await fetch(`${backendUrl}/api/orders/create-razorpay-order`, {
+    const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/orders/create-razorpay-order`, {
 
       method: 'POST',
       headers: {

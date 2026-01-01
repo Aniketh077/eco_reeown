@@ -46,16 +46,10 @@ export const CartProvider = ({ children }) => {
   const [cart, dispatch] = useReducer(cartReducer, initialState);
   const { user, isAuthenticated } = useAuth();
 
-  // API base URL - normalize to prevent double /api
-  let API_BASE_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000';
-  // Remove trailing slash
-  API_BASE_URL = API_BASE_URL.replace(/\/$/, '');
-  // Remove /api if it exists at the end
-  if (API_BASE_URL.endsWith('/api')) {
-    API_BASE_URL = API_BASE_URL.slice(0, -4);
-  }
-  // Add /api
-  API_BASE_URL = `${API_BASE_URL}/api`;
+  // API base URL
+  const API_BASE_URL = import.meta.env.VITE_BACKEND_URL
+  ? `${import.meta.env.VITE_BACKEND_URL}/api`
+  : 'http://localhost:5000/api';
 
 
   // Helper function to get auth token

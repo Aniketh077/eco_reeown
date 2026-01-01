@@ -24,40 +24,40 @@ const ProductImages = ({ product, activeImage, setActiveImage }) => {
   const productImages = getProductImages();
 
   return (
-    <div className="p-6">
-      <div className="relative mb-4 aspect-square bg-gray-100 rounded-lg overflow-hidden">
+    <div className="p-3 sm:p-4 md:p-6">
+      <div className="relative mb-3 sm:mb-4 aspect-square bg-gray-100 rounded-lg overflow-hidden">
         <img
           src={productImages[activeImage] || product.image}
           alt={product.name}
-          className={`w-full h-full object-contain p-4 ${product.stock === 0 ? 'opacity-50' : ''}`}
+          className={`w-full h-full object-contain p-2 sm:p-4 ${product.stock === 0 ? 'opacity-50' : ''}`}
         />
         {product.stock === 0 && (
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-20">
-            <div className="bg-red-600 text-white px-8 py-4 text-xl font-bold rounded-md transform -rotate-12 shadow-lg">
+            <div className="bg-red-600 text-white px-4 sm:px-8 py-2 sm:py-4 text-base sm:text-xl font-bold rounded-md transform -rotate-12 shadow-lg">
               SOLD OUT
             </div>
           </div>
         )}
         {product.stock > 0 && product.discountPrice && product.discountPrice < product.price &&
          Math.round(((product.price - product.discountPrice) / product.price) * 100) > 0 && (
-          <div className="absolute left-4 top-4 z-10 bg-red-500 px-3 py-1 text-sm font-semibold text-white">
+          <div className="absolute left-2 sm:left-4 top-2 sm:top-4 z-10 bg-red-500 px-2 sm:px-3 py-1 text-xs sm:text-sm font-semibold text-white">
             {Math.round(((product.price - product.discountPrice) / product.price) * 100)}% OFF
           </div>
         )}
         {product.stock > 0 && product.newArrival && (
-          <div className="absolute right-4 top-4 z-10 bg-green-600 px-3 py-1 text-sm font-semibold text-white">
+          <div className="absolute right-2 sm:right-4 top-2 sm:top-4 z-10 bg-green-600 px-2 sm:px-3 py-1 text-xs sm:text-sm font-semibold text-white">
             NEW
           </div>
         )}
       </div>
       
       {productImages.length > 1 && (
-        <div className="flex space-x-2 overflow-x-auto pb-2">
+        <div className="flex space-x-2 overflow-x-auto pb-2 scrollbar-hide">
           {productImages.map((image, index) => (
             <button
               key={index}
               onClick={() => setActiveImage(index)}
-              className={`flex-shrink-0 w-20 h-20 border-2 rounded-md overflow-hidden ${
+              className={`flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 border-2 rounded-md overflow-hidden ${
                 activeImage === index ? 'border-green-600' : 'border-gray-200'
               }`}
             >
