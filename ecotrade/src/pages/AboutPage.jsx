@@ -58,11 +58,11 @@ const AboutPage = () => {
   return (
     <div className="min-h-screen pt-8 pb-16">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-r from-green-600 to-green-700 text-white">
-        <div className="container mx-auto px-4">
+      <section className="py-12 sm:py-16 md:py-20 bg-gradient-to-r from-green-600 to-green-700 text-white">
+        <div className="container mx-auto px-3 sm:px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">About Reeown</h1>
-            <p className="text-xl md:text-2xl text-gray-200 mb-8">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 break-words">About Reeown</h1>
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-200 mb-6 sm:mb-8 px-2">
               Leading the way in sustainable technology with premium refurbished electronics for everyone
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

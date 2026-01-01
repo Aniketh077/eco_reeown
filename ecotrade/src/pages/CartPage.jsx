@@ -103,17 +103,17 @@ const CartPage = () => {
                       </Link>
                     </div>
 
-                    <div className="sm:w-2/4 flex flex-col justify-between">
-                      <div>
+                    <div className="sm:w-2/4 flex flex-col justify-between min-w-0 flex-1">
+                      <div className="min-w-0">
                         <Link
                           to={`/product/${item.product.id || item.product._id}`}
                           className="hover:text-green-700"
                         >
-                          <h3 className="text-sm sm:text-base font-medium mb-1 line-clamp-2">
+                          <h3 className="text-sm sm:text-base font-medium mb-1 line-clamp-2 break-words overflow-hidden">
                             {item.product.name}
                           </h3>
                         </Link>
-                        <p className="text-xs sm:text-sm text-gray-500 mb-3 sm:mb-2">
+                        <p className="text-xs sm:text-sm text-gray-500 mb-3 sm:mb-2 truncate">
                           {item.product.type?.name || "General"}
                         </p>
 
@@ -170,23 +170,23 @@ const CartPage = () => {
                       </div>
                     </div>
 
-                    <div className="sm:w-1/4 flex flex-col sm:items-end justify-between gap-3">
-                      <div className="text-left sm:text-right">
+                    <div className="sm:w-1/4 flex flex-col sm:items-end justify-between gap-3 flex-shrink-0">
+                      <div className="text-left sm:text-right flex-shrink-0">
                         {item.product.discountPrice ? (
-                          <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2">
-                            <span className="text-base sm:text-lg font-semibold">
+                          <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2 flex-wrap">
+                            <span className="text-base sm:text-lg font-semibold whitespace-nowrap">
                               ₹{(item.product.discountPrice || 0).toFixed(2)}
                             </span>
-                            <span className="text-xs sm:text-sm text-gray-500 line-through">
+                            <span className="text-xs sm:text-sm text-gray-500 line-through whitespace-nowrap">
                               ₹{(item.product.price || 0).toFixed(2)}
                             </span>
                           </div>
                         ) : (
-                          <span className="text-base sm:text-lg font-semibold">
+                          <span className="text-base sm:text-lg font-semibold whitespace-nowrap">
                             ₹{(item.product.price || 0).toFixed(2)}
                           </span>
                         )}
-                        <p className="text-xs sm:text-sm text-gray-500 mt-1">
+                        <p className="text-xs sm:text-sm text-gray-500 mt-1 whitespace-nowrap">
                           Subtotal: ₹
                           {(
                             (item.product.discountPrice ||

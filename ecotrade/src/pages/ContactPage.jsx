@@ -148,11 +148,11 @@ const ContactPage = () => {
   return (
     <div className="min-h-screen pt-20 pb-16">
       {/* Hero Section */}
-      <section className="py-16 bg-gradient-to-r from-green-600 to-green-700 text-white">
-        <div className="container mx-auto px-4">
+      <section className="py-12 sm:py-16 bg-gradient-to-r from-green-600 to-green-700 text-white">
+        <div className="container mx-auto px-3 sm:px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl font-bold mb-6">Get in Touch</h1>
-            <p className="text-xl text-gray-200">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 break-words">Get in Touch</h1>
+            <p className="text-base sm:text-lg md:text-xl text-gray-200 px-2">
               Have questions about our refurbished electronics? Our expert team is ready to help you find the perfect device for your needs.
             </p>
           </div>
@@ -160,23 +160,23 @@ const ContactPage = () => {
       </section>
 
       {/* Contact Info Cards */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <section className="py-12 sm:py-16 bg-gray-50">
+        <div className="container mx-auto px-3 sm:px-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 max-w-7xl mx-auto">
             {contactInfo.map((info, index) => (
-              <div key={index} className="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                <div className="bg-green-50 w-12 h-12 rounded-full flex items-center justify-center mb-4">
-                  <info.icon className="h-6 w-6 text-green-700" />
+              <div key={index} className="bg-white p-6 sm:p-8 rounded-lg shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col h-full">
+                <div className="bg-green-50 w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center mb-4 sm:mb-6 flex-shrink-0">
+                  <info.icon className="h-7 w-7 sm:h-8 sm:w-8 text-green-700" />
                 </div>
-                <h3 className="text-lg font-semibold mb-3">{info.title}</h3>
-                <div className="space-y-1 mb-4">
+                <h3 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-5 text-gray-900">{info.title}</h3>
+                <div className="space-y-2 sm:space-y-3 mb-6 sm:mb-8 flex-1">
                   {info.details.map((detail, idx) => (
-                    <p key={idx} className="text-gray-600 text-sm">{detail}</p>
+                    <p key={idx} className="text-gray-600 text-sm sm:text-base leading-relaxed">{detail}</p>
                   ))}
                 </div>
                 <button 
                   onClick={info.onClick}
-                  className="text-green-700 hover:text-emerald-600 font-medium text-sm transition-colors"
+                  className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 sm:py-4 px-4 sm:px-6 rounded-lg transition-all duration-200 transform hover:scale-105 text-sm sm:text-base mt-auto"
                 >
                   {info.action}
                 </button>

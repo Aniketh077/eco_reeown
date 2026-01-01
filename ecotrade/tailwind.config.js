@@ -6,6 +6,10 @@ export default {
   ],
   theme: {
     extend: {
+      screens: {
+        'xs': '475px',
+        '3xl': '1920px',
+      },
       animation: {
         'slide-in-right': 'slide-in-right 0.3s ease-out forwards',
         'slide-out-right': 'slide-out-right 0.3s ease-in forwards',

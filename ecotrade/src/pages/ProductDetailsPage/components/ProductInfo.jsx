@@ -122,7 +122,7 @@ const ProductInfo = ({
   return (
     <div className="p-4 sm:p-6 flex flex-col">
       <div className="mb-1 text-xs sm:text-sm text-gray-500">{typeName}</div>
-      <h1 className="text-xl sm:text-2xl md:text-3xl font-bold mb-2">{product.name}</h1>
+      <h1 className="text-xl sm:text-2xl md:text-3xl font-bold mb-2 break-words overflow-hidden">{product.name}</h1>
       
       <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-4">
         <div className="flex items-center">
@@ -188,16 +188,16 @@ const ProductInfo = ({
             </div>
 
             {/* Main Price Display */}
-            <div className="flex flex-col sm:flex-row sm:items-end mb-3 sm:mb-4 gap-2">
-              <div className="flex items-baseline">
-                <span className="text-3xl sm:text-4xl md:text-5xl font-black text-green-700">
+            <div className="flex flex-col sm:flex-row sm:items-end mb-3 sm:mb-4 gap-2 flex-wrap">
+              <div className="flex items-baseline flex-wrap">
+                <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-green-700 break-words">
                   ₹{currentPrice.toLocaleString('en-IN')}
                 </span>
-                <span className="text-sm sm:text-lg text-green-600 ml-1 sm:ml-2">.00</span>
+                <span className="text-xs sm:text-sm md:text-base lg:text-lg text-green-600 ml-1 sm:ml-2">.00</span>
               </div>
               {originalPrice > currentPrice && (
-                <div className="flex flex-col">
-                  <span className="text-sm sm:text-lg text-gray-500 line-through">
+                <div className="flex flex-col flex-shrink-0">
+                  <span className="text-xs sm:text-sm md:text-base lg:text-lg text-gray-500 line-through whitespace-nowrap">
                     ₹{originalPrice.toLocaleString('en-IN')}
                   </span>
                   <span className="text-xs sm:text-sm text-red-600 font-semibold">
