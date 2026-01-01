@@ -148,11 +148,11 @@ const ContactPage = () => {
   return (
     <div className="min-h-screen pt-20 pb-16">
       {/* Hero Section */}
-      <section className="py-6 sm:py-8 bg-white border-b border-gray-200">
-        <div className="container mx-auto px-3 sm:px-4 max-w-7xl">
-          <div className="max-w-4xl mx-auto">
-            <h1 className="text-xl sm:text-2xl font-normal mb-3 text-[#0f1111]">Get in Touch</h1>
-            <p className="text-sm text-gray-600 leading-relaxed">
+      <section className="py-12 sm:py-16 bg-gradient-to-r from-green-600 to-green-700 text-white">
+        <div className="container mx-auto px-3 sm:px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 break-words">Get in Touch</h1>
+            <p className="text-base sm:text-lg md:text-xl text-gray-200 px-2">
               Have questions about our refurbished electronics? Our expert team is ready to help you find the perfect device for your needs.
             </p>
           </div>
@@ -160,23 +160,23 @@ const ContactPage = () => {
       </section>
 
       {/* Contact Info Cards */}
-      <section className="py-6 sm:py-8 bg-gray-50">
-        <div className="container mx-auto px-3 sm:px-4 max-w-7xl">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-4">
+      <section className="py-12 sm:py-16 bg-gray-50">
+        <div className="container mx-auto px-3 sm:px-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 max-w-7xl mx-auto">
             {contactInfo.map((info, index) => (
-              <div key={index} className="bg-white border border-gray-200 p-4 sm:p-5 rounded hover:border-green-500 transition-all duration-200 flex flex-col h-full">
-                <div className="bg-green-50 w-10 h-10 rounded-full flex items-center justify-center mb-3 flex-shrink-0">
-                  <info.icon className="h-5 w-5 text-green-700" />
+              <div key={index} className="bg-white p-6 sm:p-8 rounded-lg shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col h-full">
+                <div className="bg-green-50 w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center mb-4 sm:mb-6 flex-shrink-0">
+                  <info.icon className="h-7 w-7 sm:h-8 sm:w-8 text-green-700" />
                 </div>
-                <h3 className="text-sm sm:text-base font-normal mb-3 text-[#0f1111]">{info.title}</h3>
-                <div className="space-y-1.5 mb-4 flex-1">
+                <h3 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-5 text-gray-900">{info.title}</h3>
+                <div className="space-y-2 sm:space-y-3 mb-6 sm:mb-8 flex-1">
                   {info.details.map((detail, idx) => (
-                    <p key={idx} className="text-xs sm:text-sm text-gray-600 leading-relaxed">{detail}</p>
+                    <p key={idx} className="text-gray-600 text-sm sm:text-base leading-relaxed">{detail}</p>
                   ))}
                 </div>
                 <button 
                   onClick={info.onClick}
-                  className="w-full bg-green-600 hover:bg-green-700 text-white font-normal py-2 px-4 rounded text-xs sm:text-sm transition-colors mt-auto"
+                  className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 sm:py-4 px-4 sm:px-6 rounded-lg transition-all duration-200 transform hover:scale-105 text-sm sm:text-base mt-auto"
                 >
                   {info.action}
                 </button>
@@ -187,13 +187,13 @@ const ContactPage = () => {
       </section>
 
       {/* Contact Form & Map */}
-      <section className="py-6 sm:py-8 bg-white">
-        <div className="container mx-auto px-3 sm:px-4 max-w-7xl">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
+      <section className="py-16">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Form */}
             <div>
-              <h2 className="text-lg sm:text-xl font-normal mb-3 text-[#0f1111]">Send us a Message</h2>
-              <p className="text-sm text-gray-600 mb-6 leading-relaxed">
+              <h2 className="text-3xl font-bold mb-6">Send us a Message</h2>
+              <p className="text-gray-600 mb-8">
                 Have a question or need assistance? Fill out the form below and our team will get back to you within 24 hours.
               </p>
 
@@ -208,8 +208,8 @@ const ContactPage = () => {
                   </p>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <Input
                       label="Full Name"
                       name="name"
@@ -231,7 +231,7 @@ const ContactPage = () => {
                     />
                   </div>
                   
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <Input
                       label="Phone Number"
                       name="phone"
@@ -241,7 +241,7 @@ const ContactPage = () => {
                       placeholder="Enter your phone number"
                     />
                     <div className="w-full">
-                      <label className="block text-xs sm:text-sm font-normal text-gray-700 mb-1">
+                      <label className="block text-sm font-medium text-gray-700 mb-1">
                         Subject <span className="text-red-500">*</span>
                       </label>
                       <select
@@ -249,7 +249,7 @@ const ContactPage = () => {
                         value={formData.subject}
                         onChange={handleChange}
                         required
-                        className="w-full rounded border border-gray-300 bg-white px-3 py-2 text-xs sm:text-sm text-gray-900 focus:border-green-600 focus:outline-none focus:ring-1 focus:ring-green-600"
+                        className="w-full rounded-md border border-gray-300 bg-white px-4 py-2 text-gray-900 focus:border-green-600 focus:outline-none focus:ring-1 focus:ring-green-600"
                       >
                         <option value="">Select a subject</option>
                         {departments.map((dept) => (
@@ -262,71 +262,73 @@ const ContactPage = () => {
                   </div>
                   
                   <div>
-                    <label className="block text-xs sm:text-sm font-normal text-gray-700 mb-1">
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
                       Message <span className="text-red-500">*</span>
                     </label>
                     <textarea
                       name="message"
                       value={formData.message}
                       onChange={handleChange}
-                      rows={5}
+                      rows={6}
                       required
-                      className="w-full rounded border border-gray-300 bg-white px-3 py-2 text-xs sm:text-sm text-gray-900 focus:border-green-600 focus:outline-none focus:ring-1 focus:ring-green-600 resize-none"
+                      className="w-full rounded-md border border-gray-300 bg-white px-4 py-2 text-gray-900 focus:border-green-600 focus:outline-none focus:ring-1 focus:ring-green-600"
                       placeholder="Tell us how we can help you..."
                     ></textarea>
                   </div>
                   
                   {contactError && (
-                    <div className="bg-red-50 border border-red-200 rounded p-3">
-                      <p className="text-red-600 text-xs sm:text-sm">
+                    <div className="bg-red-50 border border-red-200 rounded-md p-4">
+                      <p className="text-red-600 text-sm">
                         {contactError.message || 'An error occurred. Please try again.'}
                       </p>
                     </div>
                   )}
                   
-                  <button
+                  <Button
                     type="submit"
+                    variant="primary"
+                    size="lg"
+                    leftIcon={<Send className="h-5 w-5" />}
+                    isLoading={contactSubmitting}
                     disabled={contactSubmitting}
-                    className="w-full bg-green-600 hover:bg-green-700 text-white font-normal py-2.5 px-4 rounded text-xs sm:text-sm transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                    fullWidth
                   >
-                    {contactSubmitting ? (
-                      <>
-                        <div className="animate-spin rounded-full h-3 w-3 border-b-2 border-white"></div>
-                        Sending...
-                      </>
-                    ) : (
-                      <>
-                        <Send className="h-3 w-3 sm:h-4 sm:w-4" />
-                        Send Message
-                      </>
-                    )}
-                  </button>
+                    {contactSubmitting ? 'Sending...' : 'Send Message'}
+                  </Button>
                 </form>
               )}
             </div>
 
             {/* Additional Info */}
             <div>
-              <h2 className="text-lg sm:text-xl font-normal mb-4 text-[#0f1111]">Need Immediate Help?</h2>
+              <h2 className="text-3xl font-bold mb-6">Get In Touch</h2>
 
               {/* Quick Contact */}
-              <div className="bg-gray-50 border border-gray-200 rounded p-4 sm:p-5">
-                <p className="text-xs sm:text-sm text-gray-600 mb-4 leading-relaxed">
+              <div className="bg-green-600 text-white rounded-lg p-6">
+                <h3 className="text-lg font-semibold mb-4 flex items-center">
+                  <Headphones className="h-5 w-5 mr-2" />
+                  Need Immediate Help?
+                </h3>
+                <p className="text-gray-200 mb-4">
                   Our customer support team is available 24/7 to assist you with any questions or concerns.
                 </p>
-                <div className="flex flex-col gap-2">
-                  <button 
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <Button 
+                    variant="secondary" 
+                    size="sm" 
+                    className="flex-1"
                     onClick={handleCallNow}
-                    className="w-full bg-green-600 hover:bg-green-700 text-white font-normal py-2 px-4 rounded text-xs sm:text-sm transition-colors"
                   >
                     Call Now
-                  </button>
-                  <button 
+                  </Button>
+                  <Button 
+                    variant="outline" 
+                    size="sm" 
+                    className="flex-1 border-white text-white hover:bg-white hover:text-green-700"
                     onClick={handleLiveChat}
-                    className="w-full border border-gray-300 text-gray-700 hover:bg-gray-50 font-normal py-2 px-4 rounded text-xs sm:text-sm transition-colors"
                   >
                     Live Chat
-                  </button>
+                  </Button>
                 </div>
               </div>
             </div>
@@ -335,31 +337,36 @@ const ContactPage = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-6 sm:py-8 bg-gray-50">
-        <div className="container mx-auto px-3 sm:px-4 max-w-7xl">
-          <div className="mb-4 sm:mb-6">
-            <h2 className="text-lg sm:text-xl font-normal mb-2 text-[#0f1111]">Frequently Asked Questions</h2>
-            <p className="text-xs sm:text-sm text-gray-600">
-              Quick answers to common questions about our products and services
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
-            {faqs.map((faq, index) => (
-              <div key={index} className="bg-white border border-gray-200 p-4 rounded">
-                <h3 className="text-sm font-normal mb-2 text-[#0f1111]">{faq.question}</h3>
-                <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">{faq.answer}</p>
-              </div>
-            ))}
-          </div>
-          
-          <div className="text-center mt-4 sm:mt-6">
-            <button 
-              onClick={() => setIsFAQModalOpen(true)}
-              className="text-xs sm:text-sm text-green-700 hover:text-green-800 hover:underline"
-            >
-              View All FAQs →
-            </button>
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold mb-4">Frequently Asked Questions</h2>
+              <p className="text-gray-600">
+                Quick answers to common questions about our products and services
+              </p>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {faqs.map((faq, index) => (
+                <div key={index} className="bg-white p-6 rounded-lg shadow-sm">
+                  <h3 className="font-semibold mb-3">{faq.question}</h3>
+                  <p className="text-gray-600">{faq.answer}</p>
+                </div>
+              ))}
+            </div>
+            
+            <div className="text-center mt-8">
+              <p className="text-gray-600 mb-4">
+                Can't find what you're looking for?
+              </p>
+              <Button 
+                variant="outline"
+                onClick={() => setIsFAQModalOpen(true)}
+              >
+                View All FAQs
+              </Button>
+            </div>
           </div>
         </div>
       </section>
@@ -371,28 +378,36 @@ const ContactPage = () => {
       />
 
       {/* Support Team */}
-      <section className="py-6 sm:py-8 bg-white">
-        <div className="container mx-auto px-3 sm:px-4 max-w-7xl">
+      <section className="py-16">
+        <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="bg-gray-50 border border-gray-200 rounded p-6 sm:p-8">
-              <h2 className="text-lg sm:text-xl font-normal mb-3 text-[#0f1111]">Ready to Go Green?</h2>
-              <p className="text-xs sm:text-sm text-gray-600 mb-6 leading-relaxed">
-                Get instant support through WhatsApp or call our dedicated team.
+            <div className="bg-gradient-to-r from-green-600 to-green-700 text-white rounded-2xl p-12">
+              <div className="bg-white/10 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                <Users className="h-10 w-10" />
+              </div>
+              <h2 className="text-3xl font-bold mb-4">Ready to Go Green?</h2>
+              <p className="text-xl text-gray-200 mb-8">
+                Get instant support through WhatsApp or call our dedicated team at 88610 09443.
                 Experience quality certified refurbished electronics with expert guidance.
               </p>
-              <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                <button 
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button 
+                  variant="secondary" 
+                  size="lg"
                   onClick={handleLiveChat}
-                  className="bg-green-600 hover:bg-green-700 text-white font-normal py-2 px-4 rounded text-xs sm:text-sm transition-colors"
+                  leftIcon={<MessageCircle className="h-5 w-5" />}
                 >
                   Chat on WhatsApp
-                </button>
-                <button 
+                </Button>
+                <Button 
+                  variant="outline" 
+                  size="lg" 
+                  className="border-white text-white hover:bg-white hover:text-green-700"
                   onClick={handleCallNow}
-                  className="border border-gray-300 text-gray-700 hover:bg-gray-50 font-normal py-2 px-4 rounded text-xs sm:text-sm transition-colors"
+                  leftIcon={<Phone className="h-5 w-5" />}
                 >
-                  Call Us
-                </button>
+                  Call 88610 09443
+                </Button>
               </div>
             </div>
           </div>

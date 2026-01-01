@@ -120,9 +120,9 @@ const ProductInfo = ({
   };
 
   return (
-    <div className="p-3 sm:p-4 flex flex-col">
-      <div className="mb-1 text-[11px] text-gray-500">{typeName}</div>
-      <h1 className="text-base sm:text-lg md:text-xl font-normal mb-2 break-words overflow-hidden text-[#0f1111] leading-snug">{product.name}</h1>
+    <div className="p-4 sm:p-6 flex flex-col">
+      <div className="mb-1 text-xs sm:text-sm text-gray-500">{typeName}</div>
+      <h1 className="text-xl sm:text-2xl md:text-3xl font-bold mb-2 break-words overflow-hidden">{product.name}</h1>
       
       <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-4">
         <div className="flex items-center">
@@ -165,35 +165,124 @@ const ProductInfo = ({
         )}
       </div>
       
-      {/* Price Display */}
-      <div className="mb-4 sm:mb-5">
-        <div className="bg-white border border-gray-200 rounded p-3 sm:p-4">
-          <div className="flex items-baseline gap-2 mb-2 flex-wrap">
-            <span className="text-lg sm:text-xl md:text-2xl font-normal text-green-700">
-              ₹{currentPrice.toLocaleString('en-IN', { maximumFractionDigits: 0 })}
-            </span>
-            {originalPrice > currentPrice && (
-              <span className="text-xs sm:text-sm text-gray-500 line-through">
-                ₹{originalPrice.toLocaleString('en-IN', { maximumFractionDigits: 0 })}
-              </span>
+      {/* Innovative Price Display */}
+      <div className="mb-4 sm:mb-6">
+        <div className="bg-gradient-to-br from-green-50 to-emerald-50 border-2 border-green-200 rounded-xl sm:rounded-2xl p-4 sm:p-6 relative overflow-hidden">
+          {/* Background Pattern */}
+         
+          
+          <div className="relative z-10">
+            {/* Price Header */}
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-3 sm:mb-4 gap-2">
+              <div className="flex items-center">
+                <div className="w-6 h-6 sm:w-8 sm:h-8 bg-green-600 rounded-full flex items-center justify-center mr-2 sm:mr-3">
+                  <Zap className="h-3 w-3 sm:h-4 sm:w-4 text-white" />
+                </div>
+                <h3 className="text-sm sm:text-base md:text-lg font-bold text-green-800">Certified Refurbished Price</h3>
+              </div>
+              {discountPercentage > 0 && (
+                <div className="bg-red-500 text-white px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-bold animate-pulse">
+                  {discountPercentage}% OFF
+                </div>
+              )}
+            </div>
+
+            {/* Main Price Display */}
+            <div className="flex flex-col sm:flex-row sm:items-end mb-3 sm:mb-4 gap-2 flex-wrap">
+              <div className="flex items-baseline flex-wrap">
+                <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-green-700 break-words">
+                  ₹{currentPrice.toLocaleString('en-IN')}
+                </span>
+                <span className="text-xs sm:text-sm md:text-base lg:text-lg text-green-600 ml-1 sm:ml-2">.00</span>
+              </div>
+              {originalPrice > currentPrice && (
+                <div className="flex flex-col flex-shrink-0">
+                  <span className="text-xs sm:text-sm md:text-base lg:text-lg text-gray-500 line-through whitespace-nowrap">
+                    ₹{originalPrice.toLocaleString('en-IN')}
+                  </span>
+                  <span className="text-xs sm:text-sm text-red-600 font-semibold">
+                    Original Price
+                  </span>
+                </div>
+              )}
+            </div>
+
+            {/* Savings Breakdown */}
+            {savings > 0 && (
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-4 mb-3 sm:mb-4">
+                <div className="bg-white/70 backdrop-blur-sm rounded-lg p-2 sm:p-3 text-center border border-green-300">
+                  <div className="flex items-center justify-center mb-1">
+                    <TrendingDown className="h-3 w-3 sm:h-4 sm:w-4 text-green-600 mr-1" />
+                    <span className="text-xs font-medium text-green-800">YOU SAVE</span>
+                  </div>
+                  <div className="text-lg sm:text-xl font-bold text-green-700">
+                    ₹{savings.toLocaleString('en-IN')}
+                  </div>
+                </div>
+                
+                <div className="bg-white/70 backdrop-blur-sm rounded-lg p-2 sm:p-3 text-center border border-green-300">
+                  <div className="flex items-center justify-center mb-1">
+                    <Percent className="h-3 w-3 sm:h-4 sm:w-4 text-green-600 mr-1" />
+                    <span className="text-xs font-medium text-green-800">DISCOUNT</span>
+                  </div>
+                  <div className="text-lg sm:text-xl font-bold text-green-700">
+                    {discountPercentage}%
+                  </div>
+                </div>
+                
+                <div className="bg-white/70 backdrop-blur-sm rounded-lg p-2 sm:p-3 text-center border border-green-300">
+                  <div className="flex items-center justify-center mb-1">
+                    <Calculator className="h-3 w-3 sm:h-4 sm:w-4 text-green-600 mr-1" />
+                    <span className="text-xs font-medium text-green-800">TOTAL SAVINGS</span>
+                  </div>
+                  <div className="text-lg sm:text-xl font-bold text-green-700">
+                    ₹{totalSavings.toLocaleString('en-IN')}
+                  </div>
+                </div>
+              </div>
             )}
-            {discountPercentage > 0 && (
-              <span className="bg-red-500 text-white px-1.5 py-0.5 rounded text-[10px] sm:text-xs font-medium">
-                {discountPercentage}% OFF
-              </span>
+
+            {/* Price Comparison */}
+            <div className="bg-white/50 rounded-lg p-3 sm:p-4 border border-green-200">
+              <div className="flex items-center justify-between text-xs sm:text-sm">
+                <span className="text-gray-700">Market Price (New):</span>
+                <span className="font-semibold text-gray-800">₹{originalPrice.toLocaleString('en-IN')}</span>
+              </div>
+              <div className="flex items-center justify-between text-xs sm:text-sm mt-1">
+                <span className="text-green-700 font-medium">Reeown Price:</span>
+                <span className="font-bold text-green-700">₹{currentPrice.toLocaleString('en-IN')}</span>
+              </div>
+              {savings > 0 && (
+                <div className="flex items-center justify-between text-xs sm:text-sm mt-2 pt-2 border-t border-green-200">
+                  <span className="text-green-800 font-bold">Your Savings:</span>
+                  <span className="font-bold text-green-800 text-base sm:text-lg">₹{savings.toLocaleString('en-IN')}</span>
+                </div>
+              )}
+            </div>
+
+            {/* Quantity-based savings */}
+            {quantity > 1 && savings > 0 && (
+              <div className="mt-2 sm:mt-3 bg-gradient-to-r from-green-100 to-emerald-100 rounded-lg p-2 sm:p-3 border border-green-300">
+                <div className="flex items-center justify-center">
+                  <Calculator className="h-3 w-3 sm:h-4 sm:w-4 text-green-700 mr-1 sm:mr-2" />
+                  <span className="text-xs sm:text-sm font-bold text-green-800">
+                    Total Savings with {quantity} items: ₹{totalSavings.toLocaleString('en-IN')}
+                  </span>
+                </div>
+              </div>
             )}
           </div>
         </div>
       </div>
       
-      <div className="mb-3 sm:mb-4">
-        <p className={`text-xs sm:text-sm text-gray-600 leading-relaxed ${isDescriptionExpanded ? '' : 'line-clamp-3'}`}>
+      <div className="mb-4 sm:mb-6">
+        <p className={`text-sm sm:text-base text-gray-600 ${isDescriptionExpanded ? '' : 'line-clamp-3'}`}>
           {product.description}
         </p>
-        {product.description && product.description.length > 150 && (
+        {product.description.length > 150 && (
           <button
             onClick={() => setIsDescriptionExpanded(!isDescriptionExpanded)}
-            className="text-green-700 text-[11px] sm:text-xs font-normal hover:text-green-800 mt-1"
+            className="text-green-700 text-xs sm:text-sm font-medium hover:text-emerald-600 mt-1"
           >
             {isDescriptionExpanded ? 'Show less' : 'Read more'}
           </button>
@@ -202,13 +291,13 @@ const ProductInfo = ({
       
       {/* Key Features */}
       {product.features && product.features.length > 0 && (
-        <div className="mb-3 sm:mb-4">
-          <h3 className="text-xs sm:text-sm font-normal mb-2 text-[#0f1111]">Key Features</h3>
+        <div className="mb-4 sm:mb-6">
+          <h3 className="text-sm sm:text-base font-semibold mb-2">Key Features</h3>
           <ul className="space-y-1">
             {product.features.map((feature, index) => (
               <li key={index} className="flex items-start">
-                <Check className="h-3 w-3 text-green-700 mr-1.5 flex-shrink-0 mt-0.5" />
-                <span className="text-xs text-gray-600 leading-relaxed">{feature}</span>
+                <Check className="h-4 w-4 sm:h-5 sm:w-5 text-green-700 mr-2 flex-shrink-0 mt-0.5" />
+                <span className="text-xs sm:text-sm text-gray-700">{feature}</span>
               </li>
             ))}
           </ul>
@@ -344,16 +433,16 @@ const ProductInfo = ({
       </div>
       
       {/* Quantity Selector and Add to Cart */}
-      <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 mb-4">
-        <div className={`flex items-center border border-gray-300 rounded w-full sm:w-32 ${
+      <div className="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-3 mb-4 sm:mb-6">
+        <div className={`flex items-center border border-gray-300 rounded-md w-full sm:w-36 ${
           product.stock === 0 ? 'opacity-50' : ''
         }`}>
           <button
             onClick={decrementQuantity}
             disabled={quantity <= 1 || product.stock === 0}
-            className="h-9 w-9 flex items-center justify-center text-gray-600 hover:text-green-700 disabled:opacity-50"
+            className="h-10 w-10 flex items-center justify-center text-gray-600 hover:text-green-700 disabled:opacity-50"
           >
-            <Minus className="h-3.5 w-3.5" />
+            <Minus className="h-4 w-4" />
           </button>
           <input
             type="number"
@@ -364,7 +453,7 @@ const ProductInfo = ({
                 setQuantity(val);
               }
             }}
-            className="h-9 w-12 border-0 text-center text-xs sm:text-sm focus:ring-0"
+            className="h-10 w-16 border-0 text-center text-sm sm:text-base focus:ring-0"
             min="1"
             max={product.stock}
             disabled={product.stock === 0}
@@ -372,27 +461,30 @@ const ProductInfo = ({
           <button
             onClick={incrementQuantity}
             disabled={quantity >= product.stock || product.stock === 0}
-            className="h-9 w-9 flex items-center justify-center text-gray-600 hover:text-green-700 disabled:opacity-50"
+            className="h-10 w-10 flex items-center justify-center text-gray-600 hover:text-green-700 disabled:opacity-50"
           >
-            <Plus className="h-3.5 w-3.5" />
+            <Plus className="h-4 w-4" />
           </button>
         </div>
-        <button
+        <Button
+          variant="primary"
+          size="lg"
+          leftIcon={<ShoppingCart className="h-4 w-4 sm:h-5 sm:w-5" />}
           onClick={handleAddToCart}
           disabled={product.stock === 0}
-          className={`flex-1 h-9 bg-green-600 hover:bg-green-700 text-white font-normal rounded text-xs sm:text-sm transition-colors disabled:bg-gray-300 disabled:cursor-not-allowed flex items-center justify-center gap-1.5 ${product.stock === 0 ? '' : ''}`}
+          fullWidth
+          className={`flex-1 text-sm sm:text-base ${product.stock === 0 ? 'bg-gray-400 cursor-not-allowed hover:bg-gray-400' : ''}`}
         >
-          <ShoppingCart className="h-3.5 w-3.5" />
           {product.stock === 0 ? 'Sold Out' : 'Add to Cart'}
-        </button>
+        </Button>
         <button
           onClick={handleToggleWishlist}
           disabled={isWishlistLoading}
-          className="w-full sm:w-10 h-9 flex items-center justify-center border border-gray-300 rounded hover:border-red-400 transition-all duration-200 flex-shrink-0"
+          className="w-full sm:w-14 h-10 flex items-center justify-center border-2 border-gray-300 rounded-md hover:border-red-500 hover:bg-red-50 transition-all duration-200 flex-shrink-0"
           aria-label={isInWishlist ? 'Remove from wishlist' : 'Add to wishlist'}
         >
           <Heart
-            className={`h-4 w-4 transition-all duration-200 ${
+            className={`h-5 w-5 transition-all duration-200 ${
               isInWishlist
                 ? 'text-red-500 fill-red-500'
                 : 'text-gray-400'
@@ -402,22 +494,22 @@ const ProductInfo = ({
       </div>
       
       {/* Benefits */}
-      <div className="space-y-2 mb-4 border-t border-gray-200 pt-3">
+      <div className="space-y-2 sm:space-y-3 mb-4 sm:mb-6 border-t border-gray-100 pt-3 sm:pt-4">
         <div className="flex items-start">
-          <TruckIcon className="h-3.5 w-3.5 text-green-700 mr-2 flex-shrink-0 mt-0.5" />
-          <span className="text-xs text-gray-600 leading-relaxed">Free shipping on all certified refurbished devices across India. EMI available on products over ₹1,500 at checkout.</span>
+          <TruckIcon className="h-4 w-4 sm:h-5 sm:w-5 text-green-700 mr-2 sm:mr-3 flex-shrink-0 mt-0.5" />
+          <span className="text-xs sm:text-sm">Free shipping on all certified refurbished devices across India. EMI available on products over ₹1,500 at checkout.</span>
         </div>
         
         <div className="flex items-start">
-          <ShieldCheck className="h-3.5 w-3.5 text-green-700 mr-2 flex-shrink-0 mt-0.5" />
-          <span className="text-xs text-gray-600 leading-relaxed">
+          <ShieldCheck className="h-4 w-4 sm:h-5 sm:w-5 text-green-700 mr-2 sm:mr-3 flex-shrink-0 mt-0.5" />
+          <span className="text-xs sm:text-sm">
             {(product.warranty && product.warranty) || '6 months'} warranty on certified refurbished device
           </span>
         </div>
       </div>
       
-      <div className="border-t border-gray-200 pt-3 mt-auto">
-        <div className="flex flex-col sm:flex-row items-start sm:items-center text-[10px] sm:text-xs gap-1 sm:gap-0">
+      <div className="border-t border-gray-100 pt-3 sm:pt-4 mt-auto">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center text-xs sm:text-sm gap-1 sm:gap-0">
           <span className="text-gray-500">SKU: {product._id ? String(product._id).substring(0, 8) + '...' : 'N/A'}</span>
           <span className="mx-2 text-gray-300 hidden sm:inline">|</span>
           <span className="text-gray-500">Collection: {safeCollectionName}</span>
