@@ -145,6 +145,7 @@ const ProductImages = ({ product, activeImage, setActiveImage }) => {
             NEW
           </div>
         )}
+        </div>
       </div>
       
       {productImages.length > 1 && (
