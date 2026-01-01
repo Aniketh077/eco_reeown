@@ -601,51 +601,51 @@ const Header = () => {
                  )}
                </li>
 
-               <li>
-                 <Link
-                   to="/products?filter=featured"
-                   className="block px-4 py-3 text-sm font-medium text-gray-900 hover:bg-gray-50"
-                 >
-                   Featured Products
-                 </Link>
-               </li>
-               <li>
-                 <Link
-                   to="/products?filter=new"
-                   className="block px-4 py-3 text-sm font-medium text-gray-900 hover:bg-gray-50"
-                 >
-                   New Arrivals
-                 </Link>
-               </li>
-               <li>
-                 <Link
-                   to="/about"
-                   className="block px-4 py-3 text-sm font-medium text-gray-900 hover:bg-gray-50"
-                 >
-                   About
-                 </Link>
-               </li>
-               <li>
-                 <Link
-                   to="/contact"
-                   className="block px-4 py-3 text-sm font-medium text-gray-900 hover:bg-gray-50"
-                 >
-                   Contact
-                 </Link>
-               </li>
-               <li className="px-4 py-3 border-t border-gray-200">
-                 <Button
-                   fullWidth
-                   onClick={() => {
-                     setIsSellerModalOpen(true);
-                     setIsMenuOpen(false);
-                   }}
-                   variant="primary"
-                   className="bg-green-600 hover:bg-green-700"
-                 >
-                   Join as Seller
-                 </Button>
-               </li>
+                <li>
+                  <Link
+                    to="/products?filter=featured"
+                    className="block px-4 py-3 text-sm font-medium text-white hover:bg-[#131921]"
+                  >
+                    Featured Products
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/products?filter=new"
+                    className="block px-4 py-3 text-sm font-medium text-white hover:bg-[#131921]"
+                  >
+                    New Arrivals
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/about"
+                    className="block px-4 py-3 text-sm font-medium text-white hover:bg-[#131921]"
+                  >
+                    About
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/contact"
+                    className="block px-4 py-3 text-sm font-medium text-white hover:bg-[#131921]"
+                  >
+                    Contact
+                  </Link>
+                </li>
+                <li className="px-4 py-3 border-t border-gray-600">
+                  <Button
+                    fullWidth
+                    onClick={() => {
+                      setIsSellerModalOpen(true);
+                      setIsMenuOpen(false);
+                    }}
+                    variant="primary"
+                    className="bg-[#ffd814] hover:bg-[#f7ca00] text-[#131921] font-semibold"
+                  >
+                    Join as Seller
+                  </Button>
+                </li>
                {!isAuthenticated ? (
                  <li className="px-4 py-3">
                    <div className="flex flex-col space-y-2">
