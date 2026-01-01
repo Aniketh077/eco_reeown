@@ -359,11 +359,6 @@ const Header = () => {
 
              {/* Desktop Left Content */}
              <div className="hidden lg:flex items-center space-x-3 sm:space-x-4">
-                {isScrolled && (
-                    <button onClick={toggleScrolledNav} className="p-1.5 -ml-2 rounded-full hover:bg-gray-100" aria-label="Open navigation menu">
-                        {isScrolledNavOpen ? <X className="h-5 w-5 text-[#01364a]" /> : <Menu className="h-5 w-5 text-[#01364a]" />}
-                    </button>
-                )}
                 <Link to="/" className="flex items-center flex-shrink-0">
                   <span className="text-xl sm:text-2xl font-bold text-[#01364a]">Ree<span className="text-green-600">own</span></span>
                 </Link>
