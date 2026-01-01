@@ -23,7 +23,13 @@ const fileFilter = (req, file, cb) => {
   if (mimetype && extname) {
     return cb(null, true);
   } else {
-    cb(new Error('Only image files are allowed!'), false);
+    const errorMessage = `Invalid file type. Only image files are allowed (jpeg, jpg, png, gif, webp). Received: ${file.mimetype || 'unknown'} (${path.extname(file.originalname) || 'no extension'})`;
+    console.error('File upload rejected:', {
+      filename: file.originalname,
+      mimetype: file.mimetype,
+      extname: path.extname(file.originalname)
+    });
+    cb(new Error(errorMessage), false);
   }
 };
 

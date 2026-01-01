@@ -1,6 +1,18 @@
 import axios from 'axios';
 
-const BASE_URL =  import.meta.env.VITE_BACKEND_URL;
+// Normalize base URL - remove trailing /api if present, then add it
+let BASE_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000';
+
+// Remove trailing slash
+BASE_URL = BASE_URL.replace(/\/$/, '');
+
+// Remove /api if it exists at the end (to prevent double /api/api)
+if (BASE_URL.endsWith('/api')) {
+  BASE_URL = BASE_URL.slice(0, -4);
+}
+
+// Add /api to base URL
+BASE_URL = `${BASE_URL}/api`;
 
 const axiosInstance = axios.create({
   baseURL: BASE_URL,
