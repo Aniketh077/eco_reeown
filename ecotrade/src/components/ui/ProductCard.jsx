@@ -208,7 +208,7 @@ const ProductCard = ({ product, viewMode = 'grid', showGamification = false }) =
   }
 
   return (
-    <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden hover:shadow-lg hover:border-orange-300 transition-all duration-200 group relative flex flex-col h-full">
+    <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden hover:shadow-lg hover:border-green-300 transition-all duration-200 group relative flex flex-col h-full">
 
       {/* Gamification Badges */}
       {showGamification && (
@@ -287,7 +287,7 @@ const ProductCard = ({ product, viewMode = 'grid', showGamification = false }) =
           })()}
         </div>
         <Link to={`/product/${product._id}`} className="flex-1 flex flex-col min-h-0">
-          <h3 className="font-medium mb-1.5 line-clamp-2 text-xs sm:text-sm hover:text-orange-600 transition-colors break-words overflow-hidden leading-snug">
+          <h3 className="font-medium mb-1.5 line-clamp-2 text-xs sm:text-sm hover:text-green-700 transition-colors break-words overflow-hidden leading-snug">
             {product && product.name ? String(product.name) : 'Product'}
           </h3>
         </Link>
@@ -295,9 +295,9 @@ const ProductCard = ({ product, viewMode = 'grid', showGamification = false }) =
         {/* Quality Check Badge */}
         {product.qualityCheckPoints && (
           <div className="flex items-center mb-1.5 flex-shrink-0">
-            <div className="bg-orange-50 border border-orange-200 rounded px-1.5 py-0.5 flex items-center max-w-full">
-              <CheckCircle className="h-2.5 w-2.5 text-orange-600 mr-1 flex-shrink-0" />
-              <span className="text-[10px] sm:text-xs font-medium text-orange-700 truncate">
+            <div className="bg-green-50 border border-green-200 rounded px-1.5 py-0.5 flex items-center max-w-full">
+              <CheckCircle className="h-2.5 w-2.5 text-green-600 mr-1 flex-shrink-0" />
+              <span className="text-[10px] sm:text-xs font-medium text-green-700 truncate">
                 {product.qualityCheckPoints}-Point Check
               </span>
             </div>
@@ -316,7 +316,7 @@ const ProductCard = ({ product, viewMode = 'grid', showGamification = false }) =
         <div className="flex items-center justify-between mb-1.5 flex-shrink-0">
           {product.discountPrice ? (
             <div className="flex flex-col gap-0.5">
-              <span className="text-sm sm:text-base font-bold text-[#B12704] whitespace-nowrap">
+              <span className="text-sm sm:text-base font-bold text-green-700 whitespace-nowrap">
                 ₹{product.discountPrice.toFixed(2)}
               </span>
               <span className="text-[10px] sm:text-xs text-gray-500 line-through whitespace-nowrap">
@@ -324,7 +324,7 @@ const ProductCard = ({ product, viewMode = 'grid', showGamification = false }) =
               </span>
             </div>
           ) : (
-            <span className="text-sm sm:text-base font-bold text-[#B12704] whitespace-nowrap">
+            <span className="text-sm sm:text-base font-bold text-green-700 whitespace-nowrap">
               ₹{product.price.toFixed(2)}
             </span>
           )}

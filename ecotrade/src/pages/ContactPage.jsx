@@ -148,11 +148,11 @@ const ContactPage = () => {
   return (
     <div className="min-h-screen pt-20 pb-16">
       {/* Hero Section */}
-      <section className="py-14 sm:py-18 md:py-20 bg-gradient-to-br from-[#131921] via-[#232f3e] to-[#131921] text-white">
+      <section className="py-14 sm:py-18 md:py-20 bg-gradient-to-br from-green-600 to-green-700 text-white">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 sm:mb-8 tracking-tight">Get in Touch</h1>
-            <p className="text-lg sm:text-xl md:text-2xl text-gray-300 px-2 leading-relaxed font-normal">
+            <p className="text-lg sm:text-xl md:text-2xl text-gray-100 px-2 leading-relaxed font-normal">
               Have questions about our refurbished electronics? Our expert team is ready to help you find the perfect device for your needs.
             </p>
           </div>
@@ -164,9 +164,9 @@ const ContactPage = () => {
         <div className="container mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6 max-w-7xl mx-auto">
             {contactInfo.map((info, index) => (
-              <div key={index} className="bg-white border-2 border-gray-200 p-6 sm:p-8 rounded-lg shadow-sm hover:shadow-lg hover:border-orange-400 transition-all duration-200 flex flex-col h-full">
-                <div className="bg-orange-50 w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center mb-5 sm:mb-6 flex-shrink-0">
-                  <info.icon className="h-7 w-7 sm:h-8 sm:w-8 text-orange-600" />
+              <div key={index} className="bg-white border-2 border-gray-200 p-6 sm:p-8 rounded-lg shadow-sm hover:shadow-lg hover:border-green-400 transition-all duration-200 flex flex-col h-full">
+                <div className="bg-green-50 w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center mb-5 sm:mb-6 flex-shrink-0">
+                  <info.icon className="h-7 w-7 sm:h-8 sm:w-8 text-green-600" />
                 </div>
                 <h3 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-5 text-gray-900 tracking-tight">{info.title}</h3>
                 <div className="space-y-2 sm:space-y-3 mb-6 sm:mb-8 flex-1">
@@ -176,7 +176,7 @@ const ContactPage = () => {
                 </div>
                 <button 
                   onClick={info.onClick}
-                  className="w-full bg-[#ffd814] hover:bg-[#f7ca00] text-[#131921] font-semibold py-3 sm:py-4 px-4 sm:px-6 rounded-lg transition-all duration-200 text-sm sm:text-base mt-auto shadow-sm hover:shadow-md"
+                  className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 sm:py-4 px-4 sm:px-6 rounded-lg transition-all duration-200 text-sm sm:text-base mt-auto shadow-sm hover:shadow-md"
                 >
                   {info.action}
                 </button>

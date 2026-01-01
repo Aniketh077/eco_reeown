@@ -253,17 +253,17 @@ const Header = () => {
   const DesktopNavLinks = () => (
     <ul className="flex items-center space-x-1 sm:space-x-2 xl:space-x-3 flex-wrap">
       <li>
-        <Link to="/" className="px-2 py-1 text-sm font-medium transition-colors hover:text-orange-300 text-white whitespace-nowrap hover:outline hover:outline-1 hover:outline-white rounded">
+        <Link to="/" className="px-3 py-1.5 text-sm font-medium transition-colors hover:text-green-600 text-gray-900 whitespace-nowrap hover:bg-gray-100 rounded">
           Home
         </Link>
       </li>
       <li>
-        <Link to="/products" className="px-2 py-1 text-sm font-medium transition-colors hover:text-orange-300 text-white whitespace-nowrap hover:outline hover:outline-1 hover:outline-white rounded">
+        <Link to="/products" className="px-3 py-1.5 text-sm font-medium transition-colors hover:text-green-600 text-gray-900 whitespace-nowrap hover:bg-gray-100 rounded">
           All Products
         </Link>
       </li>
       <li className="relative group">
-        <Link to="/products/smartphones" className="px-2 py-1 text-sm font-medium transition-colors hover:text-orange-300 text-white flex items-center whitespace-nowrap hover:outline hover:outline-1 hover:outline-white rounded">
+        <Link to="/products/smartphones" className="px-3 py-1.5 text-sm font-medium transition-colors hover:text-green-600 text-gray-900 flex items-center whitespace-nowrap hover:bg-gray-100 rounded">
           Smartphones
           <ChevronDown className="ml-1 h-3 w-3 relative top-[3px]" />
         </Link>
@@ -289,7 +289,7 @@ const Header = () => {
         </div>
       </li>
       <li className="relative group">
-        <Link to="/products/laptops" className="px-2 py-1 text-sm font-medium transition-colors hover:text-orange-300 text-white flex items-center whitespace-nowrap hover:outline hover:outline-1 hover:outline-white rounded">
+        <Link to="/products/laptops" className="px-3 py-1.5 text-sm font-medium transition-colors hover:text-green-600 text-gray-900 flex items-center whitespace-nowrap hover:bg-gray-100 rounded">
           Laptops <ChevronDown className="ml-1 h-3 w-3 relative top-[3px]" />
         </Link>
         <div className="absolute left-0 top-full mt-2 bg-white shadow-lg rounded-md p-4 sm:p-6 z-50 transition-all duration-300 transform opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 translate-y-2 w-full sm:w-auto" style={{ minWidth: "min(500px, 90vw)" }}>
@@ -313,18 +313,18 @@ const Header = () => {
           </div>
         </div>
       </li>
-      <li><Link to="/products?filter=new" className="px-2 py-1 text-sm font-medium transition-colors hover:text-orange-300 text-white whitespace-nowrap hover:outline hover:outline-1 hover:outline-white rounded">New Arrivals</Link></li>
-      <li><Link to="/products?filter=featured" className="px-2 py-1 text-sm font-medium transition-colors hover:text-orange-300 text-white whitespace-nowrap hover:outline hover:outline-1 hover:outline-white rounded">Featured</Link></li>
+      <li><Link to="/products?filter=new" className="px-3 py-1.5 text-sm font-medium transition-colors hover:text-green-600 text-gray-900 whitespace-nowrap hover:bg-gray-100 rounded">New Arrivals</Link></li>
+      <li><Link to="/products?filter=featured" className="px-3 py-1.5 text-sm font-medium transition-colors hover:text-green-600 text-gray-900 whitespace-nowrap hover:bg-gray-100 rounded">Featured</Link></li>
       <li className="relative group">
-        <button className="px-2 py-1 text-sm font-medium transition-colors hover:text-orange-300 text-white flex items-center whitespace-nowrap hover:outline hover:outline-1 hover:outline-white rounded">
+        <button className="px-3 py-1.5 text-sm font-medium transition-colors hover:text-green-600 text-gray-900 flex items-center whitespace-nowrap hover:bg-gray-100 rounded">
           More
           <ChevronDown className="ml-1 h-3 w-3 relative top-[3px]" />
         </button>
         <div className="absolute right-0 top-full mt-1 bg-white shadow-xl rounded-md py-2 z-50 transition-all duration-300 transform opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 translate-y-2 min-w-[140px] border border-gray-200">
-          <Link to="/about" className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-orange-50 hover:text-orange-600 transition-colors">
+          <Link to="/about" className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-green-50 hover:text-green-700 transition-colors">
             About
           </Link>
-          <Link to="/contact" className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-orange-50 hover:text-orange-600 transition-colors">
+          <Link to="/contact" className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-green-50 hover:text-green-700 transition-colors">
             Contact
           </Link>
         </div>
@@ -443,7 +443,7 @@ const Header = () => {
 
        {/* --- Mobile Menu --- */}
        {isMobileMenuBreakpoint && isMenuOpen && (
-        <div className="bg-[#232f3e] pb-4 max-h-[calc(100vh-80px)] overflow-y-auto">
+        <div className="bg-white border-t border-gray-200 pb-4 max-h-[calc(100vh-80px)] overflow-y-auto">
               <form onSubmit={handleSearch} className="mb-4 px-4 pt-4 flex items-center">
                 <div className="relative w-full flex">
                   <input
@@ -451,21 +451,21 @@ const Header = () => {
                     placeholder="Search products..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    className="flex-1 rounded-l-md border-0 pl-3 pr-10 py-2.5 text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-400"
+                    className="flex-1 rounded-l-md border border-gray-300 pl-3 pr-10 py-2.5 text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-green-600 focus:border-green-600"
                   />
                   <button
                     type="submit"
-                    className="bg-[#febd69] hover:bg-[#f3a847] px-4 rounded-r-md transition-colors"
+                    className="bg-green-600 hover:bg-green-700 px-4 rounded-r-md transition-colors"
                   >
-                    <Search className="h-4 w-4 text-[#131921]" />
+                    <Search className="h-4 w-4 text-white" />
                   </button>
                 </div>
               </form>
-              <ul className="divide-y divide-gray-600 max-h-fit overflow-y-auto">
+              <ul className="divide-y divide-gray-200 max-h-fit overflow-y-auto">
                 <li>
                   <Link
                     to="/"
-                    className="block px-4 py-3 text-sm font-medium text-white hover:bg-[#131921]"
+                    className="block px-4 py-3 text-sm font-medium text-gray-900 hover:bg-gray-100"
                   >
                     Home
                   </Link>
@@ -473,7 +473,7 @@ const Header = () => {
                 <li>
                   <Link
                     to="/products"
-                    className="block px-4 py-3 text-sm font-medium text-white hover:bg-[#131921]"
+                    className="block px-4 py-3 text-sm font-medium text-gray-900 hover:bg-gray-100"
                   >
                     All Products
                   </Link>
@@ -489,7 +489,7 @@ const Header = () => {
                          : "smartphones-mobile"
                      )
                    }
-                    className="flex items-center justify-between w-full px-4 py-3 text-sm font-medium text-white hover:bg-[#131921]"
+                    className="flex items-center justify-between w-full px-4 py-3 text-sm font-medium text-gray-900 hover:bg-gray-100"
                  >
                    Smartphones{" "}
                    <ChevronDown
@@ -499,8 +499,8 @@ const Header = () => {
                    />
                  </button>
                  {activeDropdown === "smartphones-mobile" && (
-                    <div className="bg-[#131921] px-4 py-2">
-                      <h4 className="font-semibold text-xs mb-2 text-gray-300">
+                    <div className="bg-gray-50 px-4 py-2">
+                      <h4 className="font-semibold text-xs mb-2 text-gray-700">
                        Brands
                      </h4>
                      <ul className="space-y-1 mb-3">
@@ -508,7 +508,7 @@ const Header = () => {
                          <li key={item.name}>
                            <Link
                              to={item.path}
-                              className="block text-sm text-gray-300 hover:text-orange-300 pl-2 py-1"
+                              className="block text-sm text-gray-700 hover:text-green-600 pl-2 py-1"
                            >
                              {item.name}
                            </Link>
@@ -523,7 +523,7 @@ const Header = () => {
                          <li key={item.name}>
                            <Link
                              to={item.path}
-                              className="block text-sm text-gray-300 hover:text-orange-300 pl-2 py-1"
+                              className="block text-sm text-gray-700 hover:text-green-600 pl-2 py-1"
                            >
                              {item.name}
                            </Link>
@@ -542,7 +542,7 @@ const Header = () => {
                        activeDropdown === "laptops-mobile" ? null : "laptops-mobile"
                      )
                    }
-                    className="flex items-center justify-between w-full px-4 py-3 text-sm font-medium text-white hover:bg-[#131921]"
+                    className="flex items-center justify-between w-full px-4 py-3 text-sm font-medium text-gray-900 hover:bg-gray-100"
                  >
                    Laptops{" "}
                    <ChevronDown
@@ -552,8 +552,8 @@ const Header = () => {
                    />
                  </button>
                  {activeDropdown === "laptops-mobile" && (
-                    <div className="bg-[#131921] px-4 py-2">
-                      <h4 className="font-semibold text-xs mb-2 text-gray-300">
+                    <div className="bg-gray-50 px-4 py-2">
+                      <h4 className="font-semibold text-xs mb-2 text-gray-700">
                        Brands
                      </h4>
                      <ul className="space-y-1 mb-3">
@@ -561,7 +561,7 @@ const Header = () => {
                          <li key={item.name}>
                            <Link
                              to={item.path}
-                              className="block text-sm text-gray-300 hover:text-orange-300 pl-2 py-1"
+                              className="block text-sm text-gray-700 hover:text-green-600 pl-2 py-1"
                            >
                              {item.name}
                            </Link>
@@ -575,7 +575,7 @@ const Header = () => {
                        <li>
                          <Link
                            to="/products/laptops?condition=Like+New"
-                              className="block text-sm text-gray-300 hover:text-orange-300 pl-2 py-1"
+                              className="block text-sm text-gray-700 hover:text-green-600 pl-2 py-1"
                          >
                            Like New
                          </Link>
@@ -583,7 +583,7 @@ const Header = () => {
                        <li>
                          <Link
                            to="/products/laptops?condition=Excellent"
-                              className="block text-sm text-gray-300 hover:text-orange-300 pl-2 py-1"
+                              className="block text-sm text-gray-700 hover:text-green-600 pl-2 py-1"
                          >
                            Excellent
                          </Link>
@@ -591,7 +591,7 @@ const Header = () => {
                        <li>
                          <Link
                            to="/products/laptops?condition=Good"
-                              className="block text-sm text-gray-300 hover:text-orange-300 pl-2 py-1"
+                              className="block text-sm text-gray-700 hover:text-green-600 pl-2 py-1"
                          >
                            Good
                          </Link>
@@ -604,7 +604,7 @@ const Header = () => {
                 <li>
                   <Link
                     to="/products?filter=featured"
-                    className="block px-4 py-3 text-sm font-medium text-white hover:bg-[#131921]"
+                    className="block px-4 py-3 text-sm font-medium text-gray-900 hover:bg-gray-100"
                   >
                     Featured Products
                   </Link>
@@ -612,7 +612,7 @@ const Header = () => {
                 <li>
                   <Link
                     to="/products?filter=new"
-                    className="block px-4 py-3 text-sm font-medium text-white hover:bg-[#131921]"
+                    className="block px-4 py-3 text-sm font-medium text-gray-900 hover:bg-gray-100"
                   >
                     New Arrivals
                   </Link>
@@ -620,7 +620,7 @@ const Header = () => {
                 <li>
                   <Link
                     to="/about"
-                    className="block px-4 py-3 text-sm font-medium text-white hover:bg-[#131921]"
+                    className="block px-4 py-3 text-sm font-medium text-gray-900 hover:bg-gray-100"
                   >
                     About
                   </Link>
@@ -628,12 +628,12 @@ const Header = () => {
                 <li>
                   <Link
                     to="/contact"
-                    className="block px-4 py-3 text-sm font-medium text-white hover:bg-[#131921]"
+                    className="block px-4 py-3 text-sm font-medium text-gray-900 hover:bg-gray-100"
                   >
                     Contact
                   </Link>
                 </li>
-                <li className="px-4 py-3 border-t border-gray-600">
+                <li className="px-4 py-3 border-t border-gray-200">
                   <Button
                     fullWidth
                     onClick={() => {
@@ -641,7 +641,7 @@ const Header = () => {
                       setIsMenuOpen(false);
                     }}
                     variant="primary"
-                    className="bg-[#ffd814] hover:bg-[#f7ca00] text-[#131921] font-semibold"
+                    className="bg-green-600 hover:bg-green-700 text-white font-semibold"
                   >
                     Join as Seller
                   </Button>

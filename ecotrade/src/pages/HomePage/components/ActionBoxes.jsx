@@ -63,16 +63,16 @@ const ActionBoxes = () => {
                 <button
                   key={index}
                   onClick={action.action}
-                  className={`group relative overflow-hidden rounded-lg bg-white border-2 border-gray-200 hover:border-orange-400 p-5 sm:p-6 text-left shadow-sm hover:shadow-lg transition-all duration-200 hover:-translate-y-1`}
+                  className={`group relative overflow-hidden rounded-lg bg-white border-2 border-gray-200 hover:border-green-500 p-5 sm:p-6 text-left shadow-sm hover:shadow-lg transition-all duration-200 hover:-translate-y-1`}
                 >
                   <div className="relative z-10">
                     <div className={`mb-4 inline-flex rounded-lg bg-gradient-to-br ${action.color} p-3 shadow-sm`}>
                       <Icon className="h-6 w-6 sm:h-7 sm:w-7 text-white" />
                     </div>
-                    <h3 className="mb-2 text-lg sm:text-xl font-bold text-gray-900 group-hover:text-orange-600 transition-colors">{action.title}</h3>
+                    <h3 className="mb-2 text-lg sm:text-xl font-bold text-gray-900 group-hover:text-green-600 transition-colors">{action.title}</h3>
                     <p className="text-sm text-gray-600 leading-relaxed font-normal">{action.description}</p>
                   </div>
-                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-orange-400 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-green-500 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </button>
               );
             })}
