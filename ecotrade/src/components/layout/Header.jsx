@@ -341,8 +341,18 @@ const Header = () => {
              </form>
           </div>
           
-          {/* === RIGHT SECTION: Cart, Account, etc === */}
+          {/* === RIGHT SECTION: About, Contact, User, Cart, Wishlist === */}
           <div className="flex items-center justify-end space-x-1 sm:space-x-2 flex-shrink-0">
+             {/* About and Contact Links */}
+             <div className="hidden md:flex items-center space-x-2 mr-2">
+               <Link to="/about" className="px-2 py-1 text-xs sm:text-sm font-medium text-gray-900 hover:text-green-600 transition-colors whitespace-nowrap">
+                 About
+               </Link>
+               <Link to="/contact" className="px-2 py-1 text-xs sm:text-sm font-medium text-gray-900 hover:text-green-600 transition-colors whitespace-nowrap">
+                 Contact
+               </Link>
+             </div>
+
              {/* Account Menu */}
              <div ref={profileMenuRef} className="relative profile-menu hidden sm:block" onMouseEnter={handleProfileMenuEnter} onMouseLeave={handleProfileMenuLeave}>
                 <button onClick={toggleProfileMenu} className="px-2 py-1 hover:bg-gray-100 rounded text-left">
