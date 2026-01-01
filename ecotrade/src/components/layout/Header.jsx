@@ -355,9 +355,8 @@ const Header = () => {
 
              {/* Account Menu */}
              <div ref={profileMenuRef} className="relative profile-menu hidden sm:block" onMouseEnter={handleProfileMenuEnter} onMouseLeave={handleProfileMenuLeave}>
-                <button onClick={toggleProfileMenu} className="px-2 py-1 hover:bg-gray-100 rounded text-left">
-                  <p className="text-xs text-gray-600 leading-tight">User</p>
-                  <p className="text-xs sm:text-sm font-semibold text-gray-900">{isAuthenticated ? (user?.name?.split(' ')[0] || 'Account') : 'Sign in'}</p>
+                <button onClick={toggleProfileMenu} className="px-2 py-1 hover:bg-gray-100 rounded flex items-center" aria-label={isAuthenticated ? (user?.name?.split(' ')[0] || 'Account') : 'Sign in'}>
+                  <User className="h-6 w-6 sm:h-7 sm:w-7 text-gray-900" />
                 </button>
                 {isProfileMenuOpen && (
                     <div className="absolute right-0 mt-2 w-56 rounded-md bg-white py-2 shadow-xl border border-gray-200 z-30">
@@ -387,25 +386,23 @@ const Header = () => {
               </div>
 
              {/* Cart */}
-             <Link to="/cart" className="relative px-2 sm:px-3 py-1 hover:bg-gray-100 rounded flex items-center" aria-label={`Cart with ${cart.items.length} items`}>
+             <Link to="/cart" className="relative px-2 py-1 hover:bg-gray-100 rounded flex items-center" aria-label={`Cart with ${cart.items.length} items`}>
                 <ShoppingCart className="h-6 w-6 sm:h-7 sm:w-7 text-gray-900" />
                 {cart.items.length > 0 && (
                     <span className="absolute -top-1 -right-1 flex h-4 w-4 sm:h-5 sm:w-5 items-center justify-center rounded-full bg-green-600 text-[10px] sm:text-xs font-bold text-white">
                         {cart.items.reduce((total, item) => total + item.quantity, 0)}
                     </span>
                 )}
-                <span className="hidden sm:inline text-xs sm:text-sm font-semibold text-gray-900 ml-1">Cart</span>
              </Link>
 
              {/* Wishlist */}
-             <Link to="/wishlist" className="relative px-2 sm:px-3 py-1 hover:bg-gray-100 rounded flex items-center" aria-label="Wishlist">
+             <Link to="/wishlist" className="relative px-2 py-1 hover:bg-gray-100 rounded flex items-center" aria-label="Wishlist">
                 <Heart className="h-6 w-6 sm:h-7 sm:w-7 text-gray-900" />
                 {user && user.wishlist?.length > 0 && (
                     <span className="absolute -top-1 -right-1 flex h-4 w-4 sm:h-5 sm:w-5 items-center justify-center rounded-full bg-green-600 text-[10px] sm:text-xs font-bold text-white">
                         {user.wishlist.length}
                     </span>
                 )}
-                <span className="hidden sm:inline text-xs sm:text-sm font-semibold text-gray-900 ml-1">Wishlist</span>
              </Link>
            </div>
          </div>
