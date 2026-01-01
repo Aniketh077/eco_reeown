@@ -275,14 +275,14 @@ const ProductInfo = ({
         </div>
       </div>
       
-      <div className="mb-4 sm:mb-6">
-        <p className={`text-sm sm:text-base text-gray-600 ${isDescriptionExpanded ? '' : 'line-clamp-3'}`}>
+      <div className="mb-2 sm:mb-3 md:mb-4">
+        <p className={`text-xs sm:text-sm md:text-base text-gray-600 ${isDescriptionExpanded ? '' : 'line-clamp-3'}`}>
           {product.description}
         </p>
         {product.description.length > 150 && (
           <button
             onClick={() => setIsDescriptionExpanded(!isDescriptionExpanded)}
-            className="text-green-700 text-xs sm:text-sm font-medium hover:text-emerald-600 mt-1"
+            className="text-green-700 text-[10px] sm:text-xs md:text-sm font-medium hover:text-emerald-600 mt-1"
           >
             {isDescriptionExpanded ? 'Show less' : 'Read more'}
           </button>
@@ -291,13 +291,13 @@ const ProductInfo = ({
       
       {/* Key Features */}
       {product.features && product.features.length > 0 && (
-        <div className="mb-4 sm:mb-6">
-          <h3 className="text-sm sm:text-base font-semibold mb-2">Key Features</h3>
-          <ul className="space-y-1">
+        <div className="mb-2 sm:mb-3 md:mb-4">
+          <h3 className="text-xs sm:text-sm md:text-base font-semibold mb-1.5 sm:mb-2">Key Features</h3>
+          <ul className="space-y-0.5 sm:space-y-1">
             {product.features.map((feature, index) => (
               <li key={index} className="flex items-start">
-                <Check className="h-4 w-4 sm:h-5 sm:w-5 text-green-700 mr-2 flex-shrink-0 mt-0.5" />
-                <span className="text-xs sm:text-sm text-gray-700">{feature}</span>
+                <Check className="h-3 w-3 sm:h-3.5 sm:w-3.5 md:h-4 md:w-4 text-green-700 mr-1.5 sm:mr-2 flex-shrink-0 mt-0.5" />
+                <span className="text-[10px] sm:text-xs md:text-sm text-gray-700">{feature}</span>
               </li>
             ))}
           </ul>
@@ -305,7 +305,7 @@ const ProductInfo = ({
       )}
       
       {/* Stock */}
-      <div className="mb-4 sm:mb-6">
+      <div className="mb-2 sm:mb-3 md:mb-4">
         <div className="flex items-center">
           <div className={`h-2.5 w-2.5 sm:h-3 sm:w-3 rounded-full mr-2 ${
             product.stock > 5 ? 'bg-green-500' :
