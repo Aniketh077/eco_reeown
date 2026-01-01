@@ -334,7 +334,7 @@ const Header = () => {
 
   return (
     <header ref={headerRef} className="fixed top-0 z-50 w-full bg-white border-b border-gray-200 shadow-sm transition-all duration-300">
-      <div className="max-w-screen-2xl mx-auto px-2 sm:px-4 lg:px-6">
+      <div className="w-full px-2 sm:px-4 lg:px-6">
         {/* --- Top Bar (Logo, Search, Icons) - Amazon Style --- */}
         <div className="flex items-center justify-between py-2 sm:py-3 gap-2 sm:gap-4">
 

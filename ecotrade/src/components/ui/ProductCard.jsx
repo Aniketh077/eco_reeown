@@ -330,41 +330,44 @@ const ProductCard = ({ product, viewMode = 'grid', showGamification = false }) =
           )}
         </div>
         
-        <div className="flex items-center gap-1.5 mt-auto flex-shrink-0">
-          <button
-            disabled={product.stock === 0}
-            onClick={handleAddToCart}
-            className={`flex-1 py-1.5 sm:py-2 text-[10px] sm:text-xs rounded-md transition-all duration-200 flex items-center justify-center ${
-              product.stock === 0
-                ? 'bg-gray-400 text-white cursor-not-allowed'
-                : 'bg-[#ffd814] hover:bg-[#f7ca00] text-[#131921] font-medium shadow-sm hover:shadow-md'
-            }`}
+        <div className="flex flex-col gap-1.5 mt-auto flex-shrink-0">
+          <Link
+            to={`/product/${product._id}`}
+            className="w-full bg-white border-2 border-green-600 hover:bg-green-600 text-green-600 hover:text-white font-medium py-1.5 sm:py-2 text-[10px] sm:text-xs rounded-md transition-all duration-200 flex items-center justify-center text-center"
           >
-            {/* Button Shine Effect */}
-            {product.stock > 0 && (
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 group-hover:animate-pulse"></div>
-            )}
-            
-            <ShoppingCart className="h-3 w-3 mr-1" />
-            <span className="hidden sm:inline">{product.stock === 0 ? 'Sold Out' : 'Add to Cart'}</span>
-            <span className="sm:hidden">{product.stock === 0 ? 'Out' : 'Add'}</span>
-          </button>
-          
-          {/* Wishlist Heart Icon */}
-          <button
-            onClick={handleToggleWishlist}
-            disabled={isWishlistLoading}
-            className="bg-white border border-gray-300 rounded-md p-1.5 sm:p-2 shadow-sm hover:shadow-md transition-all duration-200 hover:border-red-400 flex-shrink-0"
-            aria-label={isInWishlist ? 'Remove from wishlist' : 'Add to wishlist'}
-          >
-            <Heart
-              className={`h-3.5 w-3.5 sm:h-4 sm:w-4 transition-all duration-200 ${
-                isInWishlist
-                  ? 'text-red-500 fill-red-500'
-                  : 'text-gray-400 hover:text-red-500'
+            View Product
+          </Link>
+          <div className="flex items-center gap-1.5">
+            <button
+              disabled={product.stock === 0}
+              onClick={handleAddToCart}
+              className={`flex-1 py-1.5 sm:py-2 text-[10px] sm:text-xs rounded-md transition-all duration-200 flex items-center justify-center ${
+                product.stock === 0
+                  ? 'bg-gray-400 text-white cursor-not-allowed'
+                  : 'bg-green-600 hover:bg-green-700 text-white font-medium shadow-sm hover:shadow-md'
               }`}
-            />
-          </button>
+            >
+              <ShoppingCart className="h-3 w-3 mr-1" />
+              <span className="hidden sm:inline">{product.stock === 0 ? 'Sold Out' : 'Add to Cart'}</span>
+              <span className="sm:hidden">{product.stock === 0 ? 'Out' : 'Add'}</span>
+            </button>
+            
+            {/* Wishlist Heart Icon */}
+            <button
+              onClick={handleToggleWishlist}
+              disabled={isWishlistLoading}
+              className="bg-white border border-gray-300 rounded-md p-1.5 sm:p-2 shadow-sm hover:shadow-md transition-all duration-200 hover:border-green-600 flex-shrink-0"
+              aria-label={isInWishlist ? 'Remove from wishlist' : 'Add to wishlist'}
+            >
+              <Heart
+                className={`h-3.5 w-3.5 sm:h-4 sm:w-4 transition-all duration-200 ${
+                isInWishlist
+                  ? 'text-green-600 fill-green-600'
+                  : 'text-gray-400 hover:text-green-600'
+              }`}
+              />
+            </button>
+          </div>
         </div>
       </div>
     </div>
