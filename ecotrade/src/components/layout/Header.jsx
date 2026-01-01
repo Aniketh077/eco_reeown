@@ -267,21 +267,21 @@ const Header = () => {
           Smartphones
           <ChevronDown className="ml-1 h-3 w-3 relative top-[3px]" />
         </Link>
-        <div className="absolute left-0 top-full mt-2 bg-white shadow-lg rounded-md p-4 sm:p-6 z-50 transition-all duration-300 transform opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 translate-y-2 w-full sm:w-auto" style={{ minWidth: "min(500px, 90vw)" }}>
+        <div className="absolute left-0 top-full mt-2 bg-white shadow-lg rounded-md p-4 sm:p-6 z-[100] transition-all duration-300 transform opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 translate-y-2 w-full sm:w-auto border border-gray-200" style={{ minWidth: "min(500px, 90vw)" }}>
           <div className="flex justify-between items-start space-x-4 sm:space-x-8">
             <div className="flex-1">
-              <h4 className="font-semibold text-sm sm:text-base mb-3 sm:mb-4 text-[#01364a]">Explore Smartphones</h4>
+              <h4 className="font-semibold text-sm sm:text-base mb-3 sm:mb-4 text-gray-900">Explore Smartphones</h4>
               <div className="grid grid-cols-2 gap-2 sm:gap-4">
                 {activeSmartphonesMenu.images.map((image) => (
                   <Link to={image.path} key={image.name} className="block text-center hover:opacity-90 transition-opacity group/item">
                     <div className="w-full h-24 sm:h-32 flex items-center justify-center rounded-md overflow-hidden bg-gray-50">
                       <img src={image.src} alt={image.alt} className="w-full h-full object-cover group-hover/item:scale-105 transition-transform" />
                     </div>
-                    <p className="text-xs sm:text-sm font-medium text-gray-800 mt-1 sm:mt-2 group-hover/item:text-emerald-600">{image.name}</p>
+                    <p className="text-xs sm:text-sm font-medium text-gray-800 mt-1 sm:mt-2 group-hover/item:text-green-600">{image.name}</p>
                   </Link>
                 ))}
               </div>
-              <Link to="/products/smartphones" className="block mt-3 sm:mt-4 text-center text-xs sm:text-sm font-medium text-emerald-600 hover:text-emerald-700">
+              <Link to="/products/smartphones" className="block mt-3 sm:mt-4 text-center text-xs sm:text-sm font-medium text-green-600 hover:text-green-700">
                 View All Smartphones →
               </Link>
             </div>
@@ -292,21 +292,21 @@ const Header = () => {
         <Link to="/products/laptops" className="px-3 py-1.5 text-sm font-medium transition-colors hover:text-green-600 text-gray-900 flex items-center whitespace-nowrap hover:bg-gray-100 rounded">
           Laptops <ChevronDown className="ml-1 h-3 w-3 relative top-[3px]" />
         </Link>
-        <div className="absolute left-0 top-full mt-2 bg-white shadow-lg rounded-md p-4 sm:p-6 z-50 transition-all duration-300 transform opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 translate-y-2 w-full sm:w-auto" style={{ minWidth: "min(500px, 90vw)" }}>
+        <div className="absolute left-0 top-full mt-2 bg-white shadow-lg rounded-md p-4 sm:p-6 z-[100] transition-all duration-300 transform opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 translate-y-2 w-full sm:w-auto border border-gray-200" style={{ minWidth: "min(500px, 90vw)" }}>
           <div className="flex justify-between items-start space-x-4 sm:space-x-8">
             <div className="flex-1">
-              <h4 className="font-semibold text-sm sm:text-base mb-3 sm:mb-4 text-[#01364a]">Explore Laptops</h4>
+              <h4 className="font-semibold text-sm sm:text-base mb-3 sm:mb-4 text-gray-900">Explore Laptops</h4>
               <div className="grid grid-cols-2 gap-2 sm:gap-4">
                 {activeLaptopsMenu.images.map((image) => (
                   <Link to={image.path} key={image.name} className="block text-center hover:opacity-90 transition-opacity group/item">
                     <div className="w-full h-24 sm:h-32 flex items-center justify-center rounded-md overflow-hidden bg-gray-50">
                       <img src={image.src} alt={image.alt} className="w-full h-full object-cover group-hover/item:scale-105 transition-transform" />
                     </div>
-                    <p className="text-xs sm:text-sm font-medium text-gray-800 mt-1 sm:mt-2 group-hover/item:text-emerald-600">{image.name}</p>
+                    <p className="text-xs sm:text-sm font-medium text-gray-800 mt-1 sm:mt-2 group-hover/item:text-green-600">{image.name}</p>
                   </Link>
                 ))}
               </div>
-              <Link to="/products/laptops" className="block mt-3 sm:mt-4 text-center text-xs sm:text-sm font-medium text-emerald-600 hover:text-emerald-700">
+              <Link to="/products/laptops" className="block mt-3 sm:mt-4 text-center text-xs sm:text-sm font-medium text-green-600 hover:text-green-700">
                 View All Laptops →
               </Link>
             </div>
@@ -320,7 +320,7 @@ const Header = () => {
           More
           <ChevronDown className="ml-1 h-3 w-3 relative top-[3px]" />
         </button>
-        <div className="absolute right-0 top-full mt-1 bg-white shadow-xl rounded-md py-2 z-50 transition-all duration-300 transform opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 translate-y-2 min-w-[140px] border border-gray-200">
+        <div className="absolute right-0 top-full mt-1 bg-white shadow-xl rounded-md py-2 z-[100] transition-all duration-300 transform opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 translate-y-2 min-w-[140px] border border-gray-200">
           <Link to="/about" className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-green-50 hover:text-green-700 transition-colors">
             About
           </Link>
@@ -433,7 +433,7 @@ const Header = () => {
          </div>
 
          {/* Navigation Bar Below Search - Full Width and Responsive */}
-         <div className="w-full bg-gray-50 border-t border-gray-200">
+         <div className="w-full bg-white border-t border-gray-200">
            <div className="w-full px-2 sm:px-4 lg:px-6">
              <div className="flex items-center overflow-x-auto scrollbar-hide py-2">
                <DesktopNavLinks />
