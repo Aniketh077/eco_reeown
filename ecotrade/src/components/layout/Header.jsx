@@ -285,13 +285,16 @@ const Header = () => {
           All Products
         </Link>
       </li>
-      <li className="relative group">
+      <li 
+        className="relative group"
+        onMouseEnter={() => setOpenDesktopDropdown('smartphones')}
+        onMouseLeave={() => setOpenDesktopDropdown(null)}
+      >
         <button 
           onClick={(e) => {
             e.preventDefault();
             toggleDesktopDropdown('smartphones');
           }}
-          onMouseEnter={() => setOpenDesktopDropdown('smartphones')}
           className="px-3 py-1.5 text-sm font-medium transition-colors hover:text-green-600 text-gray-900 flex items-center whitespace-nowrap hover:bg-gray-100 rounded"
         >
           Smartphones
@@ -300,12 +303,10 @@ const Header = () => {
         <div 
           className={`absolute left-0 top-full mt-2 bg-white shadow-lg rounded-md p-4 sm:p-6 z-[100] transition-all duration-300 w-full sm:w-auto border border-gray-200 ${
             openDesktopDropdown === 'smartphones' 
-              ? 'opacity-100 visible translate-y-0' 
-              : 'opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0'
+              ? 'opacity-100 visible translate-y-0 pointer-events-auto' 
+              : 'opacity-0 invisible translate-y-2 pointer-events-none'
           }`} 
           style={{ minWidth: "min(500px, 90vw)" }}
-          onMouseEnter={() => setOpenDesktopDropdown('smartphones')}
-          onMouseLeave={() => setOpenDesktopDropdown(null)}
         >
           <div className="flex justify-between items-start space-x-4 sm:space-x-8">
             <div className="flex-1">
@@ -327,13 +328,16 @@ const Header = () => {
           </div>
         </div>
       </li>
-      <li className="relative group">
+      <li 
+        className="relative group"
+        onMouseEnter={() => setOpenDesktopDropdown('laptops')}
+        onMouseLeave={() => setOpenDesktopDropdown(null)}
+      >
         <button 
           onClick={(e) => {
             e.preventDefault();
             toggleDesktopDropdown('laptops');
           }}
-          onMouseEnter={() => setOpenDesktopDropdown('laptops')}
           className="px-3 py-1.5 text-sm font-medium transition-colors hover:text-green-600 text-gray-900 flex items-center whitespace-nowrap hover:bg-gray-100 rounded"
         >
           Laptops <ChevronDown className={`ml-1 h-3 w-3 relative top-[3px] transition-transform ${openDesktopDropdown === 'laptops' ? 'rotate-180' : ''}`} />
@@ -341,12 +345,10 @@ const Header = () => {
         <div 
           className={`absolute left-0 top-full mt-2 bg-white shadow-lg rounded-md p-4 sm:p-6 z-[100] transition-all duration-300 w-full sm:w-auto border border-gray-200 ${
             openDesktopDropdown === 'laptops' 
-              ? 'opacity-100 visible translate-y-0' 
-              : 'opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0'
+              ? 'opacity-100 visible translate-y-0 pointer-events-auto' 
+              : 'opacity-0 invisible translate-y-2 pointer-events-none'
           }`} 
           style={{ minWidth: "min(500px, 90vw)" }}
-          onMouseEnter={() => setOpenDesktopDropdown('laptops')}
-          onMouseLeave={() => setOpenDesktopDropdown(null)}
         >
           <div className="flex justify-between items-start space-x-4 sm:space-x-8">
             <div className="flex-1">
@@ -370,13 +372,16 @@ const Header = () => {
       </li>
       <li><Link to="/products?filter=new" className="px-3 py-1.5 text-sm font-medium transition-colors hover:text-green-600 text-gray-900 whitespace-nowrap hover:bg-gray-100 rounded">New Arrivals</Link></li>
       <li><Link to="/products?filter=featured" className="px-3 py-1.5 text-sm font-medium transition-colors hover:text-green-600 text-gray-900 whitespace-nowrap hover:bg-gray-100 rounded">Featured</Link></li>
-      <li className="relative group">
+      <li 
+        className="relative group"
+        onMouseEnter={() => setOpenDesktopDropdown('more')}
+        onMouseLeave={() => setOpenDesktopDropdown(null)}
+      >
         <button 
           onClick={(e) => {
             e.preventDefault();
             toggleDesktopDropdown('more');
           }}
-          onMouseEnter={() => setOpenDesktopDropdown('more')}
           className="px-3 py-1.5 text-sm font-medium transition-colors hover:text-green-600 text-gray-900 flex items-center whitespace-nowrap hover:bg-gray-100 rounded"
         >
           More
@@ -385,11 +390,9 @@ const Header = () => {
         <div 
           className={`absolute right-0 top-full mt-1 bg-white shadow-xl rounded-md py-2 z-[100] transition-all duration-300 min-w-[140px] border border-gray-200 ${
             openDesktopDropdown === 'more' 
-              ? 'opacity-100 visible translate-y-0' 
-              : 'opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0'
+              ? 'opacity-100 visible translate-y-0 pointer-events-auto' 
+              : 'opacity-0 invisible translate-y-2 pointer-events-none'
           }`}
-          onMouseEnter={() => setOpenDesktopDropdown('more')}
-          onMouseLeave={() => setOpenDesktopDropdown(null)}
         >
           <Link to="/about" className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-green-50 hover:text-green-700 transition-colors">
             About

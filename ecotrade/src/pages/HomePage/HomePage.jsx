@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchFeaturedProducts, fetchNewArrivals, fetchTypes } from '../../store/slices/productSlice';
 import HeroSlider from './components/HeroSlider';
 import ActionBoxes from './components/ActionBoxes';
-import StatsSection from './components/StatsSection';
 import FeaturedProducts from './components/FeaturedProducts';
 import PromotionalBanner from './components/PromotionalBanner';
 import NewArrivals from './components/NewArrivals';
@@ -48,7 +47,6 @@ const HomePage = () => {
     <div className="min-h-screen">
       <HeroSlider />
       <ActionBoxes />
-      <StatsSection />
       <CollectionCards />
       <FeaturedProducts products={featuredProducts || []} />
       <PromotionalBanner />
