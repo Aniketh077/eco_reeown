@@ -52,9 +52,10 @@ const corsOptions = {
     if (allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
-      if (isDevelopment) {
-        console.log(`CORS blocked origin: ${origin}`);
-      }
+      // Log CORS issues in both development and production for debugging
+      console.log(`❌ CORS blocked origin: ${origin}`);
+      console.log(`✅ Allowed origins: ${JSON.stringify(allowedOrigins)}`);
+      console.log(`🔧 FRONTEND_URL env var: ${process.env.FRONTEND_URL}`);
       callback(new Error('Not allowed by CORS'));
     }
   },
