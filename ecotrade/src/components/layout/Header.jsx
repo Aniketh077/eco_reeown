@@ -430,11 +430,7 @@ const Header = () => {
          </div>
 
          {/* Navigation Bar Below Search */}
-         <div className="hidden lg:flex items-center bg-[#232f3e] px-2 sm:px-4 py-1.5">
-           <button onClick={toggleMenu} className="flex items-center px-2 py-1 hover:outline hover:outline-1 hover:outline-white rounded mr-2">
-             <Menu className="h-5 w-5 mr-1" />
-             <span className="text-sm font-medium">All</span>
-           </button>
+         <div className="hidden lg:flex items-center bg-gray-50 border-t border-gray-200 px-2 sm:px-4 py-2">
            <DesktopNavLinks />
          </div>
 
