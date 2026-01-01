@@ -26,42 +26,23 @@ const BenefitsSection = () => {
   ];
 
   return (
-    <section className="py-16 relative overflow-hidden">
-      <div className="absolute inset-0 z-0">
-        <div className="grid grid-cols-2 h-full">
-          <div className="relative">
-            <img
-              src="https://images.pexels.com/photos/163100/circuit-circuit-board-resistor-computer-163100.jpeg?auto=compress&cs=tinysrgb&w=960"
-              alt="Technology circuit"
-              className="w-full h-full object-cover opacity-5"
-            />
-          </div>
-          <div className="relative">
-            <img
-              src="https://images.pexels.com/photos/442576/pexels-photo-442576.jpeg?auto=compress&cs=tinysrgb&w=960"
-              alt="Eco friendly technology"
-              className="w-full h-full object-cover opacity-5"
-            />
-          </div>
-        </div>
-      </div>
-
-      <div className="container mx-auto px-3 sm:px-4 relative z-10">
-        <div className="text-center mb-8 sm:mb-12">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 bg-gradient-to-r from-green-600 to-green-500 bg-clip-text text-transparent">Why Choose Refurbished?</h2>
-          <p className="text-sm sm:text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
+    <section className="py-6 sm:py-8 bg-white">
+      <div className="container mx-auto px-3 sm:px-4 max-w-7xl">
+        <div className="mb-4 sm:mb-6">
+          <h2 className="text-lg sm:text-xl font-normal mb-1 text-[#0f1111]">Why Choose Refurbished?</h2>
+          <p className="text-xs sm:text-sm text-gray-600 max-w-2xl">
             Premium quality electronics at unbeatable prices. Good for your wallet, great for the planet.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
           {benefits.map((benefit, index) => (
-            <div key={index} className="text-center group hover:transform hover:-translate-y-2 transition-all duration-300 bg-white/90 backdrop-blur-sm rounded-xl p-4 sm:p-6 shadow-md hover:shadow-xl">
-              <div className="bg-gradient-to-br from-green-100 to-green-50 w-16 h-16 sm:w-20 sm:h-20 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6 group-hover:scale-110 transition-transform shadow-lg group-hover:shadow-xl">
-                <benefit.icon className="h-8 w-8 sm:h-10 sm:w-10 text-green-600" />
+            <div key={index} className="text-center bg-white border border-gray-200 rounded p-4 hover:border-green-500 transition-colors">
+              <div className="bg-green-50 w-10 h-10 rounded-full flex items-center justify-center mx-auto mb-3">
+                <benefit.icon className="h-5 w-5 text-green-700" />
               </div>
-              <h3 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3 text-gray-800">{benefit.title}</h3>
-              <p className="text-xs sm:text-sm md:text-base text-gray-600">{benefit.description}</p>
+              <h3 className="text-sm font-normal mb-2 text-[#0f1111]">{benefit.title}</h3>
+              <p className="text-xs text-gray-600 leading-relaxed">{benefit.description}</p>
             </div>
           ))}
         </div>

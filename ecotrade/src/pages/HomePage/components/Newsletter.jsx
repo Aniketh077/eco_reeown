@@ -26,44 +26,34 @@ const handleSubmit = async (e) => {
 
 
   return (
-    <section className="py-16 relative overflow-hidden">
-      <div className="absolute inset-0 z-0">
-        <img
-          src="https://images.pexels.com/photos/325111/pexels-photo-325111.jpeg?auto=compress&cs=tinysrgb&w=1920"
-          alt="Newsletter background"
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-br from-[#1A202C]/95 via-gray-900/90 to-emerald-900/85"></div>
-      </div>
-
-      <div className="container mx-auto px-3 sm:px-4 relative z-10">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 text-white">Stay Updated</h2>
-          <p className="text-sm sm:text-base md:text-xl text-gray-200 mb-6 sm:mb-8">
+    <section className="py-6 sm:py-8 bg-gray-50">
+      <div className="container mx-auto px-3 sm:px-4 max-w-7xl">
+        <div className="max-w-2xl mx-auto text-center">
+          <h2 className="text-lg sm:text-xl font-normal mb-2 text-[#0f1111]">Stay Updated</h2>
+          <p className="text-xs sm:text-sm text-gray-600 mb-4 leading-relaxed">
             Subscribe to our newsletter for exclusive deals on refurbished devices, new arrivals, and tech tips
           </p>
     
-           <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row max-w-md mx-auto">
-  <input
-    type="email"
-    value={email}
-    onChange={(e) => setEmail(e.target.value)}
-    placeholder="Enter your email address"
-    className="flex-1 px-4 sm:px-6 py-3 sm:py-4 text-sm sm:text-base text-gray-900 my-2 sm:my-0 rounded-lg sm:rounded-l-lg sm:rounded-r-none focus:outline-none focus:ring-2 focus:ring-emerald-500"
-    required
-    disabled={newsletterSubscribing}
-  />
-  <button
-    type="submit"
-    disabled={newsletterSubscribing}
-    className="bg-emerald-500 hover:bg-emerald-600 px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base rounded-lg sm:rounded-r-lg sm:rounded-l-none font-semibold transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-  >
-    {newsletterSubscribing ? 'Subscribing...' : 'Subscribe'}
-  </button>
-</form>
+          <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-2 max-w-md mx-auto">
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Enter your email"
+              className="flex-1 px-3 py-2 text-xs sm:text-sm text-gray-900 border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-green-500"
+              required
+              disabled={newsletterSubscribing}
+            />
+            <button
+              type="submit"
+              disabled={newsletterSubscribing}
+              className="bg-green-600 hover:bg-green-700 px-4 py-2 text-xs sm:text-sm text-white font-normal rounded transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              {newsletterSubscribing ? 'Subscribing...' : 'Subscribe'}
+            </button>
+          </form>
      
-          
-          <p className="text-xs sm:text-sm text-gray-400 mt-3 sm:mt-4">
+          <p className="text-[10px] sm:text-xs text-gray-500 mt-3">
             No spam, unsubscribe at any time
           </p>
         </div>

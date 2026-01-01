@@ -405,12 +405,12 @@ const ProductsPage = () => {
     <div className="min-h-screen pt-12 sm:pt-16 pb-16 bg-gray-50">
       <div className="w-full mx-auto px-3 sm:px-4">
         <div
-          className="py-8 sm:py-10 px-4 sm:px-6 rounded-lg mb-6 sm:mb-8 text-white"
+          className="py-4 sm:py-6 px-3 sm:px-4 rounded mb-4 sm:mb-6 text-white"
           style={getHeaderStyle()}
         >
           <div className="text-center">
-            <h1 className="text-2xl sm:text-3xl font-bold mb-2 sm:mb-3">{getPageTitle()}</h1>
-            <p className="text-sm sm:text-lg text-gray-100 mb-2 sm:mb-4">
+            <h1 className="text-lg sm:text-xl font-normal mb-1 sm:mb-2">{getPageTitle()}</h1>
+            <p className="text-xs sm:text-sm text-gray-100">
               Displaying {products.length} certified refurbished products
             </p>
           </div>
@@ -597,7 +597,7 @@ const ProductsPage = () => {
             ) : (
               <>
                 {viewMode === "grid" ? (
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-2 sm:gap-3">
                     {products.map((product) => (
                       <ProductCard key={product._id} product={product} />
                     ))}

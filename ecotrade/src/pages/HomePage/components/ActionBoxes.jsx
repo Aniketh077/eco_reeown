@@ -49,34 +49,29 @@ const ActionBoxes = () => {
   ];
 
   return (
-    <section className="py-8 sm:py-12 bg-gray-50">
-      <div className="container mx-auto px-3 sm:px-4">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-8 sm:mb-10">
-            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2 sm:mb-3">What Would You Like To Do?</h2>
-            <p className="text-sm sm:text-base text-gray-600">Choose from our comprehensive range of services</p>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 sm:gap-6">
-            {actions.map((action, index) => {
-              const Icon = action.icon;
-              return (
-                <button
-                  key={index}
-                  onClick={action.action}
-                  className={`group relative overflow-hidden rounded-xl bg-gradient-to-br ${action.color} ${action.hoverColor} p-4 sm:p-6 md:p-8 text-white shadow-lg transition-all duration-300 hover:shadow-2xl hover:scale-105 transform`}
-                >
-                  <div className="relative z-10">
-                    <div className="mb-3 sm:mb-4 inline-block rounded-full bg-white/20 p-3 sm:p-4 backdrop-blur-sm">
-                      <Icon className="h-6 w-6 sm:h-8 sm:w-8" />
-                    </div>
-                    <h3 className="mb-1 sm:mb-2 text-lg sm:text-xl md:text-2xl font-bold">{action.title}</h3>
-                    <p className="text-xs sm:text-sm text-white/90">{action.description}</p>
-                  </div>
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                </button>
-              );
-            })}
-          </div>
+    <section className="py-6 sm:py-8 bg-white">
+      <div className="container mx-auto px-3 sm:px-4 max-w-7xl">
+        <div className="mb-4 sm:mb-6">
+          <h2 className="text-lg sm:text-xl font-normal text-[#0f1111] mb-1">What Would You Like To Do?</h2>
+          <p className="text-xs sm:text-sm text-gray-600">Choose from our comprehensive range of services</p>
+        </div>
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2 sm:gap-3">
+          {actions.map((action, index) => {
+            const Icon = action.icon;
+            return (
+              <button
+                key={index}
+                onClick={action.action}
+                className={`group relative overflow-hidden rounded border border-gray-200 bg-white hover:border-green-500 p-3 sm:p-4 text-left transition-all duration-200 hover:shadow-md`}
+              >
+                <div className="mb-2">
+                  <Icon className="h-5 w-5 sm:h-6 sm:w-6 text-green-700" />
+                </div>
+                <h3 className="mb-1 text-xs sm:text-sm font-normal text-[#0f1111]">{action.title}</h3>
+                <p className="text-[10px] sm:text-xs text-gray-600 leading-relaxed">{action.description}</p>
+              </button>
+            );
+          })}
         </div>
       </div>
     </section>

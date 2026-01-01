@@ -10,23 +10,16 @@ const StatsSection = () => {
   ];
 
   return (
-    <section className="relative py-8 sm:py-12 md:py-16 overflow-hidden">
-      <div className="absolute inset-0 z-0">
-        <img
-          src="https://images.pexels.com/photos/1034653/pexels-photo-1034653.jpeg?auto=compress&cs=tinysrgb&w=1920"
-          alt="Technology background"
-          className="w-full h-full object-cover opacity-10"
-        />
-      </div>
-      <div className="container mx-auto px-3 sm:px-4 relative z-10">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
+    <section className="py-6 sm:py-8 bg-gray-50">
+      <div className="container mx-auto px-3 sm:px-4 max-w-7xl">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
           {stats.map((stat, index) => (
-            <div key={index} className="text-center bg-white/80 backdrop-blur-sm rounded-xl p-4 sm:p-6 shadow-lg hover:shadow-xl transition-shadow">
-              <div className="bg-gradient-to-br from-green-100 to-emerald-100 w-12 h-12 sm:w-16 sm:h-16 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
-                <stat.icon className="h-6 w-6 sm:h-8 sm:w-8 text-green-700" />
+            <div key={index} className="text-center bg-white border border-gray-200 rounded p-3 sm:p-4">
+              <div className="bg-green-50 w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center mx-auto mb-2">
+                <stat.icon className="h-4 w-4 sm:h-5 sm:w-5 text-green-700" />
               </div>
-              <div className="text-xl sm:text-2xl md:text-3xl font-bold text-green-700 mb-1 sm:mb-2">{stat.value}</div>
-              <div className="text-xs sm:text-sm md:text-base text-gray-600 font-medium">{stat.label}</div>
+              <div className="text-base sm:text-lg font-normal text-green-700 mb-1">{stat.value}</div>
+              <div className="text-[10px] sm:text-xs text-gray-600">{stat.label}</div>
             </div>
           ))}
         </div>

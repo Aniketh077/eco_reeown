@@ -320,13 +320,19 @@ const Header = () => {
           More
           <ChevronDown className="ml-1 h-3 w-3 relative top-[3px]" />
         </button>
-        <div className="absolute right-0 top-full mt-2 bg-white shadow-lg rounded-md py-2 z-50 transition-all duration-300 transform opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 translate-y-2 min-w-[120px]">
-          <Link to="/about" className="block px-4 py-2 text-xs sm:text-sm text-gray-700 hover:bg-gray-100 hover:text-emerald-600 transition-colors">
+        <div className="absolute right-0 top-full mt-2 bg-white shadow-lg rounded-md py-2 z-50 transition-all duration-300 transform opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 translate-y-2 min-w-[140px] border border-gray-200">
+          <Link to="/about" className="block px-4 py-2 text-xs sm:text-sm text-gray-700 hover:bg-gray-50 hover:text-emerald-600 transition-colors">
             About
           </Link>
-          <Link to="/contact" className="block px-4 py-2 text-xs sm:text-sm text-gray-700 hover:bg-gray-100 hover:text-emerald-600 transition-colors">
+          <Link to="/contact" className="block px-4 py-2 text-xs sm:text-sm text-gray-700 hover:bg-gray-50 hover:text-emerald-600 transition-colors">
             Contact
           </Link>
+          <button
+            onClick={() => setIsSellerModalOpen(true)}
+            className="w-full text-left px-4 py-2 text-xs sm:text-sm text-gray-700 hover:bg-gray-50 hover:text-emerald-600 transition-colors"
+          >
+            Join as Seller
+          </button>
         </div>
       </li>
     </ul>
@@ -390,12 +396,6 @@ const Header = () => {
           
           {/* === RIGHT SECTION: Icons & Desktop Contact === */}
           <div className="flex items-center justify-end space-x-1.5 sm:space-x-2 md:space-x-3 lg:w-auto flex-1">
-             <button
-               onClick={() => setIsSellerModalOpen(true)}
-               className="hidden lg:flex items-center px-2.5 py-1.5 text-xs sm:text-sm font-medium text-white bg-green-600 hover:bg-green-700 rounded-md transition-colors whitespace-nowrap"
-             >
-               Join as Seller
-             </button>
 
              <Link to="/wishlist" className="relative p-1.5 sm:p-2 text-[#01364a] hover:text-red-500 hover:bg-gray-100 rounded-md transition-colors" aria-label="Wishlist">
                 <Heart className="h-5 w-5 sm:h-6 sm:w-6" />
