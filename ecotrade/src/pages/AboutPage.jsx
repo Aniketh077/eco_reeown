@@ -58,11 +58,11 @@ const AboutPage = () => {
   return (
     <div className="min-h-screen pt-20 pb-16 bg-gray-50">
       {/* Hero Section */}
-      <section className="py-16 sm:py-20 md:py-24 bg-gradient-to-br from-green-600 to-green-700 text-white">
+      <section className="py-12 sm:py-16 md:py-20 bg-gradient-to-br from-green-600 to-green-700 text-white">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 sm:mb-8 tracking-tight">About Reeown</h1>
-            <p className="text-lg sm:text-xl md:text-2xl text-gray-100 mb-8 sm:mb-10 leading-relaxed font-normal">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 tracking-tight">About Reeown</h1>
+            <p className="text-base sm:text-lg md:text-xl text-gray-100 mb-6 sm:mb-8 leading-relaxed font-normal">
               Leading the way in sustainable technology with premium refurbished electronics for everyone
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -82,15 +82,15 @@ const AboutPage = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="py-12 sm:py-16 bg-white border-b border-gray-200">
+      <section className="py-10 sm:py-12 bg-white border-b border-gray-200">
         <div className="container mx-auto px-4 sm:px-6">
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 max-w-5xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 max-w-5xl mx-auto">
             {stats.map((stat, index) => (
-              <div key={index} className="text-center p-4 sm:p-6 rounded-lg hover:bg-gray-50 transition-colors">
-                <div className="text-3xl sm:text-4xl md:text-5xl font-bold text-green-700 mb-2 tracking-tight">
+              <div key={index} className="text-center p-3 sm:p-4 rounded-lg hover:bg-gray-50 transition-colors">
+                <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-green-700 mb-1.5 tracking-tight">
                   {stat.number}
                 </div>
-                <div className="text-sm sm:text-base text-gray-700 font-medium">{stat.label}</div>
+                <div className="text-xs sm:text-sm text-gray-700 font-medium">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -98,13 +98,13 @@ const AboutPage = () => {
       </section>
 
       {/* Story Section */}
-      <section className="py-16 sm:py-20 bg-white">
+      <section className="py-12 sm:py-16 bg-white">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-12 items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 items-center">
               <div>
-                <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 sm:mb-8 text-gray-900 tracking-tight">Our Story</h2>
-                <div className="space-y-4 text-gray-700 text-base sm:text-lg leading-relaxed">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 text-gray-900 tracking-tight">Our Story</h2>
+                <div className="space-y-3 text-gray-700 text-sm sm:text-base leading-relaxed">
                   <p>
                     Reeown was founded with a simple mission: make premium technology accessible while protecting our planet. We believe everyone deserves quality electronics without the premium price tag or environmental cost.
                   </p>
@@ -126,24 +126,24 @@ const AboutPage = () => {
       </section>
 
       {/* Mission & Vision */}
-      <section className="py-16 sm:py-20 bg-gray-50">
+      <section className="py-12 sm:py-16 bg-gray-50">
         <div className="container mx-auto px-4 sm:px-6">
-          <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 sm:gap-12">
-            <div className="bg-white p-8 sm:p-10 rounded-lg shadow-sm hover:shadow-md transition-shadow text-center">
-              <div className="bg-green-50 w-16 h-16 sm:w-20 sm:h-20 rounded-full flex items-center justify-center mx-auto mb-6">
-                <Target className="h-8 w-8 sm:h-10 sm:w-10 text-green-600" />
+          <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+            <div className="bg-white p-6 sm:p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow text-center">
+              <div className="bg-green-50 w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Target className="h-7 w-7 sm:h-8 sm:w-8 text-green-600" />
               </div>
-              <h3 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900">Our Mission</h3>
-              <p className="text-gray-700 text-base sm:text-lg leading-relaxed">
+              <h3 className="text-xl sm:text-2xl font-bold mb-3 text-gray-900">Our Mission</h3>
+              <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
                 To make premium certified refurbished electronics accessible to everyone while reducing e-waste and promoting sustainable technology consumption for a better tomorrow.
               </p>
             </div>
-            <div className="bg-white p-8 sm:p-10 rounded-lg shadow-sm hover:shadow-md transition-shadow text-center">
-              <div className="bg-green-50 w-16 h-16 sm:w-20 sm:h-20 rounded-full flex items-center justify-center mx-auto mb-6">
-                <Globe className="h-8 w-8 sm:h-10 sm:w-10 text-green-600" />
+            <div className="bg-white p-6 sm:p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow text-center">
+              <div className="bg-green-50 w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Globe className="h-7 w-7 sm:h-8 sm:w-8 text-green-600" />
               </div>
-              <h3 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900">Our Vision</h3>
-              <p className="text-gray-700 text-base sm:text-lg leading-relaxed">
+              <h3 className="text-xl sm:text-2xl font-bold mb-3 text-gray-900">Our Vision</h3>
+              <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
                 To be India's leading platform for certified refurbished electronics, creating a circular economy that benefits people and the planet.
               </p>
             </div>
@@ -152,23 +152,23 @@ const AboutPage = () => {
       </section>
 
       {/* Values */}
-      <section className="py-16 sm:py-20 bg-white">
+      <section className="py-12 sm:py-16 bg-white">
         <div className="container mx-auto px-4 sm:px-6">
-          <div className="text-center mb-12 sm:mb-16">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-gray-900 tracking-tight">Our Values</h2>
-            <p className="text-gray-700 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 text-gray-900 tracking-tight">Our Values</h2>
+            <p className="text-gray-700 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
               The principles that guide our commitment to quality and sustainability
             </p>
           </div>
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 max-w-7xl mx-auto">
             {values.map((value, index) => (
-              <div key={index} className="bg-gray-50 p-6 sm:p-8 rounded-lg shadow-sm text-center hover:shadow-lg transition-all duration-200 border border-gray-200 hover:border-green-300">
-                <div className="bg-green-50 w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center mx-auto mb-5">
-                  <value.icon className="h-7 w-7 sm:h-8 sm:w-8 text-green-600" />
+              <div key={index} className="bg-gray-50 p-5 sm:p-6 rounded-lg shadow-sm text-center hover:shadow-lg transition-all duration-200 border border-gray-200 hover:border-green-300">
+                <div className="bg-green-50 w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <value.icon className="h-6 w-6 sm:h-7 sm:w-7 text-green-600" />
                 </div>
-                <h3 className="text-lg sm:text-xl font-bold mb-3 text-gray-900">{value.title}</h3>
-                <p className="text-gray-700 text-sm sm:text-base leading-relaxed">{value.description}</p>
+                <h3 className="text-base sm:text-lg font-bold mb-2 text-gray-900">{value.title}</h3>
+                <p className="text-gray-700 text-xs sm:text-sm leading-relaxed">{value.description}</p>
               </div>
             ))}
           </div>
@@ -206,57 +206,57 @@ const AboutPage = () => {
       </section> */}
 
       {/* Why Choose Us */}
-      <section className="py-16 sm:py-20 bg-gradient-to-br from-green-600 to-green-700 text-white">
+      <section className="py-12 sm:py-16 bg-gradient-to-br from-green-600 to-green-700 text-white">
         <div className="container mx-auto px-4 sm:px-6">
-          <div className="text-center mb-12 sm:mb-16">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 tracking-tight">Why Choose Reeown?</h2>
-            <p className="text-gray-100 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 tracking-tight">Why Choose Reeown?</h2>
+            <p className="text-gray-100 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
               Your trusted partner for quality refurbished electronics and sustainable technology solutions
             </p>
           </div>
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 max-w-7xl mx-auto">
-            <div className="text-center p-6 bg-white/10 rounded-lg hover:bg-white/15 transition-colors">
-              <div className="bg-white/20 w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Truck className="h-7 w-7 sm:h-8 sm:w-8" />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 max-w-7xl mx-auto">
+            <div className="text-center p-5 sm:p-6 bg-white/10 rounded-lg hover:bg-white/15 transition-colors">
+              <div className="bg-white/20 w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center mx-auto mb-3">
+                <Truck className="h-6 w-6 sm:h-7 sm:w-7" />
               </div>
-              <h3 className="text-lg sm:text-xl font-bold mb-2">Free Shipping</h3>
-              <p className="text-gray-100 text-sm sm:text-base">Free shipping on all refurbished devices across India</p>
+              <h3 className="text-base sm:text-lg font-bold mb-1.5">Free Shipping</h3>
+              <p className="text-gray-100 text-xs sm:text-sm">Free shipping on all refurbished devices across India</p>
             </div>
             
-            <div className="text-center p-6 bg-white/10 rounded-lg hover:bg-white/15 transition-colors">
-              <div className="bg-white/20 w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Shield className="h-7 w-7 sm:h-8 sm:w-8" />
+            <div className="text-center p-5 sm:p-6 bg-white/10 rounded-lg hover:bg-white/15 transition-colors">
+              <div className="bg-white/20 w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center mx-auto mb-3">
+                <Shield className="h-6 w-6 sm:h-7 sm:w-7" />
               </div>
-              <h3 className="text-lg sm:text-xl font-bold mb-2">Quality Assured</h3>
-              <p className="text-gray-100 text-sm sm:text-base">Every device is thoroughly tested and certified before sale</p>
+              <h3 className="text-base sm:text-lg font-bold mb-1.5">Quality Assured</h3>
+              <p className="text-gray-100 text-xs sm:text-sm">Every device is thoroughly tested and certified before sale</p>
             </div>
             
-            <div className="text-center p-6 bg-white/10 rounded-lg hover:bg-white/15 transition-colors">
-              <div className="bg-white/20 w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Users className="h-7 w-7 sm:h-8 sm:w-8" />
+            <div className="text-center p-5 sm:p-6 bg-white/10 rounded-lg hover:bg-white/15 transition-colors">
+              <div className="bg-white/20 w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center mx-auto mb-3">
+                <Users className="h-6 w-6 sm:h-7 sm:w-7" />
               </div>
-              <h3 className="text-lg sm:text-xl font-bold mb-2">Expert Support</h3>
-              <p className="text-gray-100 text-sm sm:text-base">Dedicated customer support team available 24/7</p>
+              <h3 className="text-base sm:text-lg font-bold mb-1.5">Expert Support</h3>
+              <p className="text-gray-100 text-xs sm:text-sm">Dedicated customer support team available 24/7</p>
             </div>
             
-            <div className="text-center p-6 bg-white/10 rounded-lg hover:bg-white/15 transition-colors">
-              <div className="bg-white/20 w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Award className="h-7 w-7 sm:h-8 sm:w-8" />
+            <div className="text-center p-5 sm:p-6 bg-white/10 rounded-lg hover:bg-white/15 transition-colors">
+              <div className="bg-white/20 w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center mx-auto mb-3">
+                <Award className="h-6 w-6 sm:h-7 sm:w-7" />
               </div>
-              <h3 className="text-lg sm:text-xl font-bold mb-2">Eco-Friendly</h3>
-              <p className="text-gray-100 text-sm sm:text-base">Reducing e-waste through sustainable refurbishment</p>
+              <h3 className="text-base sm:text-lg font-bold mb-1.5">Eco-Friendly</h3>
+              <p className="text-gray-100 text-xs sm:text-sm">Reducing e-waste through sustainable refurbishment</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="py-16 sm:py-20 bg-white">
+      <section className="py-12 sm:py-16 bg-white">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 text-gray-900 tracking-tight">Ready to Make a Difference?</h2>
-            <p className="text-gray-700 text-base sm:text-lg mb-8 sm:mb-10 leading-relaxed">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 text-gray-900 tracking-tight">Ready to Make a Difference?</h2>
+            <p className="text-gray-700 text-sm sm:text-base mb-6 sm:mb-8 leading-relaxed">
               Join thousands of satisfied customers who trust Reeown for quality refurbished electronics
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

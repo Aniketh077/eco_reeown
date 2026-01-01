@@ -148,11 +148,11 @@ const ContactPage = () => {
   return (
     <div className="min-h-screen pt-20 pb-16">
       {/* Hero Section */}
-      <section className="py-14 sm:py-18 md:py-20 bg-gradient-to-br from-green-600 to-green-700 text-white">
+      <section className="py-12 sm:py-16 md:py-18 bg-gradient-to-br from-green-600 to-green-700 text-white">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 sm:mb-8 tracking-tight">Get in Touch</h1>
-            <p className="text-lg sm:text-xl md:text-2xl text-gray-100 px-2 leading-relaxed font-normal">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 tracking-tight">Get in Touch</h1>
+            <p className="text-base sm:text-lg md:text-xl text-gray-100 px-2 leading-relaxed font-normal">
               Have questions about our refurbished electronics? Our expert team is ready to help you find the perfect device for your needs.
             </p>
           </div>
@@ -160,23 +160,23 @@ const ContactPage = () => {
       </section>
 
       {/* Contact Info Cards */}
-      <section className="py-12 sm:py-16 bg-white">
+      <section className="py-10 sm:py-12 bg-white">
         <div className="container mx-auto px-4 sm:px-6">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6 max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5 max-w-7xl mx-auto">
             {contactInfo.map((info, index) => (
-              <div key={index} className="bg-white border-2 border-gray-200 p-6 sm:p-8 rounded-lg shadow-sm hover:shadow-lg hover:border-green-400 transition-all duration-200 flex flex-col h-full">
-                <div className="bg-green-50 w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center mb-5 sm:mb-6 flex-shrink-0">
-                  <info.icon className="h-7 w-7 sm:h-8 sm:w-8 text-green-600" />
+              <div key={index} className="bg-white border-2 border-gray-200 p-5 sm:p-6 rounded-lg shadow-sm hover:shadow-lg hover:border-green-400 transition-all duration-200 flex flex-col h-full">
+                <div className="bg-green-50 w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center mb-4 flex-shrink-0">
+                  <info.icon className="h-6 w-6 sm:h-7 sm:w-7 text-green-600" />
                 </div>
-                <h3 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-5 text-gray-900 tracking-tight">{info.title}</h3>
-                <div className="space-y-2 sm:space-y-3 mb-6 sm:mb-8 flex-1">
+                <h3 className="text-lg sm:text-xl font-bold mb-3 text-gray-900 tracking-tight">{info.title}</h3>
+                <div className="space-y-1.5 sm:space-y-2 mb-4 sm:mb-6 flex-1">
                   {info.details.map((detail, idx) => (
-                    <p key={idx} className="text-gray-700 text-sm sm:text-base leading-relaxed font-normal">{detail}</p>
+                    <p key={idx} className="text-gray-700 text-xs sm:text-sm leading-relaxed font-normal">{detail}</p>
                   ))}
                 </div>
                 <button 
                   onClick={info.onClick}
-                  className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 sm:py-4 px-4 sm:px-6 rounded-lg transition-all duration-200 text-sm sm:text-base mt-auto shadow-sm hover:shadow-md"
+                  className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-2.5 sm:py-3 px-4 rounded-lg transition-all duration-200 text-xs sm:text-sm mt-auto shadow-sm hover:shadow-md"
                 >
                   {info.action}
                 </button>
@@ -187,13 +187,13 @@ const ContactPage = () => {
       </section>
 
       {/* Contact Form & Map */}
-      <section className="py-16">
+      <section className="py-12 sm:py-16">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10">
             {/* Contact Form */}
             <div>
-              <h2 className="text-3xl sm:text-4xl font-bold mb-4 sm:mb-6 text-gray-900 tracking-tight">Send us a Message</h2>
-              <p className="text-gray-700 text-base sm:text-lg mb-8 leading-relaxed">
+              <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 text-gray-900 tracking-tight">Send us a Message</h2>
+              <p className="text-gray-700 text-sm sm:text-base mb-6 leading-relaxed">
                 Have a question or need assistance? Fill out the form below and our team will get back to you within 24 hours.
               </p>
 
@@ -301,15 +301,15 @@ const ContactPage = () => {
 
             {/* Additional Info */}
             <div>
-              <h2 className="text-3xl font-bold mb-6">Get In Touch</h2>
+              <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6">Get In Touch</h2>
 
               {/* Quick Contact */}
-              <div className="bg-green-600 text-white rounded-lg p-6">
-                <h3 className="text-lg font-semibold mb-4 flex items-center">
-                  <Headphones className="h-5 w-5 mr-2" />
+              <div className="bg-green-600 text-white rounded-lg p-5 sm:p-6">
+                <h3 className="text-base sm:text-lg font-semibold mb-3 flex items-center">
+                  <Headphones className="h-4 w-4 sm:h-5 sm:w-5 mr-2" />
                   Need Immediate Help?
                 </h3>
-                <p className="text-gray-200 mb-4">
+                <p className="text-gray-200 text-sm sm:text-base mb-4">
                   Our customer support team is available 24/7 to assist you with any questions or concerns.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-3">
@@ -337,21 +337,21 @@ const ContactPage = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-12 sm:py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold mb-4">Frequently Asked Questions</h2>
-              <p className="text-gray-600">
+            <div className="text-center mb-8 sm:mb-10">
+              <h2 className="text-2xl sm:text-3xl font-bold mb-3">Frequently Asked Questions</h2>
+              <p className="text-gray-600 text-sm sm:text-base">
                 Quick answers to common questions about our products and services
               </p>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
               {faqs.map((faq, index) => (
-                <div key={index} className="bg-white p-6 rounded-lg shadow-sm">
-                  <h3 className="font-semibold mb-3">{faq.question}</h3>
-                  <p className="text-gray-600">{faq.answer}</p>
+                <div key={index} className="bg-white p-4 sm:p-5 rounded-lg shadow-sm">
+                  <h3 className="font-semibold text-sm sm:text-base mb-2">{faq.question}</h3>
+                  <p className="text-gray-600 text-xs sm:text-sm">{faq.answer}</p>
                 </div>
               ))}
             </div>
@@ -378,15 +378,15 @@ const ContactPage = () => {
       />
 
       {/* Support Team */}
-      <section className="py-16">
+      <section className="py-12 sm:py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="bg-gradient-to-r from-green-600 to-green-700 text-white rounded-2xl p-12">
-              <div className="bg-white/10 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
-                <Users className="h-10 w-10" />
+            <div className="bg-gradient-to-r from-green-600 to-green-700 text-white rounded-2xl p-8 sm:p-10">
+              <div className="bg-white/10 w-16 h-16 sm:w-18 sm:h-18 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-5">
+                <Users className="h-8 w-8 sm:h-9 sm:w-9" />
               </div>
-              <h2 className="text-3xl font-bold mb-4">Ready to Go Green?</h2>
-              <p className="text-xl text-gray-200 mb-8">
+              <h2 className="text-2xl sm:text-3xl font-bold mb-3">Ready to Go Green?</h2>
+              <p className="text-base sm:text-lg text-gray-200 mb-6 sm:mb-8">
                 Get instant support through WhatsApp or call our dedicated team at 88610 09443.
                 Experience quality certified refurbished electronics with expert guidance.
               </p>
