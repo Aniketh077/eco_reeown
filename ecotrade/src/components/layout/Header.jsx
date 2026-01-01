@@ -515,7 +515,7 @@ const Header = () => {
                          </li>
                        ))}
                      </ul>
-                     <h4 className="font-semibold text-xs mb-2 text-gray-700">
+                     <h4 className="font-semibold text-xs mb-2 text-gray-300">
                        Condition
                      </h4>
                      <ul className="space-y-1">
@@ -568,7 +568,7 @@ const Header = () => {
                          </li>
                        ))}
                      </ul>
-                     <h4 className="font-semibold text-xs mb-2 text-gray-700">
+                     <h4 className="font-semibold text-xs mb-2 text-gray-300">
                        Condition
                      </h4>
                      <ul className="space-y-1">
