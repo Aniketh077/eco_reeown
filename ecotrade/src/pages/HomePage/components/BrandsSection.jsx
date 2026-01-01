@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Link } from 'react-router-dom';
+import { ChevronRight } from 'lucide-react';
 
 const BrandsSection = ({ types }) => {
+  const scrollContainerRef = useRef(null);
+
   // Add comprehensive safety checks to prevent React child errors
   if (!types || !Array.isArray(types) || types.length === 0) {
     return null;
@@ -31,6 +34,15 @@ const BrandsSection = ({ types }) => {
     return null;
   }
 
+  const scrollRight = () => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollBy({
+        left: 300,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   return (
     <section className="py-16 relative overflow-hidden">
       <div className="absolute inset-0 z-0">
@@ -49,54 +61,66 @@ const BrandsSection = ({ types }) => {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-6">
-          {validTypes.map((type, index) => {
-            // Safely extract type properties as strings
-            const typeId = type._id ? String(type._id) : (type.id ? String(type.id) : '');
-            const typeName = type.name ? String(type.name) : '';
-            const typeLogo = type.logo && typeof type.logo === 'string' ? String(type.logo) : null;
+        <div className="relative">
+          <div 
+            ref={scrollContainerRef}
+            className="flex overflow-x-auto scrollbar-hide gap-4 sm:gap-6 pb-4 scroll-smooth"
+            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+          >
+            {validTypes.map((type, index) => {
+              // Safely extract type properties as strings
+              const typeId = type._id ? String(type._id) : (type.id ? String(type.id) : '');
+              const typeName = type.name ? String(type.name) : '';
+              const typeLogo = type.logo && typeof type.logo === 'string' ? String(type.logo) : null;
 
-            return (
-              <Link
-                key={`brand-${typeId}-${index}`}
-                to={`/products?types=${encodeURIComponent(typeName)}`}
-                className="bg-white rounded-xl shadow-sm p-4 sm:p-6 flex items-center justify-center transition-all hover:shadow-lg hover:-translate-y-1 group"
-              >
-                <div className="text-center w-full">
-                  {typeLogo ? (
-                    <div className="w-full h-16 sm:h-20 mx-auto mb-2 sm:mb-3 flex items-center justify-center">
-                      <img
-                        src={typeLogo}
-                        alt={`${typeName} logo`}
-                        className="max-w-full max-h-full object-contain"
-                        onError={(e) => {
-                          e.target.style.display = 'none';
-                          const fallback = e.target.nextElementSibling;
-                          if (fallback) {
-                            fallback.style.display = 'flex';
-                          }
-                        }}
-                      />
-                      <div className="hidden w-12 h-12 sm:w-16 sm:h-16 bg-gray-100 rounded-full items-center justify-center group-hover:bg-green-50 transition-colors">
+              return (
+                <Link
+                  key={`brand-${typeId}-${index}`}
+                  to={`/products?types=${encodeURIComponent(typeName)}`}
+                  className="flex-shrink-0 bg-white rounded-xl shadow-sm p-4 sm:p-6 w-[180px] sm:w-[200px] flex items-center justify-center transition-all hover:shadow-lg hover:-translate-y-1 group"
+                >
+                  <div className="text-center w-full">
+                    {typeLogo ? (
+                      <div className="w-full h-16 sm:h-20 mx-auto mb-2 sm:mb-3 flex items-center justify-center">
+                        <img
+                          src={typeLogo}
+                          alt={`${typeName} logo`}
+                          className="max-w-full max-h-full object-contain"
+                          onError={(e) => {
+                            e.target.style.display = 'none';
+                            const fallback = e.target.nextElementSibling;
+                            if (fallback) {
+                              fallback.style.display = 'flex';
+                            }
+                          }}
+                        />
+                        <div className="hidden w-12 h-12 sm:w-16 sm:h-16 bg-gray-100 rounded-full items-center justify-center group-hover:bg-green-50 transition-colors">
+                          <span className="text-xl sm:text-2xl font-bold text-green-700">
+                            {typeName.charAt(0).toUpperCase()}
+                          </span>
+                        </div>
+                      </div>
+                    ) : (
+                      <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-2 sm:mb-3 bg-gray-100 rounded-full flex items-center justify-center group-hover:bg-green-50 transition-colors">
                         <span className="text-xl sm:text-2xl font-bold text-green-700">
                           {typeName.charAt(0).toUpperCase()}
                         </span>
                       </div>
-                    </div>
-                  ) : (
-                    <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-2 sm:mb-3 bg-gray-100 rounded-full flex items-center justify-center group-hover:bg-green-50 transition-colors">
-                      <span className="text-xl sm:text-2xl font-bold text-green-700">
-                        {typeName.charAt(0).toUpperCase()}
-                      </span>
-                    </div>
-                  )}
-                  <span className="text-xs sm:text-sm font-medium text-gray-700 group-hover:text-green-700 transition-colors block line-clamp-2">
-                    {typeName}
-                  </span>
-                </div>
-              </Link>
-            );
-          })}
+                    )}
+                    <span className="text-xs sm:text-sm font-medium text-gray-700 group-hover:text-green-700 transition-colors block line-clamp-2">
+                      {typeName}
+                    </span>
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
+          
+          {/* Scroll to explore more indicator */}
+          <div className="flex items-center justify-center mt-4 sm:mt-6 gap-2 text-green-700 hover:text-green-800 cursor-pointer transition-colors" onClick={scrollRight}>
+            <span className="text-sm sm:text-base font-medium">Scroll to explore more</span>
+            <ChevronRight className="h-4 w-4 sm:h-5 sm:w-5 animate-pulse" />
+          </div>
         </div>
       </div>
     </section>
