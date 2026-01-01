@@ -333,7 +333,7 @@ const Header = () => {
   );
 
   return (
-    <header ref={headerRef} className="fixed top-0 z-50 w-full bg-[#131921] text-white shadow-md transition-all duration-300">
+    <header ref={headerRef} className="fixed top-0 z-50 w-full bg-white border-b border-gray-200 shadow-sm transition-all duration-300">
       <div className="max-w-screen-2xl mx-auto px-2 sm:px-4 lg:px-6">
         {/* --- Top Bar (Logo, Search, Icons) - Amazon Style --- */}
         <div className="flex items-center justify-between py-2 sm:py-3 gap-2 sm:gap-4">
@@ -341,18 +341,18 @@ const Header = () => {
           {/* === LEFT SECTION: Logo === */}
           <div className="flex items-center flex-shrink-0">
              {/* Mobile Menu Toggle */}
-             <button className="lg:hidden p-2 text-white hover:bg-[#232f3e] rounded transition-colors" onClick={toggleMenu} aria-label="Open mobile menu">
+             <button className="lg:hidden p-2 text-gray-900 hover:bg-gray-100 rounded transition-colors" onClick={toggleMenu} aria-label="Open mobile menu">
                 {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
              </button>
              {/* Logo */}
-             <Link to="/" className="flex items-center flex-shrink-0 px-2 py-1 hover:outline hover:outline-1 hover:outline-white rounded">
+             <Link to="/" className="flex items-center flex-shrink-0 px-2 py-1 hover:opacity-80 transition-opacity">
                <img 
                  src="/logo_light.png" 
                  alt="Reeown Logo" 
                  className="h-8 w-8 sm:h-10 sm:w-10 object-contain"
                />
-               <span className="hidden sm:inline text-lg sm:text-xl font-bold text-white ml-1">
-                 Ree<span className="text-green-400">own</span>
+               <span className="hidden sm:inline text-lg sm:text-xl font-bold text-gray-900 ml-1">
+                 Ree<span className="text-green-600">own</span>
                </span>
              </Link>
           </div>
@@ -365,10 +365,10 @@ const Header = () => {
                     placeholder="Search products..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    className="flex-1 px-3 sm:px-4 text-sm text-gray-900 border-0 rounded-l-md focus:outline-none focus:ring-2 focus:ring-orange-400"
+                    className="flex-1 px-3 sm:px-4 text-sm text-gray-900 border border-gray-300 rounded-l-md focus:outline-none focus:ring-2 focus:ring-green-600 focus:border-green-600"
                 />
-                <button type="submit" className="bg-[#febd69] hover:bg-[#f3a847] px-3 sm:px-4 rounded-r-md transition-colors" aria-label="Search">
-                    <Search className="h-4 w-4 sm:h-5 sm:w-5 text-[#131921]" />
+                <button type="submit" className="bg-green-600 hover:bg-green-700 px-3 sm:px-4 rounded-r-md transition-colors" aria-label="Search">
+                    <Search className="h-4 w-4 sm:h-5 sm:w-5 text-white" />
                 </button>
              </form>
           </div>
@@ -377,9 +377,9 @@ const Header = () => {
           <div className="flex items-center justify-end space-x-1 sm:space-x-2 flex-shrink-0">
              {/* Account Menu */}
              <div ref={profileMenuRef} className="relative profile-menu hidden sm:block" onMouseEnter={handleProfileMenuEnter} onMouseLeave={handleProfileMenuLeave}>
-                <button onClick={toggleProfileMenu} className="px-2 py-1 hover:outline hover:outline-1 hover:outline-white rounded text-left">
-                  <p className="text-xs text-gray-300 leading-tight">Hello, {isAuthenticated ? (user?.name?.split(' ')[0] || 'User') : 'Sign in'}</p>
-                  <p className="text-xs sm:text-sm font-semibold">Account & Lists</p>
+                <button onClick={toggleProfileMenu} className="px-2 py-1 hover:bg-gray-100 rounded text-left">
+                  <p className="text-xs text-gray-600 leading-tight">User</p>
+                  <p className="text-xs sm:text-sm font-semibold text-gray-900">{isAuthenticated ? (user?.name?.split(' ')[0] || 'Account') : 'Sign in'}</p>
                 </button>
                 {isProfileMenuOpen && (
                     <div className="absolute right-0 mt-2 w-56 rounded-md bg-white py-2 shadow-xl border border-gray-200 z-30">
@@ -388,43 +388,46 @@ const Header = () => {
                                 <div className="border-b border-gray-200 px-4 py-3 bg-gray-50">
                                     <p className="text-sm font-semibold text-gray-900 truncate">{user?.name}</p>
                                     <p className="text-xs text-gray-600 truncate">{user?.email}</p>
-                                    {isAdmin && <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-[#131921] text-white mt-1.5">Admin</span>}
+                                    {isAdmin && <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-green-600 text-white mt-1.5">Admin</span>}
                                 </div>
-                                {isAdmin && <Link to="/admin" onClick={() => setIsProfileMenuOpen(false)} className="flex items-center px-4 py-2.5 text-sm text-gray-700 hover:bg-orange-50 hover:text-orange-600 transition-colors"><Settings className="mr-2 h-4 w-4" />Admin Dashboard</Link>}
-                                <Link to="/account" onClick={() => setIsProfileMenuOpen(false)} className="flex items-center px-4 py-2.5 text-sm text-gray-700 hover:bg-orange-50 hover:text-orange-600 transition-colors"><User className="mr-2 h-4 w-4" />My Account</Link>
-                                <Link to="/orders" onClick={() => setIsProfileMenuOpen(false)} className="flex items-center px-4 py-2.5 text-sm text-gray-700 hover:bg-orange-50 hover:text-orange-600 transition-colors"><Package className="mr-2 h-4 w-4" />My Orders</Link>
-                                <Link to="/wishlist" onClick={() => setIsProfileMenuOpen(false)} className="flex items-center px-4 py-2.5 text-sm text-gray-700 hover:bg-orange-50 hover:text-orange-600 transition-colors"><Heart className="mr-2 h-4 w-4" />My Wishlist</Link>
+                                {isAdmin && <Link to="/admin" onClick={() => setIsProfileMenuOpen(false)} className="flex items-center px-4 py-2.5 text-sm text-gray-700 hover:bg-green-50 hover:text-green-700 transition-colors"><Settings className="mr-2 h-4 w-4" />Admin Dashboard</Link>}
+                                <Link to="/account" onClick={() => setIsProfileMenuOpen(false)} className="flex items-center px-4 py-2.5 text-sm text-gray-700 hover:bg-green-50 hover:text-green-700 transition-colors"><User className="mr-2 h-4 w-4" />My Account</Link>
+                                <Link to="/orders" onClick={() => setIsProfileMenuOpen(false)} className="flex items-center px-4 py-2.5 text-sm text-gray-700 hover:bg-green-50 hover:text-green-700 transition-colors"><Package className="mr-2 h-4 w-4" />My Orders</Link>
+                                <Link to="/wishlist" onClick={() => setIsProfileMenuOpen(false)} className="flex items-center px-4 py-2.5 text-sm text-gray-700 hover:bg-green-50 hover:text-green-700 transition-colors"><Heart className="mr-2 h-4 w-4" />My Wishlist</Link>
                                 <div className="border-t border-gray-200 mt-1 pt-1">
                                     <button onClick={handleLogout} className="flex w-full items-center px-4 py-2.5 text-sm text-red-600 hover:bg-red-50 transition-colors"><LogOut className="mr-2 h-4 w-4" />Sign out</button>
                                 </div>
                             </>
                         ) : (
                             <>
-                                <Link to="/login" onClick={() => setIsProfileMenuOpen(false)} className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-orange-50 hover:text-orange-600 transition-colors">Sign in</Link>
-                                <Link to="/register" onClick={() => setIsProfileMenuOpen(false)} className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-orange-50 hover:text-orange-600 transition-colors">Create account</Link>
+                                <Link to="/login" onClick={() => setIsProfileMenuOpen(false)} className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-green-50 hover:text-green-700 transition-colors">Sign in</Link>
+                                <Link to="/register" onClick={() => setIsProfileMenuOpen(false)} className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-green-50 hover:text-green-700 transition-colors">Create account</Link>
                             </>
                         )}
                     </div>
                 )}
               </div>
 
-             {/* Orders */}
-             <Link to="/orders" className="hidden sm:block px-2 py-1 hover:outline hover:outline-1 hover:outline-white rounded">
-               <p className="text-xs text-gray-300 leading-tight">Returns</p>
-               <p className="text-xs sm:text-sm font-semibold">& Orders</p>
+             {/* Cart */}
+             <Link to="/cart" className="relative px-2 sm:px-3 py-1 hover:bg-gray-100 rounded flex items-center" aria-label={`Cart with ${cart.items.length} items`}>
+                <ShoppingCart className="h-6 w-6 sm:h-7 sm:w-7 text-gray-900" />
+                {cart.items.length > 0 && (
+                    <span className="absolute -top-1 -right-1 flex h-4 w-4 sm:h-5 sm:w-5 items-center justify-center rounded-full bg-green-600 text-[10px] sm:text-xs font-bold text-white">
+                        {cart.items.reduce((total, item) => total + item.quantity, 0)}
+                    </span>
+                )}
+                <span className="hidden sm:inline text-xs sm:text-sm font-semibold text-gray-900 ml-1">Cart</span>
              </Link>
 
-             {/* Cart */}
-             <Link to="/cart" className="relative px-2 sm:px-3 py-1 hover:outline hover:outline-1 hover:outline-white rounded flex items-end" aria-label={`Cart with ${cart.items.length} items`}>
-                <div className="flex items-center">
-                  <ShoppingCart className="h-6 w-6 sm:h-7 sm:w-7" />
-                  {cart.items.length > 0 && (
-                      <span className="absolute -top-1 -right-1 sm:top-0 sm:right-0 flex h-4 w-4 sm:h-5 sm:w-5 items-center justify-center rounded-full bg-[#febd69] text-[10px] sm:text-xs font-bold text-[#131921]">
-                          {cart.items.reduce((total, item) => total + item.quantity, 0)}
-                      </span>
-                  )}
-                </div>
-                <span className="hidden sm:inline text-xs sm:text-sm font-semibold ml-1">Cart</span>
+             {/* Wishlist */}
+             <Link to="/wishlist" className="relative px-2 sm:px-3 py-1 hover:bg-gray-100 rounded flex items-center" aria-label="Wishlist">
+                <Heart className="h-6 w-6 sm:h-7 sm:w-7 text-gray-900" />
+                {user && user.wishlist?.length > 0 && (
+                    <span className="absolute -top-1 -right-1 flex h-4 w-4 sm:h-5 sm:w-5 items-center justify-center rounded-full bg-green-600 text-[10px] sm:text-xs font-bold text-white">
+                        {user.wishlist.length}
+                    </span>
+                )}
+                <span className="hidden sm:inline text-xs sm:text-sm font-semibold text-gray-900 ml-1">Wishlist</span>
              </Link>
            </div>
          </div>
