@@ -427,9 +427,9 @@ const CheckoutPage = () => {
                         className="w-12 h-12 sm:w-16 sm:h-16 object-contain rounded border cursor-pointer"
                         onClick={() => navigate(`/product/${item.product.id || item.product._id}`)}
                       />
-                      <div className="flex-1 min-w-0">
-                        <h3 className="font-medium text-xs sm:text-sm line-clamp-2">{item.product.name}</h3>
-                        <p className="text-xs sm:text-sm text-gray-500">Qty: {item.quantity}</p>
+                      <div className="flex-1 min-w-0 overflow-hidden">
+                        <h3 className="font-medium text-xs sm:text-sm line-clamp-2 break-words overflow-hidden">{item.product.name}</h3>
+                        <p className="text-xs sm:text-sm text-gray-500 whitespace-nowrap">Qty: {item.quantity}</p>
                         {/* EMI eligibility */}
                         {((item.product.discountPrice || item.product.price) || 0) >= 1500 && (
                           <p className="text-xs text-amber-600 font-medium mt-1">EMI available</p>

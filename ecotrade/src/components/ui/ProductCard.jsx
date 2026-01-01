@@ -85,9 +85,9 @@ const ProductCard = ({ product, viewMode = 'grid', showGamification = false }) =
 
   if (viewMode === 'list') {
     return (
-      <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden hover:shadow-lg transition-all duration-300 group">
-        <div className="flex flex-col sm:flex-row">
-          <div className="w-full sm:w-48 h-48 sm:h-48 flex-shrink-0 relative">
+      <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden hover:shadow-lg transition-all duration-300 group flex flex-col h-full">
+        <div className="flex flex-col sm:flex-row flex-1 min-h-0">
+          <div className="w-full sm:w-48 h-48 sm:h-48 flex-shrink-0 relative overflow-hidden">
 
             {/* Gamification Badges */}
             {showGamification && (
@@ -122,13 +122,13 @@ const ProductCard = ({ product, viewMode = 'grid', showGamification = false }) =
               </div>
             )}
           </div>
-          <div className="flex-1 p-4 sm:p-6">
-            <Link to={`/product/${product._id}`}>
-              <h3 className="text-base sm:text-lg font-semibold mb-2 hover:text-green-700 line-clamp-2">
+          <div className="flex-1 p-4 sm:p-6 flex flex-col min-h-0">
+            <Link to={`/product/${product._id}`} className="flex-shrink-0">
+              <h3 className="text-base sm:text-lg font-semibold mb-2 hover:text-green-700 line-clamp-2 break-words overflow-hidden">
                 {product.name}
               </h3>
             </Link>
-            <p className="text-gray-600 text-xs sm:text-sm mb-3 line-clamp-2">
+            <p className="text-gray-600 text-xs sm:text-sm mb-3 line-clamp-2 break-words overflow-hidden flex-shrink-0">
               {product.description}
             </p>
 
@@ -152,24 +152,24 @@ const ProductCard = ({ product, viewMode = 'grid', showGamification = false }) =
                 </span>
               </div>
             </div>
-            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-              <div>
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mt-auto flex-shrink-0">
+              <div className="flex-shrink-0">
                 {product.discountPrice ? (
                   <div className="flex items-center flex-wrap gap-2">
-                    <span className="text-lg sm:text-xl font-bold text-green-700">
+                    <span className="text-lg sm:text-xl font-bold text-green-700 whitespace-nowrap">
                       ₹{product.discountPrice.toFixed(2)}
                     </span>
-                    <span className="text-xs sm:text-sm text-gray-500 line-through">
+                    <span className="text-xs sm:text-sm text-gray-500 line-through whitespace-nowrap">
                       ₹{product.price.toFixed(2)}
                     </span>
                   </div>
                 ) : (
-                  <span className="text-lg sm:text-xl font-bold text-green-700">
+                  <span className="text-lg sm:text-xl font-bold text-green-700 whitespace-nowrap">
                     ₹{product.price.toFixed(2)}
                   </span>
                 )}
               </div>
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 flex-shrink-0">
                 <button
                   disabled={product.stock === 0}
                   onClick={handleAddToCart}
@@ -208,7 +208,7 @@ const ProductCard = ({ product, viewMode = 'grid', showGamification = false }) =
   }
 
   return (
-    <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden hover:shadow-xl transition-all duration-300 group relative transform hover:scale-105">
+    <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden hover:shadow-xl transition-all duration-300 group relative flex flex-col h-full">
 
       {/* Gamification Badges */}
       {showGamification && (
@@ -242,9 +242,9 @@ const ProductCard = ({ product, viewMode = 'grid', showGamification = false }) =
         </>
       )}
 
-      <div className="relative">
+      <div className="relative flex-shrink-0">
         <Link to={`/product/${product._id}`}>
-          <div className="aspect-square bg-gray-50 p-2 sm:p-4">
+          <div className="aspect-square bg-gray-50 p-2 sm:p-4 overflow-hidden">
             <img
               src={product.image}
               alt={product.name}
@@ -273,8 +273,8 @@ const ProductCard = ({ product, viewMode = 'grid', showGamification = false }) =
         )}
       </div>
       
-      <div className="p-3 sm:p-4">
-        <div className="text-xs text-gray-500 mb-1">
+      <div className="p-3 sm:p-4 flex flex-col h-full">
+        <div className="text-xs text-gray-500 mb-1 truncate">
           {(() => {
             if (product && product.type) {
               if (typeof product.type === 'string' && product.type.trim()) {
@@ -286,51 +286,51 @@ const ProductCard = ({ product, viewMode = 'grid', showGamification = false }) =
             return 'Certified Refurbished';
           })()}
         </div>
-        <Link to={`/product/${product._id}`}>
-          <h3 className="font-semibold mb-2 line-clamp-2 text-sm sm:text-base hover:text-green-700 transition-colors">
+        <Link to={`/product/${product._id}`} className="flex-1 flex flex-col min-h-0">
+          <h3 className="font-semibold mb-2 line-clamp-2 text-sm sm:text-base hover:text-green-700 transition-colors break-words overflow-hidden">
             {product && product.name ? String(product.name) : 'Product'}
           </h3>
         </Link>
         
         {/* Quality Check Badge */}
         {product.qualityCheckPoints && (
-          <div className="flex items-center mb-2">
-            <div className="bg-green-50 border border-green-200 rounded-full px-2 py-1 flex items-center">
-              <CheckCircle className="h-3 w-3 text-green-600 mr-1" />
-              <span className="text-xs font-medium text-green-700">
+          <div className="flex items-center mb-2 flex-shrink-0">
+            <div className="bg-green-50 border border-green-200 rounded-full px-2 py-1 flex items-center max-w-full">
+              <CheckCircle className="h-3 w-3 text-green-600 mr-1 flex-shrink-0" />
+              <span className="text-xs font-medium text-green-700 truncate">
                 {product.qualityCheckPoints}-Point Check
               </span>
             </div>
           </div>
         )}
 
-        <div className="flex items-center mb-2 sm:mb-3">
-          <div className="flex items-center">
+        <div className="flex items-center mb-2 sm:mb-3 flex-shrink-0">
+          <div className="flex items-center flex-wrap">
             {renderStars(product.rating || 0)}
-            <span className="ml-1 sm:ml-2 text-xs sm:text-sm text-gray-600">
+            <span className="ml-1 sm:ml-2 text-xs sm:text-sm text-gray-600 whitespace-nowrap">
               ({product.reviewCount || 0})
             </span>
           </div>
         </div>
         
-        <div className="flex items-center justify-between mb-2 sm:mb-3">
+        <div className="flex items-center justify-between mb-2 sm:mb-3 flex-shrink-0">
           {product.discountPrice ? (
-            <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2">
-              <span className="text-base sm:text-lg font-bold text-green-700">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2 flex-wrap">
+              <span className="text-base sm:text-lg font-bold text-green-700 whitespace-nowrap">
                 ₹{product.discountPrice.toFixed(2)}
               </span>
-              <span className="text-xs sm:text-sm text-gray-500 line-through">
+              <span className="text-xs sm:text-sm text-gray-500 line-through whitespace-nowrap">
                 ₹{product.price.toFixed(2)}
               </span>
             </div>
           ) : (
-            <span className="text-base sm:text-lg font-bold text-green-700">
+            <span className="text-base sm:text-lg font-bold text-green-700 whitespace-nowrap">
               ₹{product.price.toFixed(2)}
             </span>
           )}
         </div>
         
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 mt-auto flex-shrink-0">
           <button
             disabled={product.stock === 0}
             onClick={handleAddToCart}
