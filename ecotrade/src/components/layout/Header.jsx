@@ -251,7 +251,7 @@ const Header = () => {
   };
 
   const DesktopNavLinks = () => (
-    <ul className="flex items-center space-x-1 sm:space-x-2 xl:space-x-3 flex-wrap">
+    <ul className="flex items-center space-x-1 sm:space-x-2 xl:space-x-3 flex-nowrap min-w-max">
       <li>
         <Link to="/" className="px-3 py-1.5 text-sm font-medium transition-colors hover:text-green-600 text-gray-900 whitespace-nowrap hover:bg-gray-100 rounded">
           Home
@@ -432,9 +432,13 @@ const Header = () => {
            </div>
          </div>
 
-         {/* Navigation Bar Below Search */}
-         <div className="hidden lg:flex items-center bg-gray-50 border-t border-gray-200 px-2 sm:px-4 py-2">
-           <DesktopNavLinks />
+         {/* Navigation Bar Below Search - Full Width and Responsive */}
+         <div className="w-full bg-gray-50 border-t border-gray-200">
+           <div className="w-full px-2 sm:px-4 lg:px-6">
+             <div className="flex items-center overflow-x-auto scrollbar-hide py-2">
+               <DesktopNavLinks />
+             </div>
+           </div>
          </div>
 
       </div>

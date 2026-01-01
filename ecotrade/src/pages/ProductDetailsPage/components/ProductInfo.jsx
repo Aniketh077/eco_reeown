@@ -120,33 +120,33 @@ const ProductInfo = ({
   };
 
   return (
-    <div className="p-4 sm:p-6 flex flex-col">
-      <div className="mb-1 text-xs sm:text-sm text-gray-500">{typeName}</div>
-      <h1 className="text-xl sm:text-2xl md:text-3xl font-bold mb-2 break-words overflow-hidden">{product.name}</h1>
+    <div className="p-2 sm:p-3 md:p-4 flex flex-col">
+      <div className="mb-1 text-[10px] sm:text-xs text-gray-500">{typeName}</div>
+      <h1 className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold mb-1.5 sm:mb-2 break-words overflow-hidden">{product.name}</h1>
       
-      <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-4">
+      <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 mb-2 sm:mb-3">
         <div className="flex items-center">
           {[1, 2, 3, 4, 5].map((star) => {
             const fillPercent = Math.min(Math.max(product.rating - (star - 1), 0), 1) * 100;
 
             return (
-              <div key={star} className="relative w-4 h-4 sm:w-5 sm:h-5 mr-0.5">
-                <Star className="w-4 h-4 sm:w-5 sm:h-5 text-gray-200" fill="#E0E0E0" />
+              <div key={star} className="relative w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 mr-0.5">
+                <Star className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 text-gray-200" fill="#E0E0E0" />
                 <div
                   className="absolute top-0 left-0 overflow-hidden"
                   style={{ width: `${fillPercent}%` }}
                 >
-                  <Star className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-400" fill="#FCD34D" />
+                  <Star className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 text-yellow-400" fill="#FCD34D" />
                 </div>
               </div>
             );
           })}
-          <span className="ml-1 sm:ml-2 text-xs sm:text-sm font-medium">{product.rating}</span>
+          <span className="ml-1 text-[10px] sm:text-xs md:text-sm font-medium">{product.rating}</span>
         </div>
         <span className="text-gray-300 hidden sm:inline">|</span>
         <button
           onClick={scrollToReviews}
-          className="text-xs sm:text-sm text-gray-500 hover:text-green-700 hover:underline transition-colors duration-200 cursor-pointer"
+          className="text-[10px] sm:text-xs md:text-sm text-gray-500 hover:text-green-700 hover:underline transition-colors duration-200 cursor-pointer"
         >
           {product.reviewCount} reviews
         </button>
@@ -155,10 +155,10 @@ const ProductInfo = ({
         {product.qualityCheckPoints && (
           <>
             <span className="text-gray-300 hidden sm:inline">|</span>
-            <div className="bg-green-50 border border-green-200 rounded-full px-2 sm:px-3 py-1 flex items-center">
-              <CheckCircle className="h-3 w-3 sm:h-4 sm:w-4 text-green-600 mr-1 sm:mr-1.5" />
-              <span className="text-xs sm:text-sm font-semibold text-green-700">
-                {product.qualityCheckPoints}-Point Quality Check
+            <div className="bg-green-50 border border-green-200 rounded-full px-1.5 sm:px-2 md:px-3 py-0.5 sm:py-1 flex items-center">
+              <CheckCircle className="h-2.5 w-2.5 sm:h-3 sm:w-3 md:h-4 md:w-4 text-green-600 mr-1" />
+              <span className="text-[10px] sm:text-xs md:text-sm font-semibold text-green-700">
+                {product.qualityCheckPoints}-Point Check
               </span>
             </div>
           </>
@@ -166,41 +166,41 @@ const ProductInfo = ({
       </div>
       
       {/* Innovative Price Display */}
-      <div className="mb-4 sm:mb-6">
-        <div className="bg-gradient-to-br from-green-50 to-emerald-50 border-2 border-green-200 rounded-xl sm:rounded-2xl p-4 sm:p-6 relative overflow-hidden">
+      <div className="mb-2 sm:mb-3 md:mb-4">
+        <div className="bg-gradient-to-br from-green-50 to-emerald-50 border-2 border-green-200 rounded-lg sm:rounded-xl p-2 sm:p-3 md:p-4 relative overflow-hidden">
           {/* Background Pattern */}
          
           
           <div className="relative z-10">
             {/* Price Header */}
-            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-3 sm:mb-4 gap-2">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-2 sm:mb-3 gap-1.5 sm:gap-2">
               <div className="flex items-center">
-                <div className="w-6 h-6 sm:w-8 sm:h-8 bg-green-600 rounded-full flex items-center justify-center mr-2 sm:mr-3">
-                  <Zap className="h-3 w-3 sm:h-4 sm:w-4 text-white" />
+                <div className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 bg-green-600 rounded-full flex items-center justify-center mr-1.5 sm:mr-2">
+                  <Zap className="h-2.5 w-2.5 sm:h-3 sm:w-3 md:h-3.5 md:w-3.5 text-white" />
                 </div>
-                <h3 className="text-sm sm:text-base md:text-lg font-bold text-green-800">Certified Refurbished Price</h3>
+                <h3 className="text-xs sm:text-sm md:text-base font-bold text-green-800">Certified Refurbished Price</h3>
               </div>
               {discountPercentage > 0 && (
-                <div className="bg-red-500 text-white px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-bold animate-pulse">
+                <div className="bg-red-500 text-white px-1.5 sm:px-2 md:px-3 py-0.5 sm:py-1 rounded-full text-[10px] sm:text-xs md:text-sm font-bold animate-pulse">
                   {discountPercentage}% OFF
                 </div>
               )}
             </div>
 
             {/* Main Price Display */}
-            <div className="flex flex-col sm:flex-row sm:items-end mb-3 sm:mb-4 gap-2 flex-wrap">
+            <div className="flex flex-col sm:flex-row sm:items-end mb-2 sm:mb-3 gap-1.5 sm:gap-2 flex-wrap">
               <div className="flex items-baseline flex-wrap">
-                <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-green-700 break-words">
+                <span className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-black text-green-700 break-words">
                   ₹{currentPrice.toLocaleString('en-IN')}
                 </span>
-                <span className="text-xs sm:text-sm md:text-base lg:text-lg text-green-600 ml-1 sm:ml-2">.00</span>
+                <span className="text-[10px] sm:text-xs md:text-sm text-green-600 ml-1">.00</span>
               </div>
               {originalPrice > currentPrice && (
                 <div className="flex flex-col flex-shrink-0">
-                  <span className="text-xs sm:text-sm md:text-base lg:text-lg text-gray-500 line-through whitespace-nowrap">
+                  <span className="text-[10px] sm:text-xs md:text-sm text-gray-500 line-through whitespace-nowrap">
                     ₹{originalPrice.toLocaleString('en-IN')}
                   </span>
-                  <span className="text-xs sm:text-sm text-red-600 font-semibold">
+                  <span className="text-[10px] sm:text-xs text-red-600 font-semibold">
                     Original Price
                   </span>
                 </div>
@@ -209,33 +209,33 @@ const ProductInfo = ({
 
             {/* Savings Breakdown */}
             {savings > 0 && (
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-4 mb-3 sm:mb-4">
-                <div className="bg-white/70 backdrop-blur-sm rounded-lg p-2 sm:p-3 text-center border border-green-300">
-                  <div className="flex items-center justify-center mb-1">
-                    <TrendingDown className="h-3 w-3 sm:h-4 sm:w-4 text-green-600 mr-1" />
-                    <span className="text-xs font-medium text-green-800">YOU SAVE</span>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-1.5 sm:gap-2 md:gap-3 mb-2 sm:mb-3">
+                <div className="bg-white/70 backdrop-blur-sm rounded-lg p-1.5 sm:p-2 md:p-3 text-center border border-green-300">
+                  <div className="flex items-center justify-center mb-0.5 sm:mb-1">
+                    <TrendingDown className="h-2.5 w-2.5 sm:h-3 sm:w-3 md:h-4 md:w-4 text-green-600 mr-0.5 sm:mr-1" />
+                    <span className="text-[10px] sm:text-xs font-medium text-green-800">YOU SAVE</span>
                   </div>
-                  <div className="text-lg sm:text-xl font-bold text-green-700">
+                  <div className="text-sm sm:text-base md:text-lg font-bold text-green-700">
                     ₹{savings.toLocaleString('en-IN')}
                   </div>
                 </div>
                 
-                <div className="bg-white/70 backdrop-blur-sm rounded-lg p-2 sm:p-3 text-center border border-green-300">
-                  <div className="flex items-center justify-center mb-1">
-                    <Percent className="h-3 w-3 sm:h-4 sm:w-4 text-green-600 mr-1" />
-                    <span className="text-xs font-medium text-green-800">DISCOUNT</span>
+                <div className="bg-white/70 backdrop-blur-sm rounded-lg p-1.5 sm:p-2 md:p-3 text-center border border-green-300">
+                  <div className="flex items-center justify-center mb-0.5 sm:mb-1">
+                    <Percent className="h-2.5 w-2.5 sm:h-3 sm:w-3 md:h-4 md:w-4 text-green-600 mr-0.5 sm:mr-1" />
+                    <span className="text-[10px] sm:text-xs font-medium text-green-800">DISCOUNT</span>
                   </div>
-                  <div className="text-lg sm:text-xl font-bold text-green-700">
+                  <div className="text-sm sm:text-base md:text-lg font-bold text-green-700">
                     {discountPercentage}%
                   </div>
                 </div>
                 
-                <div className="bg-white/70 backdrop-blur-sm rounded-lg p-2 sm:p-3 text-center border border-green-300">
-                  <div className="flex items-center justify-center mb-1">
-                    <Calculator className="h-3 w-3 sm:h-4 sm:w-4 text-green-600 mr-1" />
-                    <span className="text-xs font-medium text-green-800">TOTAL SAVINGS</span>
+                <div className="bg-white/70 backdrop-blur-sm rounded-lg p-1.5 sm:p-2 md:p-3 text-center border border-green-300">
+                  <div className="flex items-center justify-center mb-0.5 sm:mb-1">
+                    <Calculator className="h-2.5 w-2.5 sm:h-3 sm:w-3 md:h-4 md:w-4 text-green-600 mr-0.5 sm:mr-1" />
+                    <span className="text-[10px] sm:text-xs font-medium text-green-800">TOTAL SAVINGS</span>
                   </div>
-                  <div className="text-lg sm:text-xl font-bold text-green-700">
+                  <div className="text-sm sm:text-base md:text-lg font-bold text-green-700">
                     ₹{totalSavings.toLocaleString('en-IN')}
                   </div>
                 </div>
@@ -243,8 +243,8 @@ const ProductInfo = ({
             )}
 
             {/* Price Comparison */}
-            <div className="bg-white/50 rounded-lg p-3 sm:p-4 border border-green-200">
-              <div className="flex items-center justify-between text-xs sm:text-sm">
+            <div className="bg-white/50 rounded-lg p-2 sm:p-3 border border-green-200">
+              <div className="flex items-center justify-between text-[10px] sm:text-xs md:text-sm">
                 <span className="text-gray-700">Market Price (New):</span>
                 <span className="font-semibold text-gray-800">₹{originalPrice.toLocaleString('en-IN')}</span>
               </div>

@@ -1,12 +1,13 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { ZoomIn, X } from 'lucide-react';
+import { ZoomIn } from 'lucide-react';
 
 const ProductImages = ({ product, activeImage, setActiveImage }) => {
-  const [isZoomed, setIsZoomed] = useState(false);
+  const [showZoom, setShowZoom] = useState(false);
   const [zoomPosition, setZoomPosition] = useState({ x: 0, y: 0 });
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const imageRef = useRef(null);
   const containerRef = useRef(null);
+  const zoomRef = useRef(null);
 
   const getProductImages = () => {
     const images = [];
@@ -31,66 +32,100 @@ const ProductImages = ({ product, activeImage, setActiveImage }) => {
   const currentImage = productImages[activeImage] || product.image;
 
   const handleMouseMove = (e) => {
-    if (!containerRef.current || !imageRef.current) return;
+    if (!containerRef.current || !imageRef.current || !showZoom) return;
 
     const rect = containerRef.current.getBoundingClientRect();
-    const x = ((e.clientX - rect.left) / rect.width) * 100;
-    const y = ((e.clientY - rect.top) / rect.height) * 100;
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    
+    // Calculate percentage position
+    const percentX = (x / rect.width) * 100;
+    const percentY = (y / rect.height) * 100;
 
-    setMousePosition({ x: e.clientX - rect.left, y: e.clientY - rect.top });
-    setZoomPosition({ x: Math.max(0, Math.min(100, x)), y: Math.max(0, Math.min(100, y)) });
+    setMousePosition({ x, y });
+    setZoomPosition({ 
+      x: Math.max(0, Math.min(100, percentX)), 
+      y: Math.max(0, Math.min(100, percentY)) 
+    });
   };
 
   const handleMouseEnter = () => {
-    setIsZoomed(true);
+    setShowZoom(true);
   };
 
   const handleMouseLeave = () => {
-    setIsZoomed(false);
+    setShowZoom(false);
   };
 
   useEffect(() => {
-    setIsZoomed(false);
+    setShowZoom(false);
   }, [activeImage]);
 
   return (
-    <div className="p-3 sm:p-4 md:p-6">
-      <div 
-        ref={containerRef}
-        className="relative mb-3 sm:mb-4 aspect-square bg-gray-100 rounded-lg overflow-hidden cursor-zoom-in group"
-        onMouseMove={handleMouseMove}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-      >
-        <img
-          ref={imageRef}
-          src={currentImage}
-          alt={product.name}
-          className={`w-full h-full object-contain p-2 sm:p-4 transition-transform duration-300 ${
-            product.stock === 0 ? 'opacity-50' : ''
-          } ${isZoomed ? 'scale-150' : ''}`}
-          style={{
-            transformOrigin: `${zoomPosition.x}% ${zoomPosition.y}%`
-          }}
-        />
-        
-        {/* Zoom indicator */}
-        {isZoomed && (
-          <div 
-            className="absolute pointer-events-none z-30 w-32 h-32 border-2 border-green-600 bg-green-600/10 rounded-full"
-            style={{
-              left: `${mousePosition.x - 64}px`,
-              top: `${mousePosition.y - 64}px`,
-              display: mousePosition.x > 0 && mousePosition.y > 0 ? 'block' : 'none'
-            }}
+    <div className="p-2 sm:p-3 md:p-4">
+      <div className="relative">
+        {/* Main Image Container */}
+        <div 
+          ref={containerRef}
+          className="relative mb-2 sm:mb-3 aspect-square bg-gray-100 rounded-lg overflow-hidden cursor-crosshair group"
+          onMouseMove={handleMouseMove}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+        >
+          <img
+            ref={imageRef}
+            src={currentImage}
+            alt={product.name}
+            className={`w-full h-full object-contain p-2 sm:p-3 ${
+              product.stock === 0 ? 'opacity-50' : ''
+            }`}
           />
-        )}
+          
+          {/* Zoom Lens - Magnifying Glass Effect */}
+          {showZoom && (
+            <>
+              {/* Lens overlay on main image - only on desktop */}
+              <div 
+                className="absolute pointer-events-none z-30 border-2 border-green-600 bg-green-600/20 rounded-full hidden md:block"
+                style={{
+                  width: '120px',
+                  height: '120px',
+                  left: `${mousePosition.x}px`,
+                  top: `${mousePosition.y}px`,
+                  display: mousePosition.x > 0 && mousePosition.y > 0 ? 'block' : 'none',
+                  transform: 'translate(-50%, -50%)',
+                  boxShadow: '0 0 0 2px white, 0 0 10px rgba(0,0,0,0.3)'
+                }}
+              />
+              
+              {/* Zoomed Image Preview - Side Panel (Desktop only) */}
+              <div 
+                ref={zoomRef}
+                className="absolute left-full ml-4 top-0 w-80 h-80 bg-white border-2 border-gray-300 rounded-lg shadow-2xl overflow-hidden z-40 hidden md:block"
+                style={{
+                  display: showZoom && mousePosition.x > 0 && mousePosition.y > 0 ? 'block' : 'none'
+                }}
+              >
+                <div 
+                  className="w-full h-full relative"
+                  style={{
+                    backgroundImage: `url(${currentImage})`,
+                    backgroundSize: '300%',
+                    backgroundPosition: `${zoomPosition.x}% ${zoomPosition.y}%`,
+                    backgroundRepeat: 'no-repeat',
+                    imageRendering: 'crisp-edges'
+                  }}
+                />
+              </div>
+            </>
+          )}
 
-        {/* Zoom hint */}
-        <div className="absolute bottom-2 right-2 bg-black/50 text-white px-2 py-1 rounded text-xs opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1">
-          <ZoomIn className="h-3 w-3" />
-          Hover to zoom
-        </div>
+          {/* Zoom hint */}
+          <div className="absolute bottom-2 right-2 bg-black/60 text-white px-2 py-1 rounded text-[10px] sm:text-xs opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1 pointer-events-none">
+            <ZoomIn className="h-3 w-3" />
+            <span className="hidden sm:inline">Hover to zoom</span>
+            <span className="sm:hidden">Zoom</span>
+          </div>
 
         {product.stock === 0 && (
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-20">
@@ -113,19 +148,19 @@ const ProductImages = ({ product, activeImage, setActiveImage }) => {
       </div>
       
       {productImages.length > 1 && (
-        <div className="flex space-x-2 overflow-x-auto pb-2 scrollbar-hide">
+        <div className="flex space-x-1.5 sm:space-x-2 overflow-x-auto pb-1 sm:pb-2 scrollbar-hide">
           {productImages.map((image, index) => (
             <button
               key={index}
               onClick={() => setActiveImage(index)}
-              className={`flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 border-2 rounded-md overflow-hidden transition-all ${
+              className={`flex-shrink-0 w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 border-2 rounded-md overflow-hidden transition-all ${
                 activeImage === index ? 'border-green-600 ring-2 ring-green-200' : 'border-gray-200 hover:border-green-300'
               }`}
             >
               <img
                 src={image}
                 alt={`${product.name} - view ${index + 1}`}
-                className={`w-full h-full object-contain p-1 ${product.stock === 0 ? 'opacity-50' : ''}`}
+                className={`w-full h-full object-contain p-0.5 sm:p-1 ${product.stock === 0 ? 'opacity-50' : ''}`}
               />
             </button>
           ))}

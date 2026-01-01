@@ -67,7 +67,9 @@ const AboutPage = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/products">
-                <Button variant="secondary" size="lg" className="bg-white hover:bg-gray-100 text-green-700 font-semibold">Shop Now</Button>
+                <Button variant="outline" size="lg" className="border-2 border-white text-white hover:bg-white hover:text-green-700 font-semibold">
+                  Shop Now
+                </Button>
               </Link>
               <Link to="/contact">
                 <Button variant="outline" size="lg" className="border-2 border-white text-white hover:bg-white hover:text-green-700 font-semibold">

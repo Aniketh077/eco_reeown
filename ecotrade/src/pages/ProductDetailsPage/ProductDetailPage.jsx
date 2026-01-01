@@ -117,15 +117,15 @@ const ProductDetailPage = () => {
   }
 
   return (
-    <div className="min-h-screen pt-20 pb-16">
-      <div className="container mx-auto px-3 sm:px-4">
+    <div className="min-h-screen pt-16 pb-8 sm:pt-20 sm:pb-12">
+      <div className="container mx-auto px-2 sm:px-3 md:px-4">
         <ProductBreadcrumb 
           product={product}
           collectionName={collectionName}
         />
         
         <div className="bg-white rounded-lg shadow-sm overflow-hidden">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 md:gap-6">
             <ProductImages
               product={product}
               activeImage={activeImage}
