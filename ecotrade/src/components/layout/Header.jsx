@@ -448,14 +448,6 @@ const Header = () => {
 
       </div>
 
-      {/* --- Scrolled Navigation Dropdown (Desktop) --- */}
-      {!isMobileMenuBreakpoint && isScrolledNavOpen && (
-        <div ref={scrolledNavRef} className="absolute top-full left-0 w-full bg-white shadow-lg ">
-          <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-            <DesktopNavLinks />
-          </div>
-        </div>
-      )}
 
       {/* --- Mobile Menu --- */}
       {isMobileMenuBreakpoint && isMenuOpen && (
