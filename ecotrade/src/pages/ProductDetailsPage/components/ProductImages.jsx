@@ -4,10 +4,13 @@ import { ZoomIn } from 'lucide-react';
 const ProductImages = ({ product, activeImage, setActiveImage }) => {
   const [showZoom, setShowZoom] = useState(false);
   const [zoomPosition, setZoomPosition] = useState({ x: 0, y: 0 });
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [lensPosition, setLensPosition] = useState({ x: 0, y: 0 });
   const imageRef = useRef(null);
   const containerRef = useRef(null);
   const zoomRef = useRef(null);
+
+  const LENS_SIZE = 150; // Size of the zoom lens
+  const ZOOM_LEVEL = 2.5; // Zoom multiplier
 
   const getProductImages = () => {
     const images = [];
@@ -38,11 +41,15 @@ const ProductImages = ({ product, activeImage, setActiveImage }) => {
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
     
-    // Calculate percentage position
-    const percentX = (x / rect.width) * 100;
-    const percentY = (y / rect.height) * 100;
+    // Constrain lens position within image bounds
+    const lensX = Math.max(LENS_SIZE / 2, Math.min(rect.width - LENS_SIZE / 2, x));
+    const lensY = Math.max(LENS_SIZE / 2, Math.min(rect.height - LENS_SIZE / 2, y));
+    
+    // Calculate percentage position for zoomed image
+    const percentX = (lensX / rect.width) * 100;
+    const percentY = (lensY / rect.height) * 100;
 
-    setMousePosition({ x, y });
+    setLensPosition({ x: lensX, y: lensY });
     setZoomPosition({ 
       x: Math.max(0, Math.min(100, percentX)), 
       y: Math.max(0, Math.min(100, percentY)) 
@@ -64,64 +71,42 @@ const ProductImages = ({ product, activeImage, setActiveImage }) => {
   return (
     <div className="p-2 sm:p-3 md:p-4">
       <div className="relative">
-        {/* Main Image Container */}
-        <div 
-          ref={containerRef}
-          className="relative mb-2 sm:mb-3 aspect-square bg-gray-100 rounded-lg overflow-hidden cursor-crosshair group"
-          onMouseMove={handleMouseMove}
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
-        >
+        {/* Main Image Container with Zoom Panel */}
+        <div className="relative mb-2 sm:mb-3">
+          <div 
+            ref={containerRef}
+            className="relative aspect-square bg-gray-100 rounded-lg overflow-hidden cursor-zoom-in group"
+            onMouseMove={handleMouseMove}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+          >
           <img
             ref={imageRef}
             src={currentImage}
             alt={product.name}
-            className={`w-full h-full object-contain p-2 sm:p-3 ${
+            className={`w-full h-full object-contain p-2 sm:p-3 transition-opacity ${
               product.stock === 0 ? 'opacity-50' : ''
             }`}
           />
           
-          {/* Zoom Lens - Magnifying Glass Effect */}
+          {/* Flipkart-style Zoom Lens - Rectangular overlay */}
           {showZoom && (
-            <>
-              {/* Lens overlay on main image - only on desktop */}
-              <div 
-                className="absolute pointer-events-none z-30 border-2 border-green-600 bg-green-600/20 rounded-full hidden md:block"
-                style={{
-                  width: '120px',
-                  height: '120px',
-                  left: `${mousePosition.x}px`,
-                  top: `${mousePosition.y}px`,
-                  display: mousePosition.x > 0 && mousePosition.y > 0 ? 'block' : 'none',
-                  transform: 'translate(-50%, -50%)',
-                  boxShadow: '0 0 0 2px white, 0 0 10px rgba(0,0,0,0.3)'
-                }}
-              />
-              
-              {/* Zoomed Image Preview - Side Panel (Desktop only) */}
-              <div 
-                ref={zoomRef}
-                className="absolute left-full ml-4 top-0 w-80 h-80 bg-white border-2 border-gray-300 rounded-lg shadow-2xl overflow-hidden z-40 hidden md:block"
-                style={{
-                  display: showZoom && mousePosition.x > 0 && mousePosition.y > 0 ? 'block' : 'none'
-                }}
-              >
-                <div 
-                  className="w-full h-full relative"
-                  style={{
-                    backgroundImage: `url(${currentImage})`,
-                    backgroundSize: '300%',
-                    backgroundPosition: `${zoomPosition.x}% ${zoomPosition.y}%`,
-                    backgroundRepeat: 'no-repeat',
-                    imageRendering: 'crisp-edges'
-                  }}
-                />
-              </div>
-            </>
+            <div 
+              className="absolute pointer-events-none z-30 border-2 border-white bg-white/30 hidden md:block"
+              style={{
+                width: `${LENS_SIZE}px`,
+                height: `${LENS_SIZE}px`,
+                left: `${lensPosition.x - LENS_SIZE / 2}px`,
+                top: `${lensPosition.y - LENS_SIZE / 2}px`,
+                display: lensPosition.x > 0 && lensPosition.y > 0 ? 'block' : 'none',
+                boxShadow: '0 0 0 1px rgba(0,0,0,0.1), 0 0 20px rgba(0,0,0,0.2)',
+                backdropFilter: 'blur(1px)'
+              }}
+            />
           )}
 
           {/* Zoom hint */}
-          <div className="absolute bottom-2 right-2 bg-black/60 text-white px-2 py-1 rounded text-[10px] sm:text-xs opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1 pointer-events-none">
+          <div className="absolute bottom-2 right-2 bg-black/70 text-white px-2 py-1 rounded text-[10px] sm:text-xs opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1 pointer-events-none z-20">
             <ZoomIn className="h-3 w-3" />
             <span className="hidden sm:inline">Hover to zoom</span>
             <span className="sm:hidden">Zoom</span>
@@ -145,6 +130,29 @@ const ProductImages = ({ product, activeImage, setActiveImage }) => {
             NEW
           </div>
         )}
+          </div>
+
+          {/* Flipkart-style Zoomed Image Preview - Side Panel (Desktop only) */}
+          {showZoom && (
+            <div 
+              ref={zoomRef}
+              className="hidden md:block absolute left-full ml-4 top-0 w-96 h-96 bg-white border border-gray-200 rounded-lg shadow-2xl overflow-hidden z-50"
+              style={{
+                display: showZoom && lensPosition.x > 0 && lensPosition.y > 0 ? 'block' : 'none'
+              }}
+            >
+              <div 
+                className="w-full h-full"
+                style={{
+                  backgroundImage: `url(${currentImage})`,
+                  backgroundSize: `${ZOOM_LEVEL * 100}%`,
+                  backgroundPosition: `${zoomPosition.x}% ${zoomPosition.y}%`,
+                  backgroundRepeat: 'no-repeat',
+                  imageRendering: 'auto'
+                }}
+              />
+            </div>
+          )}
         </div>
       </div>
       
