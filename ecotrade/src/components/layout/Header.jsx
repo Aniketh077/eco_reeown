@@ -31,7 +31,9 @@ const Header = () => {
   const [isMobileMenuBreakpoint, setIsMobileMenuBreakpoint] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [isSellerModalOpen, setIsSellerModalOpen] = useState(false);
+  const [openDesktopDropdown, setOpenDesktopDropdown] = useState(null); // For desktop dropdowns
   const menuCloseTimeoutRef = useRef(null);
+  const desktopDropdownRef = useRef(null);
 
   const { cart } = useCart();
   const { isAuthenticated, isAdmin, user, logout } = useAuth();
@@ -250,8 +252,29 @@ const Header = () => {
     ]
   };
 
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (desktopDropdownRef.current && !desktopDropdownRef.current.contains(event.target)) {
+        setOpenDesktopDropdown(null);
+      }
+    };
+
+    if (openDesktopDropdown) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [openDesktopDropdown]);
+
+  const toggleDesktopDropdown = (dropdownName) => {
+    setOpenDesktopDropdown(openDesktopDropdown === dropdownName ? null : dropdownName);
+  };
+
   const DesktopNavLinks = () => (
-    <ul className="flex items-center space-x-1 sm:space-x-2 xl:space-x-3 flex-nowrap min-w-max">
+    <ul className="flex items-center space-x-1 sm:space-x-2 xl:space-x-3 flex-nowrap min-w-max" ref={desktopDropdownRef}>
       <li>
         <Link to="/" className="px-3 py-1.5 text-sm font-medium transition-colors hover:text-green-600 text-gray-900 whitespace-nowrap hover:bg-gray-100 rounded">
           Home
@@ -263,11 +286,27 @@ const Header = () => {
         </Link>
       </li>
       <li className="relative group">
-        <Link to="/products/smartphones" className="px-3 py-1.5 text-sm font-medium transition-colors hover:text-green-600 text-gray-900 flex items-center whitespace-nowrap hover:bg-gray-100 rounded">
+        <button 
+          onClick={(e) => {
+            e.preventDefault();
+            toggleDesktopDropdown('smartphones');
+          }}
+          onMouseEnter={() => setOpenDesktopDropdown('smartphones')}
+          className="px-3 py-1.5 text-sm font-medium transition-colors hover:text-green-600 text-gray-900 flex items-center whitespace-nowrap hover:bg-gray-100 rounded"
+        >
           Smartphones
-          <ChevronDown className="ml-1 h-3 w-3 relative top-[3px]" />
-        </Link>
-        <div className="absolute left-0 top-full mt-2 bg-white shadow-lg rounded-md p-4 sm:p-6 z-[100] transition-all duration-300 transform opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 translate-y-2 w-full sm:w-auto border border-gray-200" style={{ minWidth: "min(500px, 90vw)" }}>
+          <ChevronDown className={`ml-1 h-3 w-3 relative top-[3px] transition-transform ${openDesktopDropdown === 'smartphones' ? 'rotate-180' : ''}`} />
+        </button>
+        <div 
+          className={`absolute left-0 top-full mt-2 bg-white shadow-lg rounded-md p-4 sm:p-6 z-[100] transition-all duration-300 w-full sm:w-auto border border-gray-200 ${
+            openDesktopDropdown === 'smartphones' 
+              ? 'opacity-100 visible translate-y-0' 
+              : 'opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0'
+          }`} 
+          style={{ minWidth: "min(500px, 90vw)" }}
+          onMouseEnter={() => setOpenDesktopDropdown('smartphones')}
+          onMouseLeave={() => setOpenDesktopDropdown(null)}
+        >
           <div className="flex justify-between items-start space-x-4 sm:space-x-8">
             <div className="flex-1">
               <h4 className="font-semibold text-sm sm:text-base mb-3 sm:mb-4 text-gray-900">Explore Smartphones</h4>
@@ -289,10 +328,26 @@ const Header = () => {
         </div>
       </li>
       <li className="relative group">
-        <Link to="/products/laptops" className="px-3 py-1.5 text-sm font-medium transition-colors hover:text-green-600 text-gray-900 flex items-center whitespace-nowrap hover:bg-gray-100 rounded">
-          Laptops <ChevronDown className="ml-1 h-3 w-3 relative top-[3px]" />
-        </Link>
-        <div className="absolute left-0 top-full mt-2 bg-white shadow-lg rounded-md p-4 sm:p-6 z-[100] transition-all duration-300 transform opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 translate-y-2 w-full sm:w-auto border border-gray-200" style={{ minWidth: "min(500px, 90vw)" }}>
+        <button 
+          onClick={(e) => {
+            e.preventDefault();
+            toggleDesktopDropdown('laptops');
+          }}
+          onMouseEnter={() => setOpenDesktopDropdown('laptops')}
+          className="px-3 py-1.5 text-sm font-medium transition-colors hover:text-green-600 text-gray-900 flex items-center whitespace-nowrap hover:bg-gray-100 rounded"
+        >
+          Laptops <ChevronDown className={`ml-1 h-3 w-3 relative top-[3px] transition-transform ${openDesktopDropdown === 'laptops' ? 'rotate-180' : ''}`} />
+        </button>
+        <div 
+          className={`absolute left-0 top-full mt-2 bg-white shadow-lg rounded-md p-4 sm:p-6 z-[100] transition-all duration-300 w-full sm:w-auto border border-gray-200 ${
+            openDesktopDropdown === 'laptops' 
+              ? 'opacity-100 visible translate-y-0' 
+              : 'opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0'
+          }`} 
+          style={{ minWidth: "min(500px, 90vw)" }}
+          onMouseEnter={() => setOpenDesktopDropdown('laptops')}
+          onMouseLeave={() => setOpenDesktopDropdown(null)}
+        >
           <div className="flex justify-between items-start space-x-4 sm:space-x-8">
             <div className="flex-1">
               <h4 className="font-semibold text-sm sm:text-base mb-3 sm:mb-4 text-gray-900">Explore Laptops</h4>
@@ -316,11 +371,26 @@ const Header = () => {
       <li><Link to="/products?filter=new" className="px-3 py-1.5 text-sm font-medium transition-colors hover:text-green-600 text-gray-900 whitespace-nowrap hover:bg-gray-100 rounded">New Arrivals</Link></li>
       <li><Link to="/products?filter=featured" className="px-3 py-1.5 text-sm font-medium transition-colors hover:text-green-600 text-gray-900 whitespace-nowrap hover:bg-gray-100 rounded">Featured</Link></li>
       <li className="relative group">
-        <button className="px-3 py-1.5 text-sm font-medium transition-colors hover:text-green-600 text-gray-900 flex items-center whitespace-nowrap hover:bg-gray-100 rounded">
+        <button 
+          onClick={(e) => {
+            e.preventDefault();
+            toggleDesktopDropdown('more');
+          }}
+          onMouseEnter={() => setOpenDesktopDropdown('more')}
+          className="px-3 py-1.5 text-sm font-medium transition-colors hover:text-green-600 text-gray-900 flex items-center whitespace-nowrap hover:bg-gray-100 rounded"
+        >
           More
-          <ChevronDown className="ml-1 h-3 w-3 relative top-[3px]" />
+          <ChevronDown className={`ml-1 h-3 w-3 relative top-[3px] transition-transform ${openDesktopDropdown === 'more' ? 'rotate-180' : ''}`} />
         </button>
-        <div className="absolute right-0 top-full mt-1 bg-white shadow-xl rounded-md py-2 z-[100] transition-all duration-300 transform opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 translate-y-2 min-w-[140px] border border-gray-200">
+        <div 
+          className={`absolute right-0 top-full mt-1 bg-white shadow-xl rounded-md py-2 z-[100] transition-all duration-300 min-w-[140px] border border-gray-200 ${
+            openDesktopDropdown === 'more' 
+              ? 'opacity-100 visible translate-y-0' 
+              : 'opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0'
+          }`}
+          onMouseEnter={() => setOpenDesktopDropdown('more')}
+          onMouseLeave={() => setOpenDesktopDropdown(null)}
+        >
           <Link to="/about" className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-green-50 hover:text-green-700 transition-colors">
             About
           </Link>
