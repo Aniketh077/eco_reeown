@@ -251,19 +251,19 @@ const Header = () => {
   };
 
   const DesktopNavLinks = () => (
-    <ul className="flex items-center justify-center space-x-4 sm:space-x-6 xl:space-x-8 flex-wrap">
+    <ul className="flex items-center justify-center space-x-3 sm:space-x-4 xl:space-x-5 flex-wrap">
       <li>
-        <Link to="/" className="text-xs sm:text-sm font-medium transition-colors hover:text-emerald-600 text-[#01364a]">
+        <Link to="/" className="text-xs sm:text-sm font-medium transition-colors hover:text-emerald-600 text-[#01364a] whitespace-nowrap">
           Home
         </Link>
       </li>
       <li>
-        <Link to="/products" className="text-xs sm:text-sm font-medium transition-colors hover:text-emerald-600 text-[#01364a]">
+        <Link to="/products" className="text-xs sm:text-sm font-medium transition-colors hover:text-emerald-600 text-[#01364a] whitespace-nowrap">
           All Products
         </Link>
       </li>
       <li className="relative group">
-        <Link to="/products/smartphones" className="text-xs sm:text-sm font-medium transition-colors hover:text-emerald-600 text-[#01364a] flex items-center">
+        <Link to="/products/smartphones" className="text-xs sm:text-sm font-medium transition-colors hover:text-emerald-600 text-[#01364a] flex items-center whitespace-nowrap">
           Smartphones
           <ChevronDown className="ml-1 h-3 w-3 relative top-[3px]" />
         </Link>
@@ -289,7 +289,7 @@ const Header = () => {
         </div>
       </li>
       <li className="relative group">
-        <Link to="/products/laptops" className="text-xs sm:text-sm font-medium transition-colors hover:text-emerald-600 text-[#01364a] flex items-center">
+        <Link to="/products/laptops" className="text-xs sm:text-sm font-medium transition-colors hover:text-emerald-600 text-[#01364a] flex items-center whitespace-nowrap">
           Laptops <ChevronDown className="ml-1 h-3 w-3 relative top-[3px]" />
         </Link>
         <div className="absolute left-0 top-full mt-2 bg-white shadow-lg rounded-md p-4 sm:p-6 z-50 transition-all duration-300 transform opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 translate-y-2 w-full sm:w-auto" style={{ minWidth: "min(500px, 90vw)" }}>
@@ -313,19 +313,31 @@ const Header = () => {
           </div>
         </div>
       </li>
-      <li><Link to="/products?filter=new" className="text-xs sm:text-sm font-medium transition-colors hover:text-emerald-600 text-[#01364a]">New Arrivals</Link></li>
-      <li><Link to="/products?filter=featured" className="text-xs sm:text-sm font-medium transition-colors hover:text-emerald-600 text-[#01364a]">Featured Products</Link></li>
-      <li><Link to="/about" className="text-xs sm:text-sm font-medium transition-colors hover:text-emerald-600 text-[#01364a]">About</Link></li>
-      <li><Link to="/contact" className="text-xs sm:text-sm font-medium transition-colors hover:text-emerald-600 text-[#01364a]">Contact</Link></li>
+      <li><Link to="/products?filter=new" className="text-xs sm:text-sm font-medium transition-colors hover:text-emerald-600 text-[#01364a] whitespace-nowrap">New Arrivals</Link></li>
+      <li><Link to="/products?filter=featured" className="text-xs sm:text-sm font-medium transition-colors hover:text-emerald-600 text-[#01364a] whitespace-nowrap">Featured</Link></li>
+      <li className="relative group">
+        <button className="text-xs sm:text-sm font-medium transition-colors hover:text-emerald-600 text-[#01364a] flex items-center whitespace-nowrap">
+          More
+          <ChevronDown className="ml-1 h-3 w-3 relative top-[3px]" />
+        </button>
+        <div className="absolute right-0 top-full mt-2 bg-white shadow-lg rounded-md py-2 z-50 transition-all duration-300 transform opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 translate-y-2 min-w-[120px]">
+          <Link to="/about" className="block px-4 py-2 text-xs sm:text-sm text-gray-700 hover:bg-gray-100 hover:text-emerald-600 transition-colors">
+            About
+          </Link>
+          <Link to="/contact" className="block px-4 py-2 text-xs sm:text-sm text-gray-700 hover:bg-gray-100 hover:text-emerald-600 transition-colors">
+            Contact
+          </Link>
+        </div>
+      </li>
     </ul>
   );
 
   return (
     <header ref={headerRef} className="fixed top-0 z-50 w-full bg-white shadow-md transition-all duration-300">
-      <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-screen-2xl mx-auto px-3 sm:px-4 lg:px-6">
         {/* --- Top Bar (Logo, Search, Icons) --- */}
        {/* --- Top Bar (Logo, Search, Icons) --- */}
-        <div className="flex items-center justify-between py-3 sm:py-4">
+        <div className="flex items-center justify-between py-2 sm:py-2.5">
 
           {/* === LEFT SECTION: Mobile Menu & Logo / Desktop Logo & Scrolled Nav === */}
           <div className="flex justify-start items-center lg:w-auto">
@@ -346,78 +358,71 @@ const Header = () => {
 </Link>
 
              {/* Desktop Left Content */}
-             <div className="hidden lg:flex items-center space-x-4">
+             <div className="hidden lg:flex items-center space-x-3 sm:space-x-4">
                 {isScrolled && (
-                    <button onClick={toggleScrolledNav} className="p-2 -ml-2 rounded-full hover:bg-gray-100" aria-label="Open navigation menu">
-                        {isScrolledNavOpen ? <X className="h-6 w-6 text-[#01364a]" /> : <Menu className="h-6 w-6 text-[#01364a]" />}
+                    <button onClick={toggleScrolledNav} className="p-1.5 -ml-2 rounded-full hover:bg-gray-100" aria-label="Open navigation menu">
+                        {isScrolledNavOpen ? <X className="h-5 w-5 text-[#01364a]" /> : <Menu className="h-5 w-5 text-[#01364a]" />}
                     </button>
                 )}
                 <Link to="/" className="flex items-center flex-shrink-0">
-                  <span className="text-2xl font-bold text-[#01364a]">Ree<span className="text-green-600">own</span></span>
+                  <span className="text-xl sm:text-2xl font-bold text-[#01364a]">Ree<span className="text-green-600">own</span></span>
                 </Link>
+                {/* Inline Navigation Links */}
+                <div className="hidden lg:block ml-3 sm:ml-4">
+                  <DesktopNavLinks />
+                </div>
              </div>
           </div>
 
           {/* === CENTER SECTION: Desktop Search (Mobile logo removed) === */}
-          <div className="hidden lg:flex lg:flex-1 lg:px-8 lg:w-auto justify-center">
+          <div className="hidden lg:flex lg:flex-1 lg:px-4 lg:w-auto justify-center">
              {/* Desktop Search Bar */}
              <div className="w-full">
-                <form onSubmit={handleSearch} className="relative max-w-xl mx-auto">
+                <form onSubmit={handleSearch} className="relative max-w-md mx-auto">
                     <input
                         type="text"
-                        placeholder="What are you looking for?"
+                        placeholder="Search products..."
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
-                        className="w-full h-11 border border-gray-300 rounded-md pl-4 pr-12 text-sm focus:outline-none focus:ring-2 focus:ring-[#01364a]"
+                        className="w-full h-9 border border-gray-300 rounded-md pl-3 pr-10 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#01364a]"
                     />
-                    <button type="submit" className="absolute right-0 top-0 h-full w-12 flex items-center justify-center bg-[#01364a] hover:bg-opacity-90 rounded-r-md" aria-label="Search">
-                        <Search className="h-5 w-5 text-white" />
+                    <button type="submit" className="absolute right-0 top-0 h-full w-10 flex items-center justify-center bg-[#01364a] hover:bg-opacity-90 rounded-r-md" aria-label="Search">
+                        <Search className="h-4 w-4 text-white" />
                     </button>
                 </form>
              </div>
           </div>
           
           {/* === RIGHT SECTION: Icons & Desktop Contact === */}
-          <div className="flex items-center justify-end space-x-2 md:space-x-4 lg:w-auto flex-1">
-           <div className="hidden lg:block text-right">
-  <p className="text-xs sm:text-sm font-semibold text-[#01364a] whitespace-nowrap">
-    <a href="tel:8861009443" className="flex items-center justify-end hover:underline">
-      <Phone width={3} className="h-3 w-3 mr-1 mt-1" />
-      <span className="hidden xl:inline">8861009443</span>
-      <span className="xl:hidden">Call Us</span>
-    </a>
-  </p>
-  <p className="text-xs text-[#01374ae1] hidden xl:block">Mon - Sat | 8am - 8pm</p>
-</div>
-
+          <div className="flex items-center justify-end space-x-1.5 sm:space-x-2 md:space-x-3 lg:w-auto flex-1">
              <button
                onClick={() => setIsSellerModalOpen(true)}
-               className="hidden lg:flex items-center px-3 py-2 text-sm font-medium text-white bg-green-600 hover:bg-green-700 rounded-md transition-colors whitespace-nowrap"
+               className="hidden lg:flex items-center px-2.5 py-1.5 text-xs sm:text-sm font-medium text-white bg-green-600 hover:bg-green-700 rounded-md transition-colors whitespace-nowrap"
              >
                Join as Seller
              </button>
 
-             <Link to="/wishlist" className="relative p-2 sm:p-3 text-[#01364a] hover:text-red-500 hover:bg-gray-100 rounded-md transition-colors" aria-label="Wishlist">
-                <Heart className="h-6 w-6" />
+             <Link to="/wishlist" className="relative p-1.5 sm:p-2 text-[#01364a] hover:text-red-500 hover:bg-gray-100 rounded-md transition-colors" aria-label="Wishlist">
+                <Heart className="h-5 w-5 sm:h-6 sm:w-6" />
                 {user && (
-                    <span className="absolute -right-0.5 -top-0.5 flex h-5 w-5 items-center justify-center rounded-full bg-red-500 text-xs font-bold text-white">
+                    <span className="absolute -right-0.5 -top-0.5 flex h-4 w-4 sm:h-5 sm:w-5 items-center justify-center rounded-full bg-red-500 text-[10px] sm:text-xs font-bold text-white">
                         {user.wishlist?.length || 0}
                     </span>
                 )}
              </Link>
 
-             <Link to="/cart" className="relative p-2 sm:p-3 text-[#01364a] hover:text-emerald-600 hover:bg-gray-100 rounded-md transition-colors" aria-label={`Cart with ${cart.items.length} items`}>
-                <ShoppingCart className="h-6 w-6" />
+             <Link to="/cart" className="relative p-1.5 sm:p-2 text-[#01364a] hover:text-emerald-600 hover:bg-gray-100 rounded-md transition-colors" aria-label={`Cart with ${cart.items.length} items`}>
+                <ShoppingCart className="h-5 w-5 sm:h-6 sm:w-6" />
                 {cart.items.length > 0 && (
-                    <span className="absolute -right-0.5 -top-0.5 flex h-5 w-5 items-center justify-center rounded-full bg-emerald-500 text-xs font-bold text-white">
+                    <span className="absolute -right-0.5 -top-0.5 flex h-4 w-4 sm:h-5 sm:w-5 items-center justify-center rounded-full bg-emerald-500 text-[10px] sm:text-xs font-bold text-white">
                         {cart.items.reduce((total, item) => total + item.quantity, 0)}
                     </span>
                 )}
              </Link>
 
              <div ref={profileMenuRef} className="relative profile-menu" onMouseEnter={handleProfileMenuEnter} onMouseLeave={handleProfileMenuLeave}>
-                <button onClick={toggleProfileMenu} className="flex items-center p-2 sm:p-3 text-[#01364a] hover:text-emerald-600 hover:bg-gray-100 rounded-md transition-colors" aria-label="User account menu">
-                    <User className="h-6 w-6" />
+                <button onClick={toggleProfileMenu} className="flex items-center p-1.5 sm:p-2 text-[#01364a] hover:text-emerald-600 hover:bg-gray-100 rounded-md transition-colors" aria-label="User account menu">
+                    <User className="h-5 w-5 sm:h-6 sm:w-6" />
                 </button>
                 {isProfileMenuOpen && (
                     <div className="absolute right-0 mt-2 w-48 rounded-md bg-white py-2 shadow-lg border border-gray-100 z-30">
@@ -446,10 +451,6 @@ const Header = () => {
           </div>
         </div>
 
-        {/* --- Bottom Nav Bar (Desktop, not scrolled) --- */}
-        <div className={`hidden lg:block transition-all duration-300 ease-in-out ${isScrolled ? 'h-0 opacity-0 invisible' : 'opacity-100 visible translate-y-0 py-4'}`}>
-          <DesktopNavLinks />
-        </div>
       </div>
 
       {/* --- Scrolled Navigation Dropdown (Desktop) --- */}
